@@ -1,0 +1,2142 @@
+
+
+
+/* =====================================================
+base.css        → reset, variables, typography
+layout.css      → container, grid, spacing
+components.css  → cards, buttons, poetry, hero
+motion.css      → animation system
+pages.css       → body.page-name overrides
+
+margin-top: 37px;
+margin-top: var(--space-lg);
+<p style="color:#ffcc00">
+
+.art-card { ... }
+.poetry-block { ... }
+.tree-line { ... }
+.separator { ... }
+
+/* =====================================================
+
+ FOLDER STRUCTURE (Final Professional)
+ 
+ assets/
+│
+├── css/
+│   ├── 00-variables.css
+│   ├── 01-reset.css
+│   ├── 02-base.css
+│   ├── 03-layout.css
+│   ├── 04-components.css
+│   ├── 05-motion.css
+│   ├── 06-pages.css
+│   └── style.css   (imports all)
+│
+├── js/
+│   ├── core.js
+│   ├── motion.js
+│   └── main.js
+│
+└── images/
+===================================================== */
+
+@import url('./00-variables.css');
+@import url('./01-reset.css');
+@import url('./02-base.css');
+@import url('./03-layout.css');
+@import url('./04-components.css');
+@import url('./05-motion.css');
+@import url('./06-pages.css');
+
+ 
+:root {
+
+  /* =========================
+     COLOR SYSTEM
+  ========================== */
+  --primary: #1f7a38;
+  --accent: #e63946;
+
+  --color-bg: #ffffff;
+  --color-text: #222222;
+  --color-heading: #111111;
+  --color-muted: #777777;
+
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  /* =========================
+     LAYOUT
+  ========================== */
+  --max-width: 1200px;
+
+  --topbar: 45px;
+  --header: 65px;
+  --header-total: calc(var(--topbar) + var(--header));
+
+
+  /* =========================
+     SPACING SYSTEM
+  ========================== */
+  --space-xs: 8px;
+  --space-sm: 14px;
+  --space-md: 24px;
+  --space-lg: 40px;
+  --space-xl: 80px;
+
+
+  /* =========================
+     RADIUS
+  ========================== */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 20px;
+
+  /* =========================
+     SHADOW SYSTEM
+  ========================== */
+  --shadow-soft: 0 10px 30px rgba(0,0,0,.08);
+  --shadow-hover: 0 20px 60px rgba(0,0,0,.15);
+
+
+  /* =========================
+     MOTION SYSTEM
+  ========================== */
+  --motion-fast: .35s;
+  --motion-medium: .6s;
+  --motion-slow: 1s;
+
+  --ease-smooth: cubic-bezier(.4,0,.2,1);
+  --ease-soft: ease;
+
+  --breath-in: .8s;
+  --breath-out: 1.2s;
+
+}
+
+
+
+/* =====================================================
+  ASMTER LIGHT MODE (Default)
+  &
+  QUISM DARK MODE ARCHITECTURE
+===================================================== */
+
+/*===========================
+Light Mood: Index & others
+============================*/
+
+:root {
+
+  /* BRAND */
+  --primary: #1f7a38;
+  --accent: #e63946;
+
+  /* LIGHT THEME COLORS */
+  --color-bg: #ffffff;
+  --color-text: #222222;
+  --color-heading: #111111;
+  --color-muted: #777777;
+
+  --color-surface: #ffffff;
+  --color-border: #e2dcdc;
+
+  /* SHADOWS */
+  --shadow-soft: 0 10px 30px rgba(0,0,0,.08);
+  --shadow-hover: 0 20px 60px rgba(0,0,0,.15);
+
+  /* Layout + motion tokens (unchanged) */
+  --motion-fast: .35s;
+  --ease-smooth: cubic-bezier(.4,0,.2,1);
+
+}
+
+
+
+
+/* =====================================================
+   2. RESET + BASE
+===================================================== */
+
+ *{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+   padding-top: var(--header-total);
+   background:var(--color-bg);
+  color:var(--color-text);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+body.fade-out{
+  opacity:0;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+  transition:var(--transition);
+}
+
+a:hover{
+  color:var(--primary);
+}
+
+ 
+body.index-page {}
+body.museum-page {}
+body.gallery-page {}
+body.art-culture-page {}
+body.secrets-page {}
+body.footer-page {}
+
+body.secrets-page .tree-line { }
+
+.tree-line { }
+
+/* ================================
+   PAGE CONTENT SPACING
+================================ */
+
+.page-content {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .6s var(--ease-smooth),
+              transform .6s var(--ease-smooth);
+}
+
+body.is-loaded .page-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+ 
+.quism-wrap{
+  padding: var(--space-lg) var(--space-md);
+}
+  
+.content-area {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* =====================================================
+   HERO SECTION
+===================================================== */
+
+.hero-section {
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+
+}
+
+
+/* =====================================================
+   3. LAYOUT SYSTEM
+===================================================== */
+
+.container{
+  width:min(var(--max-width),90%);
+  margin:auto;
+}
+
+/* ---------- HEADER ---------- */
+
+.site-header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+background: var(--color-surface);
+  z-index:1000;
+  border-bottom:1px solid #eee;
+}
+
+.site-footer {
+  background: #000;
+  text-align: center;
+  padding: 18px 10px;
+  font-size: 13px;          /* ← size control */
+  letter-spacing: .5px;
+  color: #bfbfbf;
+font-size: 13px;         /* ← text color */
+}
+
+ /* container header-inner fix */
+.container.header-inner{
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO */
+.logo img{
+  height: 78px;                 /* একটু বড় */
+  display: block;
+
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.15))
+          drop-shadow(0 0 8px rgba(40, 41, 43, 0.15));
+
+  transition: transform .3s ease, filter .3s ease;
+}
+
+.logo img:hover{
+  transform: scale(1.04);
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.15))
+          drop-shadow(0 0 12px rgba(40, 41, 43, 0.15));
+}
+
+
+
+/* ==============================
+   TOP BAR
+============================== */
+.top-bar{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:var(--topbar);
+  display:flex;
+  align-items:center;
+background: var(--color-surface);
+   z-index:6000;
+}
+
+.top-inner{
+  width:1200px;
+  margin:0 auto;
+    height:100%;
+
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  padding:0 20px 6px;
+}
+
+/* ==============================
+   MAIN HEADER
+============================== */
+.main-header{
+  position: fixed;
+  top: var(--topbar);   /* ← magic number বাদ */
+  left: 0;
+  width: 100%;
+  height: var(--header);
+background: var(--color-surface);
+  border-bottom:1px solid #c7c5c5;
+  z-index:5000;
+  border-bottom: none;   /* পুরনো লাইন বন্ধ */  
+  box-shadow:0 1px 4px rgba(0,0,0,0.05);
+}
+
+.header-inner{
+  max-width:1200px;
+  margin:0 auto;
+  height:100%;
+  display:flex;
+  align-items:center; 
+  justify-content:space-between;
+  padding:0 20px 6px;
+  
+}
+
+/* Soft divider */
+.main-header::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:100%;
+  height:1px;
+  background:linear-gradient(
+    to right,
+    transparent,
+    rgba(0,0,0,0.12),
+    transparent
+  );
+}
+
+.header-nav a{
+  position:relative;
+}
+
+.header-nav a.active::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-8px;
+  width:100%;
+  height:2px;
+  background:#1f8f4e;
+  border-radius:2px;
+  
+}
+
+.logo img{
+  height:58px; /*34 <> 68 */
+}
+
+.header-nav{
+  margin-top: 0px;
+}
+
+
+/* ================================
+   DESKTOP NAV
+================================ */
+
+/* DESKTOP */
+.header-nav{
+  display:flex;
+  gap:30px;
+  align-items:center;
+}
+
+.header-nav a{
+  font-weight:600;
+  color:#111;
+  text-decoration:none;
+  transition:color .25s ease;
+}
+
+.header-nav a:hover{
+  color:var(--primary);
+}
+
+/* NAVBAR TOGGLE BUTTON */
+/* ===== TOGGLE BASE ===== */
+
+
+
+
+/* TOGGLE BUTTON */
+.navbar-toggle{
+  display:none; 
+  flex-direction:column;
+  gap:5px;
+  width:44px;
+  height:44px;
+  justify-content:center;
+  align-items:center;
+background: var(--color-surface);
+  border:1px solid #ddd;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.navbar-toggle span {
+
+  height: 2px;
+  width: 22px;
+  background: #000;
+  transition: 
+    transform .35s ease,
+    opacity .25s ease,
+    width .25s ease;
+  transform-origin: center;
+}
+
+/* ===== ACTIVE STATE ===== */
+.navbar-toggle.active span:nth-child(1) {
+  transform: translateY(12px) rotate(45deg);
+}
+
+.navbar-toggle.active span:nth-child(2) {
+  opacity: 0;
+  width: 0;
+}
+
+.navbar-toggle.active span:nth-child(3) {
+  transform: translateY(-15px) rotate(-45deg);
+}
+
+
+/* ================================
+   MOBILE NAV
+================================ */
+
+@media (max-width:992px){
+
+  .header-nav{
+    position:absolute;
+    top: 100%;
+    right:0px;
+    width:220px;
+    left: auto;
+
+background: var(--color-surface);
+
+    display:flex;
+    flex-direction:column;
+     gap:14px;
+    padding: 24px 20px;
+
+    transform:translateY(-15%);
+    opacity:0;
+    pointer-events:none;
+
+   transform:translateY(0);    
+   
+   transition:
+      transform .35s cubic-bezier(.4,0,.2,1),
+      opacity .25s ease;
+
+    z-index:5001;
+  }
+
+  .header-nav.active{
+    transform:translateY(0);
+    opacity:1;
+    pointer-events:auto;
+  }
+
+ 
+  .header-nav a{
+    width:100%;
+    text-align:left;
+  }
+
+  .navbar-toggle{
+    display:flex;
+  }
+}
+
+
+/* ================================
+   OVERLAY
+================================ */
+
+.nav-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.4);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .3s ease;
+  z-index:4000;
+}
+
+.nav-overlay.is-active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+
+/* =====================================================
+   5. LANGUAGE DROPDOWN
+===================================================== */
+
+/* ===== Language Dropdown Container ===== */
+
+
+
+#lang-toggle{
+  margin-top: 8px;   /* 4–8px adjust করো */
+  background: #ffffff;
+  border: 1px solid #d5d3d3;
+  padding: 4px 10px;
+  border-radius: 0px;
+  cursor: pointer;
+  font-size: 13px;
+}
+/* ===== Language Dropdown Container ===== */
+.language-dropdown {
+  position: relative;
+}
+
+#lang-menu {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background: var(--color-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  list-style: none;
+  padding: var(--space-sm);
+  display: none;
+}
+
+#lang-menu.active {
+  display: block;
+}
+
+#lang-menu li {
+  padding: 8px 12px;
+}
+
+#lang-menu a {
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+
+/* Arrow Btn */
+
+.arrow{
+  transition: transform .3s ease;
+}
+
+#lang-toggle.active .arrow{
+  transform: rotate(180deg);
+}
+
+.arrow{
+    font-size: 12px;
+    margin-left: 60px;
+}
+
+#lang-toggle .arrow{
+    margin-left: 50px;
+}
+
+
+/* =====================================================
+   6. TYPOGRAPHY SYSTEM
+===================================================== */
+
+h1{
+  font-size:28px;
+  text-align:center;
+  margin-bottom:20px;
+}
+
+h2{
+  font-size:18px;
+  text-align:center;
+  margin-bottom:16px;
+}
+
+p{
+  margin-bottom:18px;
+  font-size:16px;
+  text-align:justify;
+}
+
+/* === GLOBAL PARAGRAPH SYSTEM === */
+
+p {
+  margin-bottom: 18px;
+  font-size: 16px;
+  line-height: 1.7;
+  letter-spacing: .3px;
+  text-align: justify;
+}
+
+/* =====================================================
+   7. ART GRID
+===================================================== */
+
+/* global */
+.art-card img { border-radius: 0; }
+
+/* secrets only */
+body.secrets-page .art-card img {
+  border-radius: 50%;
+}
+
+.art-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:40px;
+  margin-top:10px;
+  margin-bottom:80px;
+
+}
+
+.art-card{
+background: var(--color-surface);
+  padding:14px;
+  border-radius:0px;
+  border:1px solid #e2dcdc;
+  box-shadow:
+    0 6px 14px rgba(0,0,0,0.08),
+    0 2px 6px rgba(0,0,0,0.05);
+ 
+  transition:transform .35s ease, box-shadow .35s ease;
+  overflow:hidden;
+  cursor:pointer;
+    text-align:center;
+}
+
+.art-card:hover{
+  transform:translateY(-8px);
+   box-shadow:
+     0 10px 30px rgba(0,0,0,0.12),
+     0 8px 16px rgba(0,0,0,0.06);
+
+}
+
+.art-card img{
+  width:100%;
+  aspect-ratio: 1 / 1;
+  object-fit:cover;
+  display:block;
+  border-radius:0px;   /* normal card style */
+}
+
+.art-card h3{
+  font-size:16px;
+  margin-top:16px;
+  margin-bottom:6px;
+  letter-spacing:0.5px;
+}
+
+.art-card .desc{
+  font-size:14px;
+  line-height:1.6;
+  margin-bottom:10px;
+}
+
+.art-card .meta{
+  font-size:13px;
+  color:var(--color-muted);
+}
+ 
+
+
+
+/* =====================================================
+   8. LIGHTBOX
+===================================================== */
+
+.lightbox{
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,.9);
+  opacity:0;
+  pointer-events:none;
+  transition:.35s ease;
+  z-index:2000;
+}
+
+.lightbox.open{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.lightbox img{
+  max-width:92vw;
+  max-height:92vh;
+}
+
+
+/* =====================================================
+   9. SCROLL PROGRESS + TOP
+===================================================== */
+
+.scroll-progress{
+  position:fixed;
+  top:0;
+  left:0;
+  height:3px;
+  width:0%;
+  background:linear-gradient(90deg,#0b7a3d,#e63946);
+  z-index:9999;
+}
+
+.scroll-top img {
+  width: 28px;   /* arrow size */
+}
+ 
+.scroll-top {
+  position: fixed;
+  right: 12px;
+  bottom: 20px;
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  backdrop-filter: blur(4px);
+
+  cursor: pointer;
+
+  /* 👇 hidden state */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.35s ease;
+}
+
+
+.scroll-top {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(76, 127, 197, 0.3);
+  backdrop-filter: blur(4px);
+}
+
+.scroll-top:hover{
+  background: #6aaeff;
+  color: #000;
+  transform: translateY(-4px);
+}
+
+/* Show when scrolled */
+.scroll-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-top svg {
+  fill: #fff;
+}
+
+
+/* =====================================================
+   10. REVEAL SYSTEM
+===================================================== */
+
+.reveal{
+  opacity:0;
+  transform:translateY(20px);
+  transition:.6s ease;
+}
+
+.reveal.is-visible{
+  opacity:1;
+  transform:none;
+}
+
+
+/* =====================================================
+   11. UTILITIES
+===================================================== */
+
+.text-center{ text-align:center; }
+.mt-50{ margin-top:50px; }
+.shadow{ box-shadow:var(--shadow-soft); }
+.radius{ border-radius:var(--radius); }
+
+
+/* =====================================================
+   12. MOTION SAFETY
+===================================================== */
+
+
+.container{
+  width:min(var(--max-width),90%);
+  margin:auto;
+}
+
+ 
+/* ===============================
+   SECRETS PAGE — TYPOGRAPHY SYSTEM
+================================ */
+
+section {
+  padding: 10px 0;
+}
+
+.secrets-hero {
+  padding-top: 10px;
+  padding-bottom: 60px;
+}
+
+/* Section Base */
+
+.secrets-section {
+  background: #000;
+  padding: 80px 0;
+}
+
+.secrets-title {
+  text-align: center;
+  font-size: 20px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  color: #ccc;
+    font-weight: 500;
+  opacity: 0.85;
+}
+
+.secrets-poetry {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* ---- STANZA ---- */
+
+.stanza {
+  margin-bottom: 0px;
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: 0.4px;
+  color: #7fe6ff;   /* soft cyan tone */
+  font-weight: 400;
+    text-align: center;
+
+}
+
+.stanza span {
+  display: block;
+  margin-top: 1px;
+}
+
+/* ---- SEPARATOR STAR ---- */
+
+.separator {
+  margin: 0px 0;
+  font-size: 20px;
+  opacity: 0.7;
+      text-align: center;
+}
+
+ /* ===============================
+   TREE LINES – QUISM SYSTEM
+================================= */
+
+.tree-line{
+
+    display: block;
+
+  --c: #ffffff;              /* default color fallback */
+  
+  color: var(--c);
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.8;
+  letter-spacing: 0.5px;
+  
+  margin: 8px 0;
+  
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+
+
+
+
+.tree-line{
+  color: red;
+}
+
+
+.tree-line.gradient{
+  display: inline-block;   /* important */
+  background-size: 600% 600%;
+}
+
+
+/* when visible (JS or scroll reveal) */
+.tree-line.show{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.tree-line{
+  text-shadow: 0 0 6px rgba(255,255,255,0.05);
+}
+
+
+.tree-line:nth-child(1){ transition-delay: .05s; }
+.tree-line:nth-child(2){ transition-delay: .1s; }
+.tree-line:nth-child(3){ transition-delay: .15s; }
+.tree-line:nth-child(4){ transition-delay: .2s; }
+.tree-line:nth-child(5){ transition-delay: .25s; }
+
+
+
+
+
+/* =========================
+RAINBOW ANIMATION STANZA 
+========================= */
+.stanza.gradient{
+  background: linear-gradient(
+    270deg,
+    #ff5f6d,
+    #ffc371,
+    #7cfac8,
+    #6ea8ff,
+    #b983ff
+  );
+
+  background-size: 600% 600%;
+
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+
+  animation: rainbowFlow 8s cubic-bezier(0.4,0,0.2,1) infinite;
+}
+
+@keyframes rainbowFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* =========================================
+   RAINBOW BAND SECTION
+========================================= */
+
+.rainbow-band {
+  width: 100%;
+  padding: 20px 0;
+  background: linear-gradient(
+    270deg,
+    #350211,
+    #331a03,
+    #231d01,
+    #022c1c,
+    #021d30,
+    #210143,
+    #340110
+  );
+  background-size: 600% 600%;
+  animation: rainbowFlow 12s ease infinite;
+}
+
+.rainbow-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.rainbow-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.rainbow-container p {
+  margin-bottom: 5px;
+  font-size: 15px;
+  line-height: 1.7;
+  letter-spacing: 0.4px;
+  color: #ff9a7a;
+    text-align: center;
+}
+
+.rainbow-container p:last-child {
+  margin-bottom: 0;
+}
+
+@keyframes rainbowFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+
+
+
+
+
+
+/* =========================================
+   SITE FOOTER
+========================================= */
+
+.site-footer {
+  background: #000;
+  padding: 20px 10px;
+  text-align: center;
+  font-size: 13px;
+  color: #bfbfbf;
+  letter-spacing: 0.5px;
+}
+  
+/* Motion Safe */
+@media (prefers-reduced-motion: reduce){
+  .rainbow-band{
+    animation:none;
+  }
+}
+
+
+/* =========================
+   BACK TO TOP BUTTON
+========================= */
+
+#backToTop{
+  position:fixed;
+  right:14px;
+  bottom:24px;
+
+  width:46px;
+  height:46px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:transparent;
+  border-radius:50%;
+
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(10px);
+
+  transition:
+    opacity .35s ease,
+    transform .35s ease,
+    background .25s ease,
+    box-shadow .25s ease;
+
+  z-index:9999;
+}
+
+#backToTop.show{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+
+#backToTop img{
+  width:26px;
+  opacity:.9;
+  transition:transform .25s ease, opacity .25s ease;
+}
+
+#backToTop:hover{
+  background:#1e90ff;
+  box-shadow:0 8px 22px rgba(30,144,255,.35);
+}
+
+#backToTop:hover img{
+  transform:translateY(-2px);
+  opacity:1;
+}
+
+
+
+
+
+/* =========================
+FINAL CODE FROM TOP 
+========================= */
+
+
+ 
+/* =========================
+   MUSEUM, GALLERY ENTRY LINK
+========================= */
+.entry-link {
+  font-size: 15px;
+  font-weight:600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--primary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--primary);
+  padding-bottom: 4px;
+  text-align: cenetr;
+
+}
+
+
+
+
+
+
+
+/* =========================
+   FADE ANIMATION
+========================= */
+
+.fade-in{
+  opacity:0;
+  transform:translateY(20px);
+  transition:
+    opacity var(--motion-medium) var(--ease-smooth),
+    transform var(--motion-medium) var(--ease-smooth);
+}
+
+.fade-in.is-visible{
+  opacity:1;
+  transform:none;
+}
+
+
+.scale-in{
+  opacity:0;
+  transform:scale(.95);
+  transition:
+    opacity var(--motion-medium) var(--ease-smooth),
+    transform var(--motion-medium) var(--ease-smooth);
+}
+
+.scale-in.is-visible{
+  opacity:1;
+  transform:none;
+}
+
+
+.hover-lift{
+  transition: transform var(--motion-fast) ease,
+              box-shadow var(--motion-fast) ease;
+}
+
+.hover-lift:hover{
+  transform:translateY(-6px);
+}
+
+
+
+/* =========================
+   RESPONSIVE LAYOUT 
+========================= */
+
+@media (max-width: 768px) {
+  .quism-nav {
+    gap: 16px;
+    overflow-x: auto;
+    justify-content: center;
+  }
+
+  .quism-section-header p {
+    font-size: 16px;
+    line-height: 1.9;
+    text-align: justify;
+  }
+} 
+
+
+ 
+ 
+  
+
+
+
+.fade-soft{
+  opacity:0;
+  transform:translateY(12px);
+  transition:.6s ease;
+}
+.fade-soft.is-visible{
+  opacity:1;
+  transform:none;
+}
+
+
+.fade-rise{
+  opacity:0;
+  transform:translateY(30px) scale(.96);
+  transition:1s cubic-bezier(.4,0,.2,1);
+}
+.fade-rise.is-visible{
+  opacity:1;
+  transform:none;
+}
+
+.breath{
+  animation:breathing 4s ease-in-out infinite;
+}
+
+@keyframes breathing{
+  0%{ transform:scale(1);}
+  50%{ transform:scale(1.03);}
+  100%{ transform:scale(1);}
+}
+
+.section{
+  transition:opacity .8s ease;
+}
+
+
+
+/* ==================================================
+   🎬 FADE ANIMATION (Optional)
+================================================== */
+ 
+ /* =======================
+MUSEUM PAGE FADE IN 
+========================== */
+body.museum-page .fade-in{
+  transform:translateY(12px);
+}
+
+.hover-awaken{
+  transition:.4s ease;
+}
+.hover-awaken:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 40px rgba(0,0,0,.15);
+}
+
+
+/*=====================
+BODY SECRETS PAGE
+=======================*/
+
+body.content-page .lightbox{
+  background: rgba(0,0,0,.85);
+}
+
+body.secrets-page .art-card {
+  background: rgba(0,0,0,0.85);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+body.secrets-page{
+  --color-bg: #000;
+  --color-text: #cfcfcf;
+  --color-heading: #ffffff;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+body.secrets-page .art-card img{
+  border-radius:50%;
+}
+
+body.secrets-page .art-card h3{
+
+  --color-bg:#000;
+  --color-text:#cfcfcf;
+  --color-heading:#fff;
+}
+
+ 
+
+ 
+  
+/* ==================================================
+   🔗 LINK SYSTEM
+================================================== */
+
+a{
+  text-decoration:none;
+  color:inherit;
+  transition:color .25s ease;
+}
+
+a:hover{
+  color:#c40000;
+}
+
+
+/* ==================================================
+   🌐 TOP LANGUAGE BAR
+================================================== */
+
+
+
+
+
+/* =========================
+   SUB NAV – STICKY PREMIUM
+========================= */
+
+.sub-nav{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  display:flex;
+  justify-content:center;
+  gap:22px;
+
+  padding:18px 20px;
+  margin:0px 0 0px;
+
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(10px);
+
+  transition: all .35s ease;
+}
+
+/* Shrink on scroll */
+.sub-nav.scrolled{
+  padding:10px 20px;
+  gap:18px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.08);
+}
+
+
+.sub-nav a{
+  text-decoration:none;
+  color:#777;
+  letter-spacing:1.5px;
+  padding:6px 4px;
+  position:relative;
+  transition: transform .25s ease, color .25s ease;
+}
+
+/* smooth GPU rendering */
+.sub-nav a{
+  will-change: transform;
+}
+
+
+/* hover */
+.sub-nav a:hover{
+  color:#000;
+}
+
+/* hover underline */
+.sub-nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:0;
+  height:1px;
+background:var(--color-bg);
+  transition:width .3s ease;
+}
+
+.sub-nav a:hover::after{
+  width:100%;
+}
+
+/* ACTIVE STATE */
+.sub-nav a.active{
+  color:#c40000;
+  font-weight:500;
+}
+
+.sub-nav a.active::after{
+  width:100%;
+  background:#c40000;
+}
+
+
+
+
+/* =========================
+   MOBILE MODE
+========================= */
+ 
+ @media (max-width: 768px) {
+  .sub-nav {
+     display: flex;
+     gap: 20px;
+     overflow-x: auto;
+     padding: 0 16px;
+     justify-content: center;
+     scroll-snap-type: x mandatory;
+  }
+
+  .sub-nav a {
+     flex: 0 0 auto;
+  }
+}
+
+  .sub-nav::-webkit-scrollbar{
+    display:none;                   /* Chrome */
+  }
+
+  /* soft edge fade */
+  .sub-nav{
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 20px,
+      black calc(100% - 20px),
+      transparent
+    );
+  }
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   INDEX SHIP CONCEPT – BASE
+========================= */
+
+.index-wrap{
+  text-align:center;
+  padding:0px 0px 0px;
+}
+
+/* -------- HEADLINES -------- */
+
+.index-index{
+  font-size:22px;        /* h1 size */
+  font-weight:700;       /* boldness */
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  letter-spacing:2px;
+  margin-bottom:3px;
+  color:#6e6c75;
+  text-shadow: 0 1px 0 #fff, 
+             0 6px 1px rgba(0,0,0,.1),
+             0 0 5px rgba(0,0,0,.1),
+           
+             0 10px 10px rgba(0,0,0,.2),
+             0px 3px 2px rgb(238 233 84 / 85%)
+            }
+
+.index-presents{
+  font-size:16px;        /* h2 size */
+  font-weight:600;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  letter-spacing:1px;
+  margin-bottom:6px;
+  color:#f49a09;
+  text-shadow: 0 1px 0 #fff, 
+             0 6px 1px rgba(0,0,0,.1),
+             0 0 5px rgba(0,0,0,.1),
+            
+             0 10px 10px rgba(0,0,0,.2),
+             0px 3px 2px rgb(238 233 84 / 85%)
+            }
+            
+
+
+.index-title{
+  font-size:22px;        /* h1 size */
+  font-weight:00;       /* boldness */
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  letter-spacing:2px;
+  margin-bottom:3px;
+  color:#09711f;
+  text-shadow: 0 1px 0 #fff, 
+             0 6px 1px rgba(0,0,0,.1),
+             0 0 5px rgba(0,0,0,.1),
+           
+             0 10px 10px rgba(0,0,0,.2),
+             0px 3px 2px rgb(238 233 84 / 85%)
+            }
+
+ 
+
+.index-subtitle{
+  font-size:16px;        /* h2 size */
+  font-weight:600;
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  letter-spacing:1px;
+  margin-bottom:6px;
+  color:#dc1616;
+  text-shadow: 0 1px 0 #fff, 
+             0 6px 1px rgba(0,0,0,.1),
+             0 0 5px rgba(0,0,0,.1),
+            
+             0 10px 10px rgba(0,0,0,.2),
+             0px 3px 2px rgb(238 233 84 / 85%)
+            }
+
+ 
+ 
+
+/* =========================
+   SINGLE SHIP LINE
+   (color controlled from HTML via --c)
+========================= */
+.ship-line{
+  --c: #cfcfcf;   /* default fallback */
+
+  color: var(--c);
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0px 0;
+   text-align: center;
+
+  letter-spacing: .3px;
+
+  /* Optional soft reveal */
+  opacity: 0;
+  transform: translateY(12px);
+  animation: shipReveal .9s ease forwards;
+}
+
+/* =========================
+   STRONG (headline emphasis)
+========================= */
+.ship-line strong{
+  font-weight: 600;
+  text-shadow: 0 0 8px rgba(255,255,255,.15);
+}
+
+/* =========================
+   HEADLINE CONTROL
+========================= */
+.index-wrap h1,
+.index-wrap h2,
+.index-wrap h3,
+.index-wrap h4,
+.index-wrap h5,
+.index-wrap h6{
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 0px;
+  text-align: center;
+}
+
+/* Example headline styling */
+.index-wrap h1{
+  font-size: 22px;
+}
+
+.index-wrap h2{
+  font-size: 12px;
+}
+
+.index-wrap h3{
+  font-size: 20px;
+  margin: 0px 0 0px;
+  opacity: .85;
+}
+
+.index-wrap h4{
+  font-size: 14.3px;
+  margin: 2px 0 0px;
+  opacity: .85;
+}
+ 
+
+/* =========================
+   REVEAL ANIMATION
+========================= */
+@keyframes shipReveal{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* =========================
+   MOBILE OPTIMIZATION
+========================= */
+@media (max-width:768px){
+
+  .ship-line{
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .index-wrap h1{
+    font-size: 24px;
+  }
+
+  .index-wrap h3{
+    font-size: 16px;
+  }
+
+}
+ 
+
+
+
+
+ 
+
+/* =========================
+   quism SECTION HEADER
+========================= */
+ 
+
+.quism-section-header h1 {
+  font-weight: 700;
+color: var(--primary);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.quism-section-header p,
+.quism-content p {
+  max-width: 900px;
+  margin: 14px auto;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #444;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .quism-section-header p {
+    font-size: 16px;
+    line-height: 1.9;
+    text-align: justify;
+  }
+}
+
+
+
+ 
+
+
+
+/* ===============================
+   ORNAMENTAL DIVIDER  
+   =============================== */
+.ornamental-divider{
+  position: relative;
+  margin: 40px 0;
+  text-align: center;
+}
+
+.ornamental-divider:before,
+.ornamental-divider:after{
+  content:"";
+  position:absolute;
+  top:50%;
+  width:40%;
+  height:1px;
+  background:#9c9c9c;
+}
+
+.ornamental-divider:before{ left:0; }
+.ornamental-divider:after{ right:0; }
+
+.ornamental-divider span{
+  display:inline-block;
+  width:60px;
+  height:12px;
+  border:1px solid #9c9c9c;
+  transform: rotate(45deg);
+}
+
+/* ===============================
+  HR PAGE DIVIDER  
+   =============================== */
+
+.page-divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    #ccc,
+    transparent
+  );
+  max-width: var(--max-width);
+  margin: 64px auto;
+}
+
+
+
+
+
+
+
+
+/* =========================
+   COSMIC BACKGROUND
+========================= */
+
+/* star container */
+.cosmic-stars{
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* individual stars */
+.cosmic-stars span{
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #9fd3ff;
+  border-radius: 50%;
+  opacity: .8;
+  animation: twinkle 2s infinite ease-in-out;
+}
+
+@keyframes twinkle{
+  0%,100%{opacity:.2; transform:scale(.8)}
+  50%{opacity:1; transform:scale(1.2)}
+}
+
+ 
+
+
+/* Ultra-fine film grain */
+.film-grain{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 6; /* content-এর ওপরে, header-এর নিচে */
+  opacity: 0.06; /* খুব subtle */
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,0.015) 0,
+      rgba(255,255,255,0.015) 1px,
+      rgba(0,0,0,0.015) 1px,
+      rgba(0,0,0,0.015) 2px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,0.015) 0,
+      rgba(255,255,255,0.015) 1px,
+      rgba(0,0,0,0.015) 1px,
+      rgba(0,0,0,0.015) 2px
+    );
+}
+
+ 
+
+.void-threshold {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 0px;
+  pointer-events: none;
+  z-index: 5;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,0.6) 50%,
+    #000 100%
+  );
+}
+
+ 
+ 
+/* ==============================
+   QUISM META SUB–HEADER
+================================ */
+
+/* RESET */
+h1, h2, h3 {
+  margin: 0;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+/* H1 – Main Section Title */
+h1 {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+/* H2 – Sub section (rare use) */
+h2 {
+  font-size: 14px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+/* H3 – Card / Art title */
+h3 {
+  font-size: 18px;
+  margin: 16px 0 6px;
+  font-weight: 600;
+}
+
+/* No underline for h3 */
+h3::after {
+  display: none;
+}
+ 
+
+
+.quism-title {
+  letter-spacing: 0.35em;
+  margin-bottom: 24px;
+}
+
+.quism-title::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 2px;
+  background: #e60000;
+  margin: 20px auto 0;
+}
+
+
+
+.quism-meta {
+  margin-bottom: 10px;
+  letter-spacing: 0.15em;
+  font-weight: 600;  
+  margin-top: 30px;
+
+
+text-align: center;
+}
+
+.quism-nav {
+  margin-bottom: 0px;
+}
+
+ 
+/* ==================================================
+   RESPONSIVE
+   ================================================== */
+
+@media (max-width: 1200px){
+  .art-grid{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px){
+  .art-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px){
+  .art-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+ 
+ 
+
+
+ 
+
+/* ===============================
+   DESIGN BOLD (NON-SEMANTIC)
+   =============================== */
+
+.text-bold{
+  font-weight: 500;
+  color: inherit;
+}
+
+
+.text-em{
+  font-weight: 450;
+  opacity: 0.95;
+}
+
+.star-divider{
+  text-align: center;
+  margin: 3-0px 0;
+  font-size: 18px;
+  color: #6fb4ff;
+  opacity: 0.6;
+}
+
+
+/* ===============================
+   CENTERED IMAGE BETWEEN PARAGRAPHS
+   =============================== */
+
+.image-center{
+  text-align: center;
+  margin: 32px 0;
+}
+
+.image-center img{
+  width: 250px;
+  max-width: 80%;
+  height: auto;
+}
+
+
+
+ /* ===============================
+   PAINTING & PARAGRAPH DIVIDER
+   =============================== */
+
+.content-divider-index{
+  width: 100%;
+  max-width: 900px;
+  height: 1px;
+  margin: 20px auto;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(29, 24, 24, 0.35),
+    transparent
+  );
+}
+
+
+.content-divider-secrets{
+  width: 100%;
+  max-width: 900px;
+  height: 1px;
+  margin: 20px auto;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(237, 219, 219, 0.35),
+    transparent
+  );
+}
+
+ 
+
+
+
+
+/* ===============================
+   SINGLE LINE PARAGRAPH
+   =============================== */
+
+.single-line{
+  text-align: center;
+  white-space: nowrap;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+ 
+
+/* ===============================
+   PARAGRAPH (FINAL – SINGLE SOURCE)
+   =============================== */
+
+.paragraph-line{
+  max-width: var(--max-width);
+  margin: 0 auto 30px;     /* paragraph spacing */
+  padding: 0 1px 6px;
+  margin-bottom: 18px;
+  font-size: 16px;
+  line-height: 1.7;
+  letter-spacing: 0.4px;
+
+  text-align: justify;
+  color: #cfcfcf;
+
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+ 
+
+/* bold inside paragraph */
+.paragraph-line strong{
+  font-weight: 500;
+  color: inherit; /* same color as paragraph */
+}
+
+.fw-400 { font-weight: 400; }
+.fw-500 { font-weight: 500; }
+.fw-600 { font-weight: 600; }
+
+
+
+ 
+/* ===============================
+   SECRETS TREE – CENTER FLOW
+=============================== */
+
+.tree-wrap{
+  max-width: var(--max-width);
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* TREE BASE */
+.tree-line{
+  --c:#cfcfcf;
+  color: var(--c);
+  padding: 0 20px 0px;
+  margin: 0px 0;
+  font-size:15.5px;
+  line-height:1.7;
+  text-align:center;
+
+  opacity:0;
+  transform:translateY(16px);
+  transition:opacity .6s ease, transform .6s ease;
+}
+
+/* Visible state (JS adds this) */
+.tree-line.is-visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* Reduced motion safe */
+@media (prefers-reduced-motion: reduce){
+  .tree-line{
+    opacity:1;
+    transform:none;
+    transition:none;
+  }
+}
+
+
+
+/* =========================
+   VIDEO SECTION
+========================= */
+
+.video-section{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:40px;
+  margin:24px 0 40px;
+}
+
+.quism-video{
+  width:100%;
+  max-width:340px;
+background:var(--color-bg);
+  border-radius:6px;
+  overflow:hidden;
+
+  box-shadow:
+    0 0 0 6px rgba(255,255,255,.04),
+    0 20px 60px rgba(0,0,0,.65);
+
+  transition:transform .35s ease, box-shadow .35s ease;
+}
+
+.quism-video:hover{
+  transform:translateY(-4px);
+  box-shadow:
+    0 0 0 8px rgba(120,180,255,.25),
+    0 30px 90px rgba(0,0,0,.85);
+}
+
+.quism-video.ambient{
+  pointer-events:none;
+  opacity:.85;
+}
+
