@@ -48,13 +48,8 @@ export async function generateMetadata({ params }) {
 export default function LangLayout({ children, params }) {
   const { lang } = params;
 
-  if (!allowedLangs.includes(lang)) {
-    notFound();
-  }
-
   return (
     <>
-      {/* ✅ Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

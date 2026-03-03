@@ -1,9 +1,16 @@
+import { notFound } from "next/navigation";
 import bn from "../content/bn";
 import en from "../content/en";
 import hi from "../content/hi";
 import es from "../content/es";
 
-export async function generateMetadata({ params }) {
+const allowedLangs = ["en", "bn", "hi", "es"];
+
+export function generateStaticParams() {
+  return allowedLangs.map((lang) => ({ lang }));
+}
+
+export function generateMetadata({ params }) {
   const { lang } = params;
 
   const contentMap = { en, bn, hi, es };
@@ -26,17 +33,12 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export function generateStaticParams() {
-  return [
-    { lang: "en" },
-    { lang: "bn" },
-    { lang: "hi" },
-    { lang: "es" },
-  ];
-}
-
 export default function HomePage({ params }) {
   const { lang } = params;
+
+  if (!allowedLangs.includes(lang)) {
+    notFound();
+  }
 
   const contentMap = { en, bn, hi, es };
   const content = contentMap[lang] || en;
