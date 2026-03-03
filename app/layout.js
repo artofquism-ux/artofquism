@@ -12,20 +12,13 @@ const notoBengali = Noto_Serif_Bengali({
 });
 
 export const metadata = {
-  metadataBase: new URL(
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:3000"
-      : "https://artofquism.com"
-  ),
+  metadataBase: new URL("https://artofquism.com"),
 };
 
-export default async function RootLayout({ children, params }) {
-  const lang = params?.lang ?? "en";
-
+export default function RootLayout({ children }) {
   return (
-    <html lang={lang}>
+    <html lang="en">
       <head>
-        {/* ✅ JSON-LD Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
