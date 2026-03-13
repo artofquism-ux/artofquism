@@ -1,68 +1,43 @@
-import bn from "../../content/bn";
+import Link from "next/link";
 import en from "../../content/en";
+import bn from "../../content/bn";
 import hi from "../../content/hi";
 import es from "../../content/es";
 
-// ==============================
-// METADATA
-// ==============================
+export default async function GalleryPage({ params }) {
 
-export async function generateMetadata({ params }) {
-  const { lang } = params;
+const { lang } = await params;
 
-  const baseUrl =
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:3000"
-      : "https://artofquism.com";
+const data =
+lang==="bn"?bn:
+lang==="hi"?hi:
+lang==="es"?es:
+en;
 
-  return {
-    title: "Gallery | Art of Quism",
+return(
 
-    alternates: {
-      canonical: `/${lang}/gallery`,
-      languages: {
-        en: "/en/gallery",
-        bn: "/bn/gallery",
-        hi: "/hi/gallery",
-        es: "/es/gallery",
-      },
-    },
+<section className="gallery-page">
 
-    openGraph: {
-      url: `${baseUrl}/${lang}/gallery`,
-      locale: lang,
-      type: "website",
-    },
-  };
-}
+<h1>{data.gallery.title}</h1>
+<p className="gallery-desc">{data.gallery.desc}</p>
 
-// ==============================
-// STATIC PARAMS
-// ==============================
+<div className="gallery-entry-grid">
 
-export function generateStaticParams() {
-  return [
-    { lang: "en" },
-    { lang: "bn" },
-    { lang: "hi" },
-    { lang: "es" },
-  ];
-}
+<Link href={`/${lang}/gallery/creation`} className="gallery-entry-card">
+Creation
+</Link>
 
-// ==============================
-// PAGE
-// ==============================
+<Link href={`/${lang}/gallery/recreation`} className="gallery-entry-card">
+Recreation
+</Link>
 
-export default function GalleryPage({ params }) {
-  const { lang } = params;
+<Link href={`/${lang}/gallery/enlightenment`} className="gallery-entry-card">
+Enlightenment
+</Link>
 
-  const contentMap = { bn, en, hi, es };
-  const content = contentMap[lang] || en;
+</div>
 
-  return (
-    <main>
-      <h1>{content.gallery.title}</h1>
-      <p>{content.gallery.description}</p>
-    </main>
-  );
+</section>
+
+);
 }

@@ -3,7 +3,7 @@
 
 
 
-const en = {
+export const en = {
   home: {
     title: "Art of Quism",
     description: "A contemplative space of art & silence",

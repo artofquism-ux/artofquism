@@ -1,9 +1,41 @@
-const allowedLangs = ["en", "bn", "hi", "es"];
+import Hero from "@/components/Hero";
+import FeaturedGrid from "@/components/FeaturedGrid";
+import AboutSection from "@/components/AboutSection";
 
-export function generateStaticParams() {
-  return allowedLangs.map((lang) => ({ lang }));
-}
+export default function Home(){
 
-export default function LangPage({ params }) {
-  return <h1>Language: {params.lang}</h1>;
+const featured = [
+ {
+   img:"/images/f1.jpg",
+   title:"Creation",
+   link:"/en/gallery"
+ },
+ {
+   img:"/images/f2.jpg",
+   title:"Recreation",
+   link:"/en/gallery"
+ },
+ {
+   img:"/images/f3.jpg",
+   title:"Enlightenment",
+   link:"/en/gallery"
+ }
+];
+
+return(
+<>
+<Hero
+ title="THE ART OF QUISM"
+ subtitle="Reflection of Zero-Dimensional Life"
+ button={{
+   label:"Explore Gallery",
+   link:"/en/gallery"
+ }}
+/>
+
+<FeaturedGrid items={featured}/>
+<AboutSection/>
+</>
+);
+
 }

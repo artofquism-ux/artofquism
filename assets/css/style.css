@@ -7,11 +7,7 @@ layout.css      → container, grid, spacing
 components.css  → cards, buttons, poetry, hero
 motion.css      → animation system
 pages.css       → body.page-name overrides
-
-margin-top: 37px;
-margin-top: var(--space-lg);
-<p style="color:#ffcc00">
-
+ 
 .art-card { ... }
 .poetry-block { ... }
 .tree-line { ... }
@@ -41,15 +37,28 @@ margin-top: var(--space-lg);
 └── images/
 ===================================================== */
 
-@import url('./00-variables.css');
-@import url('./01-reset.css');
-@import url('./02-base.css');
-@import url('./03-layout.css');
-@import url('./04-components.css');
-@import url('./05-motion.css');
-@import url('./06-pages.css');
+:root{
 
- 
+  /* spacing scale */
+  --s1:8px;
+  --s2:16px;
+  --s3:24px;
+  --s4:40px;
+  --s5:64px;
+  --s6:100px;
+
+}
+
+ :root{
+
+  --h1: clamp(34px,5vw,56px);
+  --h2: clamp(22px,3vw,28px);
+  --body:17px;
+
+}
+
+
+
 :root {
 
   /* =========================
@@ -115,13 +124,7 @@ margin-top: var(--space-lg);
 
 }
 
-
-
-/* =====================================================
-  ASMTER LIGHT MODE (Default)
-  &
-  QUISM DARK MODE ARCHITECTURE
-===================================================== */
+ 
 
 /*===========================
 Light Mood: Index & others
@@ -170,10 +173,13 @@ html{
   scroll-behavior:smooth;
 }
 
+ 
+
 body{
   font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
-   padding-top: var(--header-total);
-   background:var(--color-bg);
+  color:#222;
+  padding-top:65px;   /* adjust as needed */
+  background:var(--color-bg);
   color:var(--color-text);
   line-height:1.6;
   overflow-x:hidden;
@@ -194,6 +200,27 @@ a:hover{
 }
 
  
+/* 🔥 COPY FIX FINAL */
+html, body, p, span, div, li, a {
+  user-select: text !important;
+}
+
+
+ 
+ 
+  @media(max-width:768px){
+
+body{
+padding-top:60px;
+}
+
+.header{
+height:60px;
+}
+
+}
+
+
 body.index-page {}
 body.museum-page {}
 body.gallery-page {}
@@ -204,6 +231,9 @@ body.footer-page {}
 body.secrets-page .tree-line { }
 
 .tree-line { }
+
+
+
 
 /* ================================
    PAGE CONTENT SPACING
@@ -235,31 +265,128 @@ body.is-loaded .page-content {
   box-sizing: border-box;
 }
 
-/* =====================================================
+/* =================== 
    HERO SECTION
-===================================================== */
+====================== */
 
-.hero-section {
-  min-height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+section{
+  padding:var(--s6) var(--s3);
+}
+
+/* HERO FINAL CENTER */
+
+.hero-section{
+min-height:60vh;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+
+text-align:center;
+padding:40px 20px;
+animation:fadeUp .8s ease;
+}
+
+.hero-section h1{
+font-size:32px;
+margin-bottom:10px;
+}
+
+.hero-section p{
+font-size:16px;
+color:#666;
+}
+
+ 
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
 }
 
 html, body {
   height: 100%;
 }
 
-body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+body{
+display:flex;
+flex-direction:column;
+min-height:100vh;
 }
 
 main {
   flex: 1;
-
 }
+
+/* ================= 
+HERO title
+ =================== */
+
+.hero-title{
+  font-size:var(--h1);
+  letter-spacing:2px;
+  margin-bottom:var(--s3);
+}
+
+.hero-sub{
+  font-size:var(--h2);
+  color:#2f6f4f;
+  margin-bottom:var(--s2);
+}
+
+.hero-tag{
+  font-size:var(--body);
+  color:#666;
+  margin-bottom:var(--s4);
+}
+
+
+
+.home-hero{
+  min-height:85vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.hero-btn{
+  padding:12px 28px;
+  border:1px solid #000;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.hero-btn:hover{
+  background:#000;
+  color:#fff;
+}
+
+/* ================= 
+   PAGE SECTION
+  =================== */
+
+.page-section{
+padding:80px 20px;
+text-align:center;
+}
+
+.page-section h1{
+font-size:30px;
+margin-bottom:10px;
+}
+
+.page-desc{
+color:#666;
+margin-bottom:40px;
+}
+
 
 
 /* =====================================================
@@ -307,8 +434,8 @@ font-size: 13px;         /* ← text color */
   height: 78px;                 /* একটু বড় */
   display: block;
 
-  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.15))
-          drop-shadow(0 0 8px rgba(40, 41, 43, 0.15));
+  filter: drop-shadow(0 0px 0px rgba(0,0,0,0.15))
+          drop-shadow(0 0 0px rgba(40, 41, 43, 0.15));
 
   transition: transform .3s ease, filter .3s ease;
 }
@@ -422,8 +549,10 @@ background: var(--color-surface);
 /* DESKTOP */
 .header-nav{
   display:flex;
-  gap:30px;
   align-items:center;
+  justify-content:space-between;
+  gap:30px;
+  flex-wrap:wrap;   /* ✅ FIX */
 }
 
 .header-nav a{
@@ -484,6 +613,57 @@ background: var(--color-surface);
   transform: translateY(-15px) rotate(-45deg);
 }
 
+/* ================================
+     NAV TOGGLE 
+================================ */
+/* ===== NAV TOGGLE ===== */
+
+.nav-toggle{
+display:none;
+font-size:22px;
+background:none;
+border:none;
+cursor:pointer;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.nav-toggle{
+display:block;
+}
+
+.nav-menu{
+position:fixed;
+top:70px;
+left:0;
+width:100%;
+height:calc(100vh - 70px);   /* ✅ MAIN FIX */
+
+background:#fff;
+flex-direction:column;
+display:flex;
+gap:20px;
+flex-wrap:wrap;   
+padding:15px 0;
+overflow-y:auto; 
+justify-content:center;             /* ✅ scroll */
+box-shadow:0 10px 20px rgba(0,0,0,.15);
+background:rgba(255,255,255,.95);
+backdrop-filter:blur(8px);
+}
+
+.nav-menu a{
+padding:12px 20px;
+border-bottom:1px solid #eee;
+}
+
+.nav-menu.active{
+display:flex;
+}
+
+}
 
 /* ================================
    MOBILE NAV
@@ -582,6 +762,9 @@ background: var(--color-surface);
   position: absolute;
   right: 0;
   top: 100%;
+  min-width:168px;   /* 🔥 increase */
+box-shadow:0 8px 18px rgba(0,0,0,.08);
+border-radius:2px;
   background: var(--color-bg);
   border-radius: var(--radius);
   box-shadow: var(--shadow-soft);
@@ -594,13 +777,23 @@ background: var(--color-surface);
   display: block;
 }
 
-#lang-menu li {
-  padding: 8px 12px;
+
+#lang-menu li a{
+  font-size:15px;
+letter-spacing:.2px;
+padding:0 1px 14px;
+display:block;
 }
+
 
 #lang-menu a {
   text-decoration: none;
   color: var(--color-text);
+}
+ 
+
+#lang-menu li a:hover{
+background:#f5f5f5;
 }
 
 
@@ -656,110 +849,530 @@ p {
   text-align: justify;
 }
 
-/* =====================================================
-   7. ART GRID
-===================================================== */
+/* ==================== 
+   7. ART SECTION
+ ======================= */
 
-/* global */
-.art-card img { border-radius: 0; }
-
-/* secrets only */
-body.secrets-page .art-card img {
-  border-radius: 50%;
+.art-section{
+width:100%;
 }
 
-.art-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:40px;
-  margin-top:10px;
-  margin-bottom:80px;
-
+.art-content-area{
+max-width:1600px;
+margin:auto;
+padding:0 30px;
 }
+
+
+/* ==================== 
+  GALLERY SECTION
+ ======================= */
+
+.gallery-section{
+margin-bottom:60px;
+}
+
+ 
+
+/* ENTRY PAGES */
+
+.gallery-page,
+.museum-page{
+padding:80px 20px;
+text-align:center;
+}
+
+.gallery-desc,
+.museum-desc{
+max-width:700px;
+margin:auto;
+margin-bottom:40px;
+}
+
+.gallery-entry-grid,
+.museum-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+max-width:900px;
+margin:auto;
+}
+
+.gallery-entry-card,
+.museum-card{
+padding:40px;
+border:1px solid #ddd;
+text-decoration:none;
+color:#222;
+transition:.3s;
+}
+
+.gallery-entry-card:hover,
+.museum-card:hover{
+background:#111;
+color:#fff;
+}
+
+
+
+
+
+.gallery{
+column-count:4;
+column-gap:30px;
+}
+
+@media(max-width:1024px){
+.gallery{column-count:3;}
+}
+
+@media(max-width:600px){
+.gallery{column-count:1;}
+}
+
+/* ===== card ===== */
 
 .art-card{
-background: var(--color-surface);
-  padding:14px;
-  border-radius:0px;
-  border:1px solid #e2dcdc;
-  box-shadow:
-    0 6px 14px rgba(0,0,0,0.08),
-    0 2px 6px rgba(0,0,0,0.05);
- 
-  transition:transform .35s ease, box-shadow .35s ease;
-  overflow:hidden;
-  cursor:pointer;
-    text-align:center;
+background:var(--color-surface);
+break-inside:avoid;
+display:block;
+width:100%;
+padding-bottom:10px;
+vertical-align:top;
+margin-bottom:96px;   /* ≈ 1 inch screen feel */
+
+background:#fff;
+border:1px solid #eae8e8;
+box-shadow:0px 8px 5px 0px rgba(50, 50, 50, 0.55);
+   
+padding:10px;
+cursor:pointer;
+overflow:hidden;
+text-align:left;
+transition:transform .35s ease, box-shadow .35s ease;
 }
 
 .art-card:hover{
-  transform:translateY(-8px);
-   box-shadow:
-     0 10px 30px rgba(0,0,0,0.12),
-     0 8px 16px rgba(0,0,0,0.06);
-
+transform:translateY(-6px);
+box-shadow:
+0 10px 22px rgba(0,0,0,.14),
+0 4px 10px rgba(0,0,0,.08);
 }
+
+/* ===== image ===== */
 
 .art-card img{
-  width:100%;
-  aspect-ratio: 1 / 1;
-  object-fit:cover;
-  display:block;
-  border-radius:0px;   /* normal card style */
+width:100%;
+height:auto;
+display:block;
+margin-bottom:8px;
+cursor:pointer;
+transition:transform .5s ease;
 }
+
+.art-card:hover img{
+transform:scale(1.05);
+}
+
+/* ===== text ===== */
 
 .art-card h3{
-  font-size:16px;
-  margin-top:16px;
-  margin-bottom:6px;
-  letter-spacing:0.5px;
+margin:10px 12px 6px;
+font-size:17px;
+font-weight:500;
+letter-spacing:.3px;
+line-height:1.3;
+transition:color .3s ease;
 }
 
-.art-card .desc{
-  font-size:14px;
-  line-height:1.6;
-  margin-bottom:10px;
+.art-card:hover h3{
+color:#c28b2c;
+}
+
+.art-card p{
+margin:0 12px 12px;
+line-height:1.6;
+font-size:14px;
+color:#444;
 }
 
 .art-card .meta{
-  font-size:13px;
-  color:var(--color-muted);
+font-size:13px;
+margin:6px 12px 26px;   /* 🔥 best balance */
+color:var(--color-muted);
 }
+
+.art-card .desc{
+margin:0 16px 16px;
+font-size:14px;
+line-height:1.6;
+}
+
+.desc .read-more:hover{
+text-decoration:underline;
+}
+
+.desc .full{
+display:none;
+}
+
+.desc .read-more{
+display:inline-block;
+margin:6px 0 7px;
+font-weight:500;
+color:#c28b2c;
+cursor:pointer;
+transition:all .25s ease;
+}
+
+.desc .read-more:hover{
+text-decoration:underline;
+}
+
+
+
+
+/* 🔥 control */
+.text-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+
  
+ /* =======================
+MUSEUM PAGE FADE IN 
+========================== */
+
+body.museum-page{
+padding-top:calc(var(--header-total) - 30px);
+}
+
+body.museum-page .art-section{
+margin:20px 0 70px;
+}
+
+body.museum-page .fade-in{
+  transform:translateY(12px);
+}
+
+.hover-awaken{
+  transition:.4s ease;
+}
+.hover-awaken:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 40px rgba(0,0,0,.15);
+}
+
+
+/* =========================
+MUSEUM PAGE — FINAL  code
+========================= */
+ 
+
+body.museum-page .gallery{
+column-count:4;
+column-gap:26px;
+max-width:1400px;
+margin:auto;
+padding:0 28px;
+}
+
+/* ===== card ===== */
+
+body.museum-page .art-card{
+ width:100%;
+margin:0 0 26px;
+ display:flex;
+flex-direction:column;
+margin-bottom:96px;   /* ≈ 1 inch screen feel */
+}
+
+/* image */
+
+body.museum-page .art-card img{
+width:100%;
+height:auto;
+object-fit:contain;
+display:block;
+margin-bottom:10px;
+}
+
+/* text */
+
+body.museum-page .art-card h3{
+margin:10px 0 6px;
+font-size:17px;
+}
+
+body.museum-page .art-card p{
+margin:0;
+font-size:14px;
+line-height:1.45;
+}
+
+/* responsive */
+
+@media(max-width:1200px){
+body.museum-page .gallery{column-count:3;}
+}
+
+@media(max-width:900px){
+body.museum-page .gallery{column-count:2;}
+}
+
+@media(max-width:600px){
+body.museum-page .gallery{column-count:1;}
+}
+
+/*=====================
+BODY SECRETS PAGE
+=======================*/
+
+body.content-page .lightbox{
+background:rgba(0,0,0,.85);
+}
+
+
+/* ===== SECRETS PAGE ===== */
+
+.secrets-page{
+background:radial-gradient(circle at center,#111 0%,#000 70%);
+color:#eee;
+min-height:100vh;
+}
+
+.secrets-page .painting-grid{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:30px;
+max-width:1400px;
+margin:auto;
+padding:30px 20px;
+}
+
+.secrets-page img{
+width:auto;
+border-radius:8px;
+display:block;
+}
+
+
+/* responsive */
+
+@media(max-width:1100px){
+.secrets-page .painting-grid{
+grid-template-columns:repeat(3,1fr);
+}
+}
+
+@media(max-width:700px){
+.secrets-page .painting-grid{
+grid-template-columns:repeat(2,1fr);
+}
+}
+
+@media(max-width:480px){
+.secrets-page .painting-grid{
+grid-template-columns:1fr;
+}
+}
+
+
+/* CARD */
+
+.secrets-page .art-card{
+aspect-ratio:1/1;
+width:100%;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+border:1px solid #050000;
+background:#030000;
+box-shadow:0 8px 20px rgba(0,0,0,.55);
+
+padding:12px;
+}
+
+.secrets-page .art-card img{
+width:90%;
+height:90%;
+object-fit:contain;
+margin:auto;
+}
+
+.secrets-page .art-card h3{
+font-size:16px;
+font-weight:500;
+margin-top:12px;
+text-align:center;
+transition:color .3s ease;
+}
+
+
+/* TITLE */
+
+.secrets-title{
+text-align:center;
+margin-top:40px;
+font-size:32px;
+letter-spacing:1px;
+}
+
+
+/* DESC */
+
+.secrets-desc{
+text-align:center;
+max-width:700px;
+margin:12px auto 30px;
+opacity:.8;
+}
 
 
 
 /* =====================================================
    8. LIGHTBOX
 ===================================================== */
-
+/* ===== LIGHTBOX FINAL ===== */
+ 
 .lightbox{
-  position:fixed;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:rgba(0,0,0,.9);
-  opacity:0;
-  pointer-events:none;
-  transition:.35s ease;
-  z-index:2000;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.92);
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:9999;
+animation:fadeIn .25s ease;
 }
 
-.lightbox.open{
-  opacity:1;
-  pointer-events:auto;
+.lightbox-img{
+ width:auto;
+ height:auto;
+ max-width:90vw;
+ max-height:90vh;
+ object-fit:contain;
+ cursor:zoom-in;
+ will-change: transform;
+ transition:transform .35s ease;
 }
 
-.lightbox img{
-  max-width:92vw;
-  max-height:92vh;
+.lightbox-img.zoomed{
+transform:scale(1.8);
+  cursor:zoom-out;
 }
 
+.lightbox-close{
+position:absolute;
+top:20px;
+right:30px;
+font-size:40px;
+color:#fff;
+cursor:pointer;
+}
+
+
+.lb-count{
+position:absolute;
+bottom:18px;
+right:22px;
+color:#fff;
+font-size:14px;
+opacity:.85;
+}
+
+.lightbox-arrow{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+font-size:40px;
+color:white;
+cursor:pointer;
+user-select:none;
+padding:10px;
+}
+
+.lightbox-arrow.left{ left:20px }
+.lightbox-arrow.right{ right:20px }
+
+.lightbox-arrow:hover{ opacity:.7 }
 
 /* =====================================================
-   9. SCROLL PROGRESS + TOP
+   THUMB STRIP
 ===================================================== */
+
+/* THUMB STRIP */
+.lb-thumbs{
+  position:absolute;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  padding:6px 10px;
+  background:rgba(0,0,0,.35);
+  border-radius:8px;
+}
+
+/* THUMB IMG */
+.lb-thumb{
+  width:60px;
+  height:60px;
+  object-fit:cover;
+  opacity:.6;
+  cursor:pointer;
+  border-radius:4px;
+  transition:.2s;
+}
+
+/* ACTIVE */
+.lb-thumb.active{
+  opacity:1;
+  outline:2px solid #fff;
+}
+
+/* HOVER */
+.lb-thumb:hover{
+  opacity:1;
+}
+
+
+
+/* ==================   
+   LIGHTBOX FULL
+ ===================== */
+
+
+.lightbox-full{
+ position:absolute;
+ top:18px;
+ right:60px;
+
+ font-size:22px;
+ color:#fff;
+ cursor:pointer;
+ opacity:.85;
+   transition:.25s;
+}
+
+.lightbox-full:hover{
+ opacity:1;
+}
+
+
+
+
+/* ========================== 
+   9. SCROLL PROGRESS + TOP
+=============================  */
 
 .scroll-progress{
   position:fixed;
@@ -866,6 +1479,22 @@ background: var(--color-surface);
    SECRETS PAGE — TYPOGRAPHY SYSTEM
 ================================ */
 
+.secrets-heading{
+  font-size:28px;
+  text-align:center;
+  margin-bottom:25px;
+  letter-spacing:1px;
+}
+
+
+.section-title{
+  text-align:center;
+  font-weight:500;
+  letter-spacing:2px;
+  margin-bottom:30px;
+}
+
+
 section {
   padding: 10px 0;
 }
@@ -886,7 +1515,7 @@ section {
   text-align: center;
   font-size: 20px;
   letter-spacing: 2px;
-  margin-bottom: 10px;
+  margin-bottom: 100px;
   color: #ccc;
     font-weight: 500;
   opacity: 0.85;
@@ -1174,9 +1803,52 @@ FINAL CODE FROM TOP
 
 }
 
+/* =========================
+   MUSEUM, GALLERY  LINK
+========================= */
 
+.museum-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+max-width:900px;
+margin:auto;
+}
 
+/* GALLERY GRID */
 
+.gallery-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+max-width:900px;
+margin:auto;
+padding:20px;
+}
+
+/* CARD */
+
+.gallery-card{
+  width:100%;
+  height:260px;
+  overflow:hidden;
+  cursor:pointer;
+  background:#eee;
+}
+
+.gallery-card img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+transition:.4s;
+}
+
+/* HOVER */
+
+.gallery-card:hover img{
+transform:scale(1.08);
+}
 
 
 
@@ -1285,59 +1957,6 @@ FINAL CODE FROM TOP
 
 
 
-/* ==================================================
-   🎬 FADE ANIMATION (Optional)
-================================================== */
- 
- /* =======================
-MUSEUM PAGE FADE IN 
-========================== */
-body.museum-page .fade-in{
-  transform:translateY(12px);
-}
-
-.hover-awaken{
-  transition:.4s ease;
-}
-.hover-awaken:hover{
-  transform:translateY(-6px);
-  box-shadow:0 20px 40px rgba(0,0,0,.15);
-}
-
-
-/*=====================
-BODY SECRETS PAGE
-=======================*/
-
-body.content-page .lightbox{
-  background: rgba(0,0,0,.85);
-}
-
-body.secrets-page .art-card {
-  background: rgba(0,0,0,0.85);
-  border: 1px solid rgba(255,255,255,0.08);
-}
-
-body.secrets-page{
-  --color-bg: #000;
-  --color-text: #cfcfcf;
-  --color-heading: #ffffff;
-  background: var(--color-bg);
-  color: var(--color-text);
-}
-
-body.secrets-page .art-card img{
-  border-radius:50%;
-}
-
-body.secrets-page .art-card h3{
-
-  --color-bg:#000;
-  --color-text:#cfcfcf;
-  --color-heading:#fff;
-}
-
- 
 
  
   
@@ -1359,14 +1978,7 @@ a:hover{
 /* ==================================================
    🌐 TOP LANGUAGE BAR
 ================================================== */
-
-
-
-
-
-/* =========================
-   SUB NAV – STICKY PREMIUM
-========================= */
+ 
 
 .sub-nav{
   position: sticky;
@@ -1798,7 +2410,7 @@ color: var(--primary);
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 6; /* content-এর ওপরে, header-এর নিচে */
+  z-index: 2; /* content-এর ওপরে, header-এর নিচে */
   opacity: 0.06; /* খুব subtle */
   background-image:
     repeating-linear-gradient(
@@ -1826,7 +2438,7 @@ color: var(--primary);
   bottom: 0;
   height: 0px;
   pointer-events: none;
-  z-index: 5;
+  z-index: 1;
   background: linear-gradient(
     to bottom,
     rgba(0,0,0,0) 0%,
@@ -1852,7 +2464,7 @@ h1, h2, h3 {
 h1 {
   font-size: 18px;
   text-align: center;
-  margin-bottom: 20px;
+  margin-top: 20px;
   position: relative;
 }
 
@@ -1866,7 +2478,7 @@ h2 {
 /* H3 – Card / Art title */
 h3 {
   font-size: 18px;
-  margin: 16px 0 6px;
+  margin: 16px 10px 6px;
   font-weight: 600;
 }
 
@@ -1980,6 +2592,22 @@ text-align: center;
  /* ===============================
    PAINTING & PARAGRAPH DIVIDER
    =============================== */
+
+/* ===== WHITE DIVIDER ===== */
+
+.content-divider-white{
+width:100%;
+max-width:1400px;
+height:2px;                 /* 🔥 thickness */
+margin:30px auto;           /* 🔥 gap top + bottom */
+background:linear-gradient(
+to right,
+transparent,
+rgba(255,255,255,.8),
+transparent
+);
+
+}
 
 .content-divider-index{
   width: 100%;
@@ -2140,3 +2768,626 @@ background:var(--color-bg);
   opacity:.85;
 }
 
+/*=======================
+LANGUAGE EN, BN, HI, ES
+==========================*/
+
+
+
+.title{
+margin-top:40px;
+margin-bottom:25px;
+text-align:center;
+letter-spacing:2px;
+font-weight:600;
+font-size:22px;
+}
+
+.content-area{
+max-width:760px;
+margin:0 auto;
+padding:0 20px;
+}
+
+.content-area p{
+font-size:17px;
+line-height:1.9;
+margin-bottom:18px;
+text-align:justify;
+letter-spacing:.3px;
+}
+
+.content-area p:first-child{
+font-size:18px;
+font-weight:500;
+}
+
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:28px;
+margin-top:40px;
+}
+
+
+@media(max-width:768px){
+
+.title{
+font-size:22px;
+margin-top:30px;
+}
+
+.content-area{
+padding:0 16px;
+}
+
+}
+
+
+/* museum / article pages only */
+.museum-page,
+.art-culture-page{
+font-family:
+"Georgia",
+"Noto Serif Bengali",
+"Noto Serif Devanagari",
+serif;
+}
+
+
+.art-culture-page .title{
+text-align:center;
+margin-top:40px;
+margin-bottom:30px;
+}
+
+
+.art-culture-page .content-area{
+max-width:760px;
+margin:auto;
+padding:0 20px;
+}
+
+.content-area p{
+line-height:1.9;
+margin-bottom:18px;
+}
+
+.language-switcher {
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.lang-switch{
+  display:flex;
+  gap:8px;
+}
+
+.lang-switch a{
+  padding:6px 10px;
+  border:1px solid #000;
+  text-decoration:none;
+  color:#000;
+  font-size:13px;
+}
+
+.lang-switch a:hover{
+  background:#000;
+  color:#fff;
+}
+
+/* =====================
+   CINEMATIC GALLERY
+===================== */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+    margin-bottom: 30px; /* 👈 bottom breathing space */
+}
+
+.gallery-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-card:hover img {
+  transform: scale(1.1);
+}
+
+/* overlay */
+
+.gallery-card .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  letter-spacing: 2px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.gallery-card:hover .overlay {
+  opacity: 1;
+}
+
+
+
+ 
+
+/* NAV FINAL FIX */
+ 
+ /* ===== HEADER FINAL ===== */
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:65px;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:space-between;
+padding:10px 22px;
+border-bottom:1px solid #eee;
+z-index:999;
+}
+
+
+/* ===== NAV LAYOUT ===== */
+
+header nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:nowrap;
+  padding:12px 0;   /* 🔥 final height */
+  gap:18px;
+}
+
+header nav button,
+header nav select{
+margin:0;
+}
+
+.logo{
+font-size:22px;
+font-weight:500;
+line-height:1.1;
+white-space:nowrap;
+}
+
+.nav-wrap{
+display:flex;
+max-width:1100px;
+margin:auto;
+align-items:center;
+justify-content:space-between;
+gap:20px;
+}
+
+.lang-switch{
+display:flex;
+align-items:center;
+gap:8px;
+}
+
+/* ===== MENU ===== */
+
+header ul{
+  display:flex;
+  gap:26px;
+  flex-wrap:nowrap;
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+header nav a{
+  font-size:14px;
+  font-weight:500;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  color:#111;
+  text-decoration:none;
+  transition:all .25s ease;
+}
+
+
+/* ===== NAV HOVER ===== */
+
+header nav a:hover{
+  color:#c40000;
+}
+
+header nav a::after{
+  content:"";
+  display:block;
+  width:0;
+  height:2px;
+  background:#c40000;
+  transition:width .25s ease;
+  margin-top:4px;
+}
+
+header nav a:hover::after{
+  width:100%;
+}
+
+
+/* ===== LANGUAGE BUTTON ===== */
+
+.lang-switch{
+  display:flex;
+  gap:8px;
+  margin-left:20px;
+}
+
+header nav button{
+  font-size:13px;
+  padding:5px 10px;
+  border-radius:4px;
+  border:1px solid #ccc;
+  background:white;
+  cursor:pointer;
+  transition:.25s ease;
+}
+
+header nav button:hover{
+  background:black;
+  color:white;
+}
+
+
+/* ===== MOBILE ===== */
+
+@media(max-width:768px){
+
+header{
+height:60px;
+}
+
+body{
+padding-top:60px;
+}
+
+}
+
+@media(max-width:768px){
+header nav{
+gap:10px;
+}
+}
+
+
+
+
+
+
+
+
+
+
+/* ===== DROPDOWN FINAL POLISH ===== */
+
+.dropdown-menu {
+  border-radius: 10px;
+  padding: 8px 0;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.05);
+   backdrop-filter: blur(6px);
+}
+
+/* dropdown item */
+
+.dropdown-menu a {
+  padding: 10px 18px;
+  display: block;
+  transition: all 0.2s ease;
+}
+
+/* hover */
+
+.dropdown-menu a:hover {
+  background: #f7f7f7;
+  color: #c40000;
+}
+
+/* remove harsh line */
+
+.dropdown-menu a {
+  border-bottom: none !important;
+}
+
+
+/* ===== FINAL TYPOGRAPHY ===== */
+
+header nav a {
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+header nav button {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* logo polish */
+
+header h1,
+header .logo {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+
+
+
+
+/* ===== GALLERY CARD PREMIUM HOVER ===== */
+
+.gallery-card {
+  overflow: hidden;
+  border-radius: 10px;
+  margin: 0;   /* 👈 MUST */
+  transition: all 0.35s ease;
+}
+
+.gallery-card img {
+  width: 100%;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+/* hover effect */
+
+.gallery-card:hover img {
+  transform: scale(1.06);   /* 🔥 soft zoom */
+}
+
+.gallery-card:hover {
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+
+
+
+/* ===== MUSEUM PAGE ===== */
+
+.museum-page {
+  padding: 40px 20px;
+}
+
+.museum-title {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 30px;
+}
+
+/* grid */
+
+.museum-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;          /* 👈 row + column gap same */
+  margin-bottom: 30px; /* 👈 bottom breathing space */
+}
+
+.museum-grid img {
+  width: 100%;
+  height: 260px;      /* 🔥 FIX */
+  object-fit: cover;
+  display: block;
+}
+
+
+
+
+/* ===== MASTER ART PAGES ===== */
+
+.art-page {
+  padding: 40px 20px;
+}
+
+/* title */
+
+.art-title {
+    margin: 30px 0 10px;
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 28px;
+  letter-spacing: 1px;
+}
+
+/* grid */
+
+/* grid image small */
+.museum-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;        /* 👈 row + column gap same */
+  margin-bottom: 30px; /* 👈 bottom breathing space */
+}
+
+/* card */
+
+.art-card {
+  overflow: hidden;
+  border-radius: 10px;
+  transition: all 0.35s ease;
+  overflow: hidden;
+}
+
+.art-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.art-card img:hover {
+  transform: none !important;
+}
+
+ 
+
+/* CLOSE */
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 32px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* INNER */
+
+.lb-inner {
+  position: relative;
+  text-align: center;
+  color: white;
+    z-index: 10000;
+}
+
+/* CAPTION */
+
+.lb-caption {
+  margin-top: 12px;
+  font-size: 15px;
+  opacity: .85;
+}
+
+/* CLOSE */
+
+.lb-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  font-size: 34px;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  opacity: .85;
+}
+
+.lb-close:hover {
+  opacity: 1;
+}
+
+/* ARROWS */
+
+
+
+/* ===== REAL FINAL ARROW FIX ===== */
+
+.lb-arrow {
+  position: absolute;   /* 🔥 change from fixed */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10001;
+
+  font-size: 46px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+
+  width: 56px;
+  height: 56px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background: rgba(0,0,0,.45);
+  backdrop-filter: blur(4px);
+}
+
+/* 🔥 move inside image area */
+.lb-arrow.left {
+  left: 10px;
+}
+
+.lb-arrow.right {
+  right: 10px;
+}
+
+.lb-arrow:hover {
+  background: rgba(0,0,0,.75);
+  transform: translateY(-50%) scale(1.08);
+}
+
+
+ 
+
+
+/* ==================================
+   PAINTING GRID / CARD / ART-CARD
+===================================== */
+
+.painting-grid{
+  display:grid;
+   
+  grid-template-columns:repeat(4,1fr);   /* 🔥 5 images row */
+  gap:30px;
+  max-width:1200px;
+  margin:40px auto;
+  padding:0 20px;
+}
+
+.painting-grid img{
+  width:100%;
+  height:auto;
+  object-fit:cover;
+  display:block;
+  cursor:pointer;
+  transition:.25s ease;
+  border-radius:2px;
+    transition:transform .5s ease, box-shadow .4s ease;
+}
+
+.painting-grid img:hover{
+  transform:scale(1.05);
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+
+}
+
+@media(max-width:1200px){
+  .painting-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+}
+
+@media(max-width:768px){
+  .painting-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:500px){
+  .painting-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+ 

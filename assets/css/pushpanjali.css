@@ -1,0 +1,153 @@
+
+/* ======================
+   Pushpanjali — Philosophy
+   ======================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family: "Noto Serif Bengali", serif;
+  background:#f7f6f4;
+  color:#222;
+  line-height:1.75;
+}
+
+
+/* ===== WRAPPER ===== */
+
+.pushpanjali{
+  max-width:900px;
+  margin:auto;
+  padding:60px 20px;
+}
+
+
+/* ===== HERO ===== */
+
+.pj-hero{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.pj-hero h1{
+  font-size:42px;
+  font-weight:600;
+  margin-bottom:10px;
+  letter-spacing:.5px;
+}
+
+.pj-sub{
+  font-size:18px;
+  margin-bottom:35px;
+  color:#666;
+}
+
+
+/* ===== VERSE ===== */
+
+.pj-verse p{
+  font-size:18px;
+  margin-bottom:10px;
+}
+
+.pj-verse blockquote{
+  margin-top:18px;
+  font-style:italic;
+  color:#444;
+  border-left:3px solid #c9c3bd;
+  padding-left:15px;
+}
+
+
+/* ===== DESCRIPTION ===== */
+
+.pj-desc{
+  margin-top:30px;
+}
+
+.pj-desc p{
+  margin-bottom:22px;
+  font-size:17px;
+  text-align:justify;
+}
+
+
+/* ===== NOTE ===== */
+
+.pj-note{
+  margin-top:50px;
+  padding-top:25px;
+  border-top:1px solid #ddd;
+}
+
+.pj-note h2{
+  font-size:22px;
+  margin-bottom:12px;
+  font-weight:600;
+}
+
+.pj-note p{
+  font-size:16px;
+  color:#444;
+}
+
+
+/* ===== MOBILE ===== */
+
+@media(max-width:600px){
+
+  .pj-hero h1{
+    font-size:32px;
+  }
+
+  .pj-verse p{
+    font-size:16px;
+  }
+
+}
+
+
+/* ===== LANGUAGE SWITCH ===== */
+
+.pj-lang{
+  text-align:center;
+  margin-bottom:25px;
+  font-size:14px;
+  letter-spacing:1px;
+}
+
+.pj-lang a{
+  text-decoration:none;
+  color:#444;
+  padding:4px 8px;
+  transition:.2s;
+}
+
+.pj-lang a:hover{
+  color:#000;
+}
+
+.pj-lang span{
+  color:#bbb;
+}
+
+
+
+.pj-lang .active{
+  font-weight:600;
+  color:#000;
+}
+
+
+.pj-lang a{
+  opacity:.7;
+}
+
+.pj-lang .active{
+  opacity:1;
+  font-weight:600;
+}

@@ -1,26 +1,37 @@
 export default function sitemap() {
-  const baseUrl = "https://artofquism.com";
 
-  const languages = ["en", "bn", "hi", "es"];
+const baseUrl = "https://artofquism.com";
 
-  const routes = [
-    "",
-    "/gallery",
-    "/museum",
-  ];
+/* ONLY REAL LANGUAGES */
+const languages = ["en","bn"];
 
-  const urls = [];
+/* ALL ROUTES */
+const routes = [
+"",
+"/gallery",
+"/museum",
+"/gallery3-enlightenment",
+"/gallery2-life",
+"/gallery1-creation"
+];
 
-  languages.forEach((lang) => {
-    routes.forEach((route) => {
-      urls.push({
-        url: `${baseUrl}/${lang}${route}`,
-        lastModified: new Date(),
-        changeFrequency: "monthly",
-        priority: route === "" ? 1 : 0.8,
-      });
-    });
-  });
+const urls = [];
 
-  return urls;
+languages.forEach((lang)=>{
+
+routes.forEach((route)=>{
+
+urls.push({
+url: `${baseUrl}/${lang}${route}`,
+lastModified: new Date(),
+changeFrequency: "monthly",
+priority: route === "" ? 1 : 0.8
+});
+
+});
+
+});
+
+return urls;
+
 }

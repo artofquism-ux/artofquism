@@ -1,0 +1,57 @@
+.hero{
+  min-height:85vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:100px 20px;
+}
+
+.hero-inner{
+  max-width:780px;
+  margin:auto;
+}
+
+.hero-title{
+  font-size:clamp(34px,5vw,56px);
+  letter-spacing:2px;
+  margin-bottom:24px;
+}
+
+.hero-sub{
+  font-size:17px;
+  color:#666;
+  margin-bottom:40px;
+}
+
+.hero-btn{
+  padding:12px 28px;
+  border:1px solid #000;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.hero-btn:hover{
+  background:#000;
+  color:#fff;
+}
+
+/* DARK VERSION (secrets page) */
+
+.hero-dark{
+  background:#000;
+  color:#fff;
+}
+
+.hero-dark .hero-sub{
+  color:#ccc;
+}
+
+.hero-dark .hero-btn{
+  border-color:#fff;
+}
+
+.hero-dark .hero-btn:hover{
+  background:#fff;
+  color:#000;
+}

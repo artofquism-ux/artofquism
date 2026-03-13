@@ -10,22 +10,15 @@
   <div class="top-inner">
     
  
-    <div class="language-dropdown">
-      <button id="lang-toggle" type="button" aria-expanded="false">
-      🌐   Language <span class="arrow">▼</span>
-      </button>
-
-      <ul id="lang-menu">
-  <li><a href="/">English</a></li>
-  <li><a href="/bn/">বাংলা</a></li>
-  <li><a href="/hi/">हिन्दी</a></li>
-  <li><a href="/es/">Español</a></li>
-</ul>
+<select class="language-switcher">
+  <option value="/en">🌐 English</option>
+  <option value="/bn">বাংলা</option>
+  <option value="/hi">हिन्दी</option>
+</select>
     </div>
   </div>
 </div>
-
-
+ 
 <!-- =========================
         MAIN HEADER
 ========================= -->
@@ -40,17 +33,17 @@
     </div>
 
     <!-- NAVIGATION -->
-    <nav id="mainNav" class="header-nav">
-      <a href="index.html">HOME</a>
-      <a href="museum.html">MUSEUM</a>
-      <a href="gallery.html">GALLERY</a>
-      <a href="art-culture.html">ART & CULTURE</a>
-      <a href="secrets.html">SECRETS OF QUISM</a>
-      <a href="founder.html">FOUNDER</a>
-    </nav>
+   <nav className="nav-menu">
+<a href="/">HOME</a>
+<a href="/museum">MUSEUM</a>
+<a href="/gallery">GALLERY</a>
+<a href="/art-culture">ART & CULTURE</a>
+<a href="/secrets">SECRETS</a>
+<a href="/founder">FOUNDER</a>
+</nav>
 
     <!-- MOBILE TOGGLE -->
-    <button class="navbar-toggle" type="button" aria-label="Toggle Menu">
+<button className="nav-toggle" aria-label="menu">
       <span></span>
       <span></span>
       <span></span>

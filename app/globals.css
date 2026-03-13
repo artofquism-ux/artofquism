@@ -1,7 +1,9 @@
 
 
 
-
+body {
+  background: linear-gradient(to bottom, #f8f8f8, #eaeaea);
+}
 
 body {
   margin: 0;
@@ -11,4 +13,229 @@ body {
 /* Bengali pages */
 html[lang="bn"] body {
   font-family: var(--font-bn);
+}
+
+
+/* HEADER */
+
+/* PRO HEADER */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  background: rgba(255,255,255,0.6);
+
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+
+  transition: all .3s ease;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav a {
+  position: relative;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: black;
+  transition: 0.3s;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.menu-btn {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .menu-btn {
+    display: block;
+  }
+
+  .nav {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    width: 200px;
+    padding: 20px;
+    border: 1px solid #eee;
+    display: none;
+  }
+
+  .nav.show {
+    display: flex;
+  }
+}
+
+
+/* ULTRA SCROLL HEADER */
+
+.header {
+  transition: transform .3s ease;
+}
+
+.header.hide {
+  transform: translateY(-100%);
+}
+
+.header.show {
+  transform: translateY(0);
+}
+
+
+
+
+
+/* SHRINK HEADER PRO */
+
+.header {
+  transition: all .3s ease;
+}
+
+/* normal */
+.header .container {
+  padding: 18px 20px;
+}
+
+/* shrink */
+.header.shrink .container {
+  padding: 10px 20px;
+}
+
+/* logo shrink */
+.header.shrink .logo {
+  font-size: 18px;
+}
+
+/* nav shrink */
+.header.shrink .nav a {
+  font-size: 14px;
+}
+
+/* SHADOW + PREMIUM LOOK */
+
+.header.shrink {
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  background: rgba(255,255,255,0.75);
+
+  box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+}
+
+
+/* ===== DROPDOWN PRO ===== */
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 120%;
+  left: 0;
+
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 8px;
+
+  padding: 10px 0;
+  min-width: 180px;
+
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+
+  transition: all .25s ease;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 16px;
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+}
+
+.dropdown-menu a:hover {
+  background: #f5f5f5;
+}
+
+/* GLOW UNDERLINE */
+
+.nav a {
+  position: relative;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background: black;
+
+  transition: .3s;
+}
+
+.nav a:hover::after {
+  width: 100%;
 }
