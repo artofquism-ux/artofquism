@@ -1,5 +1,11 @@
 
 
+ /* =========================
+  git add .
+  git commit -m "update"
+  git push origin main
+  ========================== */
+
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap');
 
 :root{
@@ -149,11 +155,7 @@ html.light {
 /* ===== BASE ===== */
 html, body {
   height: 100%;
-}
-
-
-
-html{
+  overflow-x: hidden;
   scroll-behavior:smooth;
 }
 
@@ -210,7 +212,7 @@ body {
   display: block;
   max-width: 900px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 10px;
   text-align: justify;  
    position: relative;
   z-index: 2;
@@ -246,7 +248,15 @@ body {
   opacity:.9;
 }
 
- 
+ .page,
+.page-wrapper,
+.about-page,
+.art-page,
+.founder-page{
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
 
 /* ===== LINK ===== */
 a{
@@ -321,7 +331,7 @@ MOBILE FIX
   .section-text{
     width: 100%;
     max-width: 100%;
-    padding-inline: 20px;
+    padding-inline: 10px;
   }
 
   /* cards/images */
@@ -771,7 +781,7 @@ MOBILE FIX
     background: var(--color-bg);
      display: flex;
     flex-direction: column;
-    padding:30px 24px;
+    padding:20px 20px;
      gap: 24px;
     transform: translateX(100%);
     transition: transform 0.35s ease;
@@ -921,7 +931,9 @@ header nav button:hover{
 .site-header{
   position:fixed;
   top:0;
-  left:0;
+  max-width: 100%;
+  left: 0;
+  right: 0;
   width:100%;
   height:65px;
 
@@ -970,6 +982,19 @@ header nav button:hover{
 .logo,
 .nav{
   transition: all .3s ease;
+}
+
+/* mobile */
+@media (max-width:768px){
+
+  .site-header{
+    padding-inline: 12px;
+  }
+
+  .site-nav{
+    max-width: 100%;
+  }
+
 }
 
 
@@ -1610,7 +1635,7 @@ font-size:25px;
 }
 
 .hero-title {
-  font-size: 42px;
+  font-size: 32px;
   font-weight: 600;
     letter-spacing: 2px;
   margin: 0;
@@ -1647,7 +1672,7 @@ font-size:25px;
 
 .hero h1{
   font-family: "Playfair Display", serif;
-  font-size: clamp(42px,7vw,42px);
+  font-size: clamp(32px,7vw,32px);
   font-weight:700;
   letter-spacing:1.5px;
   color:var(--color-heading);
@@ -1661,7 +1686,7 @@ font-size:25px;
 
 .hero p{
  align-items:center;
-  font-size:16px;
+  font-size:14px;
   font-weight:600;
   color:var(--color-muted);
   line-height:1.8;
@@ -2717,7 +2742,7 @@ cursor: grab;
 .card {
   position:relative;
   width: 100%;
-  max-width: 260px;
+ max-width: 360px;
   padding: 12px;
   margin: 0;
   background: #fff;
@@ -2764,6 +2789,7 @@ cursor: grab;
 
 .card-image{
  width:100%;
+   height: auto;
  flex:none;
  position:relative;
  cursor:pointer;
@@ -2786,7 +2812,7 @@ cursor: grab;
 
 .card img {
   width: 100%;
-   height: 100%;
+   height: auto;
   object-fit: cover; 
   border-radius: 4px;
   margin-bottom: 10px;
@@ -3453,13 +3479,19 @@ BREADCRUMB
   display: grid !important; 
 }
  
+.gallery,
+.gallery-grid{
+  margin-top:20px;
+  width:100%;
+   grid-template-columns: 1fr;
+}
+
 .gallery {
  width: 100%;
  max-width: 1200px;
  margin: 0 auto;
  display: grid;
- grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
- gap: 28px;
+  gap: 28px;
  padding: 10px 10px;
  justify-items: left;
   justify-content: center;
@@ -3533,15 +3565,7 @@ BREADCRUMB
 
 /* SMALL MEDIUM BIG IMAGE WIDTH  */
 
-.gallery,
-.gallery-grid{
-  margin-top:20px;
-}
 
-.gallery-grid{
-  width:100%;
-  
-}
 
 .gallery .card:has(img.wide-image){
   grid-column:1 / -1;
