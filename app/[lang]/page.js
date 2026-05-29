@@ -17,13 +17,7 @@ const t = homeContent[lang];
  <p className="hero-tagline"> Reflection of Zero-Dimensional Life — Full of Emptiness</p>
 </Reveal> 
  
- <Reveal> 
-    <div className="hero-actions">
-              <a href={`/${lang}/about`}>Read About Quism</a>
-              <a href={`/${lang}/museum`}>Explore Museum</a>
-              <a href={`/${lang}/gallery`}>Explore Gallery</a>
-            </div>
- </Reveal> 
+ 
  </div>
  </section>
 
