@@ -309,7 +309,7 @@ video {
 /* ===== RESPONSIVE ===== */
 @media (max-width:768px){
   .page{
-    padding:0 10px;
+    padding:0 18px;
   }
 }
 
@@ -762,8 +762,7 @@ MOBILE FIX
  display:flex;
   align-items:center;
   gap:12px;
-  flex-shrink:0;  
-  padding:0 10px;
+  flex-shrink:0;   /* 🔥 prevent wrap */
 }
  
 .nav-wrap {
@@ -828,7 +827,7 @@ header{
   left:0;
   width:100%;
   height:65px;
-
+padding:0 20px;
   display:flex;
   align-items:center;
   justify-content: space-between; /* 🔥 key */
@@ -851,7 +850,7 @@ header{
   align-items:center;
   justify-content:space-between;
 
-  padding:0 10px;
+  padding:0 20px;
 }
 
 /* ===== LOGO ===== */
@@ -1450,12 +1449,12 @@ opacity:0.7;
 ========================= */
 
 .lang-switch{
-  position:relative;
+  position:absolute;
   margin-left:auto;
-    top:-18px;   /* 🔥 adjust */
-    right:-45px; /* menu button এর পাশে */
+    top:1px;   /* 🔥 adjust */
+    right:45px; /* menu button এর পাশে */
     margin-left:16px;   /* 🔥 fine tune */
-
+padding:0 20px;
 }
 
 /* trigger button */
@@ -1611,7 +1610,7 @@ font-size:25px;
   flex-direction:column;        /* ⭐ add */
   align-items:center; 
   pointer-events: auto;   
-  max-width:1200px;
+  max-width:1400px;
  margin: 0 auto;
   padding: 0;
   line-height:1.2;
