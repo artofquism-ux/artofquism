@@ -1,7 +1,6 @@
 "use client";
 
  import Link from "next/link";
-import ThemeToggle from "./ThemeToggle";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useState, useEffect, useRef } from "react";
  
@@ -64,7 +63,8 @@ useEffect(() => {
 
 <div className="nav-right"> 
 
-  <ThemeToggle />
+
+
   <LanguageSwitcher currentLang={currentLang} />
 
 

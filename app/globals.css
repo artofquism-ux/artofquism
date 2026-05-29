@@ -924,13 +924,7 @@ header nav a:hover::after{
    BUTTON / LANG
 ========================= */
 
-.lang-switch{
-  position:relative;
-  margin-left:auto;
-    top:-8px;   /* 🔥 adjust */
-    right:40px; /* menu button এর পাশে */
-    margin-left:16px;   /* 🔥 fine tune */
-}
+
 
 header nav button{
   font-size:13px;
@@ -1457,8 +1451,8 @@ opacity:0.7;
 .lang-switch{
   position:relative;
   margin-left:auto;
-    top:-8px;   /* 🔥 adjust */
-    right:45px; /* menu button এর পাশে */
+    top:-18px;   /* 🔥 adjust */
+    right:-45px; /* menu button এর পাশে */
     margin-left:16px;   /* 🔥 fine tune */
 
 }
