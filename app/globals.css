@@ -762,7 +762,8 @@ MOBILE FIX
  display:flex;
   align-items:center;
   gap:12px;
-  flex-shrink:0;   /* 🔥 prevent wrap */
+  flex-shrink:0;  
+  padding:0 10px;
 }
  
 .nav-wrap {
