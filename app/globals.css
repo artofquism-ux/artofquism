@@ -1,11 +1,10 @@
 
-
- /* =========================
+/* =========================
   git add .
   git commit -m "update"
   git push origin main
   ========================== */
-
+  
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap');
 
 :root{
@@ -153,9 +152,15 @@ html.light {
 }
 
 /* ===== BASE ===== */
+/* ===== BASE ===== */
 html, body {
   height: 100%;
-  overflow-x: hidden;
+  
+}
+
+
+
+html{
   scroll-behavior:smooth;
 }
 
@@ -248,14 +253,16 @@ body {
   opacity:.9;
 }
 
- .page,
+.page,
 .page-wrapper,
 .about-page,
 .art-page,
 .founder-page{
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
+  width:100%;
+  max-width:100%;
+
+  overflow-x:hidden;
+  overflow-y:visible;
 }
 
 /* ===== LINK ===== */
@@ -458,12 +465,12 @@ MOBILE FIX
   width: 44px;
   height: 44px;
 
+
   display:flex;
   align-items:center;
   justify-content:center;
- background: transparent;   
-  backdrop-filter:blur(10px);
-
+  background: transparent;   
+ 
   border:1px solid rgba(236, 233, 233, 0.12);
 
   color:#111;
@@ -473,33 +480,32 @@ MOBILE FIX
   -webkit-backdrop-filter: blur(8px);
 
   cursor:pointer;
-  z-index:1000;
+  z-index:99999;
 
-  opacity:0;
-  visibility:hidden;
+ opacity:1 !important;
+  visibility:visible !important;
 
   transform:translateY(16px) scale(.9);
 
-   transition:
-    background .3s ease,
-    color .3s ease,
-    transform .3s ease,
-    box-shadow .3s ease;
+ transition:
+    opacity .45s ease,
+    transform .45s ease,
+    background .35s ease,
+    border-color .35s ease;
 }
 
 /* show */
 .scroll-top.show{
   opacity:1;
   visibility:visible;
-  transform:translateY(0) scale(1);
+  transform:translateY(0);
 
-  z-index:1000;
 }
 
 /* icon */
 .scroll-top svg{
-  width:25px;
-  height:25px;
+  width:22px;
+  height:22px;
 
   fill: #5b5a5a;
 

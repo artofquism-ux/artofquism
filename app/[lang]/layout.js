@@ -2,7 +2,7 @@ import "../globals.css";
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ScrollProgress from "@/components/ScrollProgress";
+import ScrollTopButton from "@/components/ScrollTopButton";
 
 export default function RootLayout({ children }) {
   return (
@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
       <main>{children}</main>
 
       <Footer />
-      <ScrollProgress />
+      <ScrollTopButton />
     </>
   );
 }
