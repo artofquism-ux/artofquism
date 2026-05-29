@@ -309,7 +309,7 @@ video {
 /* ===== RESPONSIVE ===== */
 @media (max-width:768px){
   .page{
-    padding:0 18px;
+    padding:0 10px;
   }
 }
 
@@ -850,7 +850,7 @@ header{
   align-items:center;
   justify-content:space-between;
 
-  padding:0 20px;
+  padding:0 10px;
 }
 
 /* ===== LOGO ===== */
