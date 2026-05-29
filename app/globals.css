@@ -158,6 +158,9 @@ html, body {
   
 }
 
+main{
+  width:100%;
+}
 
 
 html{
@@ -167,13 +170,12 @@ html{
 body{
   display:flex;
   flex-direction:column;
-
   margin:0;
+  overflow-x:hidden;
   color:var(--color-text);
   background:var(--color-bg);
   font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
   line-height:1.6;
-  overflow-x:hidden;
   transition: background 0.4s ease, color 0.4s ease;
 }
 
@@ -192,8 +194,7 @@ body{
 .page{
   padding: 0  10px;
   width: 100%;
-  min-height: 100vh;
-  flex-direction: column;
+   flex-direction: column;
 }
 
 .page h1,
@@ -204,9 +205,6 @@ body{
 .page
 .site-container
 .hero
-
- 
-  
 
 
 .page-article {
@@ -251,15 +249,36 @@ body{
 
 .page,
 .page-wrapper,
-.about-page,
-.artculture-page,
-.founder-page{
+.page-content,
+.page-article{
+
   width:100%;
-  max-width:100%;
+  max-width:1200px;
+
+  margin:0 auto;
 
   overflow-x:hidden;
-  overflow-y:visible;
 }
+
+
+@media (max-width:768px){
+
+  .page,
+  .page-wrapper,
+  .page-content,
+  .page-article{
+
+    width:100%;
+    max-width:100%;
+
+    padding-left:14px;
+    padding-right:14px;
+
+    overflow-x:hidden;
+  }
+
+}
+
 
 /* ===== LINK ===== */
 a{
@@ -813,11 +832,25 @@ header{
   align-items:center;
   justify-content: space-between; /* 🔥 key */
 
-padding: 10px 16px;
+  padding: 10px 16px;
   background:var(--color-bg);
   border-bottom:1px solid var(--color-border);
 
   z-index:1000; /* 🔥 fixed */
+}
+
+.header-inner{
+
+  width:100%;
+  max-width:1200px;
+
+  margin:0 auto;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:0 20px;
 }
 
 /* ===== LOGO ===== */
@@ -892,7 +925,8 @@ header nav a:hover::after{
 ========================= */
 
 .lang-switch{
-   position:absolute;
+  position:relative;
+  margin-left:auto;
     top:-8px;   /* 🔥 adjust */
     right:40px; /* menu button এর পাশে */
     margin-left:16px;   /* 🔥 fine tune */
@@ -942,7 +976,7 @@ header nav button:hover{
 
   display:flex;
   align-items:center;
-  justify-content:space-between;
+  justify-content:center;
 
   background:var(--color-bg);
   border-bottom:1px solid var(--color-border);
@@ -1421,9 +1455,10 @@ opacity:0.7;
 ========================= */
 
 .lang-switch{
-  position:absolute;
+  position:relative;
+  margin-left:auto;
     top:-8px;   /* 🔥 adjust */
-    right:30px; /* menu button এর পাশে */
+    right:45px; /* menu button এর পাশে */
     margin-left:16px;   /* 🔥 fine tune */
 
 }
@@ -1435,11 +1470,12 @@ opacity:0.7;
   align-items:center;
   height:30px;   /* 🔥 match menu-btn */
   gap:4px;
+  position:relative;
 
   font-size:13px;
   font-weight:500;
 
-  padding:5px 5px;
+  padding:5px  5px;
   border-radius:3px;
 
   border:1px solid var(--color-border);
@@ -1613,12 +1649,14 @@ font-size:25px;
 .hero-gallery .hero-inner,
 .hero-gallery + .page-article {
   max-width: 900px;
+   margin: 0 auto 6px
 }
 
 /* Museum */
 .hero-museum .hero-inner,
 .hero-museum + .page-article {
   max-width: 900px;
+  margin: 0 auto 6px
 }
 
 /* Default */
@@ -3202,7 +3240,10 @@ ENTER LINE
   margin-top: 10px;
   text-align: center;
   position: relative;
-  
+   text-decoration: underline;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #466c46;
 }
 
 .enter-line::before,
@@ -3220,11 +3261,11 @@ ENTER LINE
   font-size: 16px;
   color: #d60d0d;
 font-weight: 500;
-letter-spacing: 5px;
+letter-spacing: 3px;
  text-decoration: underline;
   text-transform: uppercase;
   text-decoration: none;
-  color: #466c46;
+  color: #2e7d32;
   transition: all 0.3s ease;
 }
 
