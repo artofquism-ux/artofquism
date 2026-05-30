@@ -10,14 +10,80 @@ const t = homeContent[lang];
 
   return (
     <main className="page">
-      <section className="hero">
+
+<section className="hero-slider">
+
+  <img
+    src="/images/banner-index-1.jpg"
+    className="slide"
+    alt=""
+  />
+
+  <img
+    src="/images/banner-index-2.jpg"
+    className="slide"
+    alt=""
+  />
+
+  <img
+    src="/images/banner-index-3.jpg"
+    className="slide"
+    alt=""
+  />
+
+  <img
+    src="/images/banner-index-4.jpg"
+    className="slide"
+    alt=""
+  />
+    <img
+    src="/images/banner-index-5.jpg"
+    className="slide"
+    alt=""
+  />
+    <img
+    src="/images/banner-index-6.jpg"
+    className="slide"
+    alt=""
+  />
+    <img
+    src="/images/banner-index-7.jpg"
+    className="slide"
+    alt=""
+  />
+    <img
+    src="/images/banner-index-8.jpg"
+    className="slide"
+    alt=""
+  />
+    <img
+    src="/images/banner-index-9.jpg"
+    className="slide"
+    alt=""
+  />
+    <img
+    src="/images/banner-index-10.jpg"
+    className="slide"
+    alt=""
+  />
+
+</section>
+
+
+     <section className="hero">
      <div className="hero-inner">
 <Reveal> 
-    <h1 className="hero-title"> THE ART OF QUISM </h1>
+  <h1 className="hero-title"> THE ART OF QUISM </h1>
  <p className="hero-tagline"> Reflection of Zero-Dimensional Life — Full of Emptiness</p>
 </Reveal> 
  
- 
+   <div className="home-text">
+    Quism reflects the silent origin of existence —
+    where form dissolves into emptiness,
+    and consciousness returns to the zero-dimensional source
+    beyond material identity...
+  </div>
+
  </div>
  </section>
 

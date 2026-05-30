@@ -34,7 +34,7 @@ return (
          <div className="enter-line">
           {first && (
             <Link href={`/${safeLang}/museum/${first.slug}`}>
-              ENTER MUSEUM NO. 1 → {first.title}
+              ENTER MUSEUM → {first.title}
              </Link>
               )}
            </div>
