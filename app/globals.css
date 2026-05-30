@@ -212,8 +212,7 @@ body{
   max-width: 900px;
   margin: 0 auto;
   padding: 0 10px;
-  text-align: justify;  
-   position: relative;
+  position: relative;
   z-index: 2;
   
 }
@@ -1470,7 +1469,7 @@ opacity:0.7;
   display:flex;
   align-items:center;
   top:0px;   
-  right:50px; 
+  right:54px; 
   margin-left:0px;   
   z-index:1000;
 }
@@ -1487,7 +1486,7 @@ opacity:0.7;
   font-size:12px;
   font-weight:500;
 
-  padding:2px  2px;
+  padding:5px  5px;
   border-radius:0px;
 
   border:1px solid var(--color-border);
@@ -1509,7 +1508,7 @@ opacity:0.7;
 }
 
 .lang-btn .arrow{
-  font-size:18px;
+  font-size:22px;
 }
 
 .arrow{
@@ -1529,7 +1528,7 @@ font-size:25px;
   top:calc(100% - 8px);
   right:0;
 
-  min-width:124px;
+  min-width:134px;
   min-height:224px;
 
   background:#fff;
@@ -1671,9 +1670,9 @@ font-size:25px;
 .hero-museum + .page-article {
   max-width: 1000px;
   margin: 0 auto 6px;
-    align-items: justify;
+    text-align:justify;
 
-}
+ }
 
 /* Default */
 .hero-default .hero-inner {

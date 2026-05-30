@@ -19,7 +19,7 @@ return (
     
     <HeroLayout
   title="MUSEUM"
-  subtitle="The Museum of Quism is a contemplative space where art becomes a mirror of consciousness; each section unfolds a philosophical dimension of life, nature, art, culture, and communication..."
+  subtitle="The Museum of Quism is a contemplative space where art becomes a mirror of consciousness; each section unfolds a philosophical dimension of Life, Nature, Art, Culture, and Communication..."
   variant="museum"
 /> 
 

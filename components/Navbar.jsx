@@ -61,14 +61,11 @@ useEffect(() => {
   />
 )}
 
-<div className="nav-right"> 
-
-
+<div className="nav-right">
 
   <LanguageSwitcher currentLang={currentLang} />
 
-
-   <button
+  <button
   className="menu-btn"   // 🔥 
   onClick={(e) => {
     e.stopPropagation();
