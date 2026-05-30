@@ -310,7 +310,7 @@ video {
 /* ===== RESPONSIVE ===== */
 @media (max-width:768px){
   .page{
-    padding:0 18px;
+    padding:0 10px;
   }
 }
 
@@ -1604,10 +1604,10 @@ font-size:25px;
 .hero-slider{
   width:100%;
    max-width:1400px;
-   height:340px;
+   height:260px;
   overflow:hidden;
   position:relative;
-  margin-top: 90px; 
+  margin-top: 80px; 
 }
 
 
@@ -1621,10 +1621,10 @@ font-size:25px;
 
 .home-hero-title{
   font-family:"Playfair Display", serif;
-  font-size:33px;
+  font-size:30px;
   font-weight:600;
   line-height:1.8;
-  margin-top:-70px;
+  margin-top:-80px;
    text-align:center;
 }
 
@@ -1750,7 +1750,7 @@ font-size:25px;
   height: auto;
   text-align:center;
   position:relative;
-  padding: 90px 20px 30px; /* 🔥 breathing space */
+  padding: 90px 10px 30px; /* 🔥 breathing space */
    z-index: 1;
  
   background:
