@@ -363,8 +363,8 @@ onClick={(e) => {
 }}
     >
       {openText?.title === img.title
-        ? " Read less"
-        : " Read more"}
+        ? "Read less"
+        : "Read more"}
     </span>
   )}
   

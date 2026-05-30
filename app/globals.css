@@ -1,8 +1,8 @@
 
 /* =========================
-  git add .
-  git commit -m "update"
-  git push origin main
+git add .
+git commit -m "update"
+git push origin main
   ========================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap');
@@ -723,6 +723,11 @@ MOBILE FIX
 
 }
 
+.menu-toggle{
+  position:relative;
+  z-index:999;
+}
+
  .menu-btn{
   display:none;
   background:var(--color-surface);
@@ -758,18 +763,18 @@ MOBILE FIX
 }
 
 .nav-right{
- justify-self: end; /* 🔥 force right */
+ justify-self: end;  
  display:flex;
   align-items:center;
   gap:12px;
-  flex-shrink:0;   /* 🔥 prevent wrap */
+  flex-shrink:0;   
 }
  
 .nav-wrap {
   width:100%;
   max-width:1400px;
   display: grid;
-  grid-template-columns: auto 1fr auto; /* 🔥 key */
+  grid-template-columns: auto 1fr auto;  
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -1447,34 +1452,50 @@ opacity:0.7;
 /* =========================
    LANGUAGE DROPDOWN
 ========================= */
+.mobile-right{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:10px;
+}
+
+.menu-toggle{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
 
 .lang-switch{
   position:absolute;
-  top:4px;   /* 🔥 adjust */
-  right:40px; /* menu button এর পাশে */
-  margin-left:16px;   /* 🔥 fine tune */
- 
+  display:flex;
+  align-items:center;
+  top:0px;   
+  right:60px; 
+  margin-left:0px;   
+  z-index:1000;
 }
 
 /* trigger button */
 
 .lang-btn{
+  position:relative;
   display:flex;
   align-items:center;
-  height:20px;   /* 🔥 match menu-btn */
+  height:20px;   
   gap:4px;
 
   font-size:12px;
   font-weight:500;
 
-  padding:5px  5px;
-  border-radius:3px;
+  padding:2px  2px;
+  border-radius:0px;
 
   border:1px solid var(--color-border);
   background:var(--color-bg);
   cursor:pointer;
     transform:translateY(1px); /* 🔥 micro adjust */
   transition:.25s ease;
+   z-index:1002;
 }
 
 .lang-btn:hover{
@@ -1488,7 +1509,7 @@ opacity:0.7;
 }
 
 .lang-btn .arrow{
-  font-size:25px;
+  font-size:18px;
 }
 
 .arrow{
@@ -1505,20 +1526,22 @@ font-size:25px;
 
 .lang-dropdown{
   position:absolute;
-  top:110%;
+  top:calc(100% - 8px);
   right:0;
 
-  min-width:140px;
+  min-width:124px;
+    min-height:224px;
+
   background:#fff;
   background:var(--color-bg);
   border:1px solid var(--color-border);
-  border-radius:8px;
+  border-radius:0px;
 
   box-shadow:0 8px 20px rgba(0,0,0,.08);
 
   padding:2px 0;
 
-  z-index:5000;
+  z-index:1001;
   overflow: hidden;
   transform:translateY(8px);
   transition:.25s ease;
@@ -1526,7 +1549,7 @@ font-size:25px;
 }
 
 .lang-dropdown div{
-  padding:10px 14px;
+  padding:5px 14px;
   cursor:pointer;
   transition:.2s;
 }
@@ -1640,15 +1663,17 @@ font-size:25px;
 /* Gallery */
 .hero-gallery .hero-inner,
 .hero-gallery + .page-article {
-  max-width: 900px;
+  max-width: 1000px;
    margin: 0 auto 6px
 }
 
 /* Museum */
 .hero-museum .hero-inner,
 .hero-museum + .page-article {
-  max-width: 900px;
-  margin: 0 auto 6px
+  max-width: 1000px;
+  margin: 0 auto 6px;
+    align-items: justify;
+
 }
 
 /* Default */
@@ -1723,12 +1748,14 @@ font-size:25px;
 
 .hero p{
  align-items:center;
-  font-size:14px;
-  font-weight:600;
+  font-size:16px;
+  font-weight:400;
   color:var(--color-muted);
   line-height:1.8;
-  max-width:900px;
-   margin: 0 auto;
+  max-width:1000px;
+  margin: 0 auto;
+  max-width: 1000px;
+  color:#111;
 }
 
 /* buttons */
@@ -2054,7 +2081,7 @@ display: block;
   color:#272626;
    text-align:center;
    padding-left: 10px;
-   margin: -10px 0px 30px;
+   margin: -5px 0px 30px;
  }
 
 
@@ -2199,31 +2226,10 @@ font-size: 16px;
   padding: 2px 4px;
   border-radius: 4px;
 }
-
-/* 🔥 read more inline */
-.read-more-inline {
-  margin-left: 8px;
-  font-size: 15px;           /* 🔥 FIX */
- font-weight: 500;
- color: #2f3131;
-  text-decoration: underline;
-  display: inline;
-  cursor: pointer;           /* 🔥 IMPORTANT */
-  opacity: 0.9;
-  transition: all 3s ease;
-  text-decoration: none;
-}
-
-.read-more-inline:hover {
-  color: #1d4ed8;
-   letter-spacing:1px;
- opacity: 1;
-}
-
+ 
  .read-toggle{
   display:inline !important;
-  margin-left:10px;
-  cursor:pointer;
+   cursor:pointer;
   vertical-align:baseline;
   background:none;
   border:none;
@@ -2233,9 +2239,12 @@ font-size: 16px;
   pointer-events:auto !important;
   cursor:pointer;
   user-select:none;
-  font-weight:600;
-  color:#c98a2e;
+  font-size: 15px;
+  font-weight:400;
+  color:#ff3604;
   margin-left:.35rem;
+    text-decoration: underline;
+
   opacity:.8;
   pointer-events:auto !important;
   white-space:nowrap;
@@ -2243,7 +2252,9 @@ font-size: 16px;
 
 .read-toggle:hover{
   opacity:1;
-  color:#c98a2e;
+  font-size: 15px;
+  font-weight:500;
+  color:#076d01;
   text-decoration: underline;
   opacity:.7;
 }
@@ -2443,12 +2454,6 @@ font-size: 16px;
   margin-bottom: 10px;
 }
 
-.hero p {
-  max-width: 1000px;
-  margin: auto;
- text-align: center;
- color:#111;
-}
 
 .detail-hero {
   text-align: center;
@@ -3229,14 +3234,10 @@ ENTER LINE
  
 
 .enter-line {
-  margin-top: 10px;
-  text-align: center;
-  position: relative;
-   text-decoration: underline;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: #466c46;
-}
+ margin-top: 10px;
+ text-align: center;
+ text-decoration: underline;
+ }
 
 .enter-line::before,
 .enter-line::after {
@@ -3246,15 +3247,16 @@ ENTER LINE
   background: #ffffff; /* soft green */
   margin: 20px auto;
   width: 80%;
+ 
 }
 
 .enter-line a {
   display: inline-block;
   font-size: 16px;
   color: #d60d0d;
-font-weight: 500;
+font-weight: 400;
 letter-spacing: 3px;
- text-decoration: underline;
+ 
   text-transform: uppercase;
   text-decoration: none;
   color: #2e7d32;
@@ -3262,9 +3264,9 @@ letter-spacing: 3px;
 }
 
 .enter-line a:hover {
-  color: #951;
-  letter-spacing: 6px;
-   text-decoration: underline;
+ color:#ff3604;
+  letter-spacing: 3.5px;
+  text-decoration: underline;
 }
 .enter-line span {
   margin-left: 8px;
@@ -3273,16 +3275,9 @@ letter-spacing: 3px;
 
 .enter-line a:hover span {
   transform: translateX(6px);
+  
 }
-
-.enter-line span {
-  margin-left: 6px;
-  transition: transform 0.3s ease;
-}
-
-.enter-line a:hover span {
-  transform: translateX(6px);
-}
+ 
 
 /* =========================
    DIVIDER
