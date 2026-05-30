@@ -73,7 +73,7 @@ const t = homeContent[lang];
      <section className="hero">
      <div className="hero-inner">
 <Reveal> 
-  <h1 className="hero-title"> THE ART OF QUISM </h1>
+  <div className="home-hero-title"> THE ART OF QUISM </div>
  <p className="hero-tagline"> Reflection of Zero-Dimensional Life — Full of Emptiness</p>
 </Reveal> 
  
@@ -90,7 +90,7 @@ const t = homeContent[lang];
       {/* HOME PREVIEW */}
      <div className="gallery home">
       {[
-        { slug: "about", title: "About", img: "/images/0-2.jpg" },
+        { slug: "about", title: "About Quism", img: "/images/0-2.jpg" },
         { slug: "museum", title: "Museum", img: "/museum/lif-6.jpg" },
         { slug: "gallery", title: "Gallery", img: "/gallery/rec-1.jpg" },
         { slug: "art-culture", title: "Art & Culture", img: "/museum/art-1.jpg" },
