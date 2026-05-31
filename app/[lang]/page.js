@@ -10,8 +10,9 @@ const t = homeContent[lang];
 
   return (
     <main className="page">
-
-<section className="hero-slider">
+<div className="divider-white">
+    </div>
+<section className="home-slider">
 
   <img
     src="/images/banner-index-1.jpg"
@@ -73,7 +74,7 @@ const t = homeContent[lang];
      <section className="hero">
      <div className="hero-inner">
 <Reveal> 
-  <div className="home-hero-title"> THE ART OF QUISM </div>
+  <div className="home-home-title"> THE ART OF QUISM </div>
  <p className="hero-tagline"> Reflection of Zero-Dimensional Life — Full of Emptiness</p>
 </Reveal> 
  
