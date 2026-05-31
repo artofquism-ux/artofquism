@@ -27,10 +27,12 @@ export default async function GalleryPage({ params }) {
 
           <Reveal>
             <div className="enter-line">
-  <Link href="/gallery/rec-1">
-    ENTER GALLERY → REC
-  </Link>
-</div>
+             {first && (
+            <Link href={`/${safeLang}/gallery/${first.slug}`}>
+              ENTER GALLERY → {first.title}
+            </Link>
+              )}
+           </div>
           </Reveal>
         </section>
       

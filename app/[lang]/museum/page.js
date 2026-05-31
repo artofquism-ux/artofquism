@@ -32,10 +32,12 @@ return (
 
           <Reveal>
      <div className="enter-line">
-  <Link href="/museum/life">
-    ENTER MUSEUM → LIFE
-  </Link>
-</div>
+   {first && (
+            <Link href={`/${safeLang}/museum/${first.slug}`}>
+              ENTER MUSEUM NO. 1 → {first.title}
+             </Link>
+              )}
+           </div>
           </Reveal>
         </section>
       

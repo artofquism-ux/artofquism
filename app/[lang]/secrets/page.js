@@ -63,7 +63,7 @@ export default function SecretsPage() {
              
 
     {/* ===== HEADING ===== */}
-           {block.type === "heading" && (
+ {block.type === "heading" && (
   <h2 className="poetry-heading">
     <span className="heading-title">
       {block.title}
@@ -74,29 +74,21 @@ export default function SecretsPage() {
     </span>
   </h2>
 )}
-
-            
-
  
-
-
-                {/* ===== POETRY ===== */}
-                {block.type === "poetry" && (
-                  <div className="center-content">
-
-                     <p className="poetry-line">
-                      {block.text?.map((line, idx) => (
-                        <span key={idx}>
-                          {line}
-                          <br />
-                        </span>
-                      ))}
-                    </p>
-
-                    <div className="separator">★</div>
-
-                  </div>
-                )}
+    {/* ===== POETRY ===== */}
+   {block.type === "poetry" && (
+     <div className="center-content">
+      <p className="poetry-line">
+        {block.text?.map((line, idx) => (
+          <span key={idx}>
+            {line}
+            <br />
+          </span>
+         ))}
+       </p>
+     <div className="separator">★</div>
+   </div>
+ )}
 
 
 {/* ===== TREE ===== */}
@@ -115,22 +107,20 @@ export default function SecretsPage() {
   </div>
 )}
 
-                {/* ===== SECTION TEXT ===== */}
-                {block.type === "section" && (
-                  <div className="stanza">
-                    <p>
-                      {block.title && (
-                        <strong>{block.title}</strong>
-                      )}
-                      {" "}
-                      {block.text}
-                    </p>
-                  </div>
+ {/* ===== SECTION TEXT ===== */}
+    {block.type === "section" && (
+      <div className="stanza">
+        <p>
+          {block.title && (
+            <strong>{block.title}</strong>
                 )}
+              {" "}
+           {block.text}
+        </p>
+      </div>
+   )}
 
- 
-
-    {/* VIDEO */}
+ {/* VIDEO */}
     {block.type === "video" && (
       <div className="video-wrap">
 
@@ -148,44 +138,41 @@ export default function SecretsPage() {
 
     {/* IMAGES */}
     {block.type === "images" && (
-
       <div className="gallery-grid grid-5">
-
         {block.items?.map((item, idx) => (
-
        <Link
     href={item.link || "#"}
     key={idx}
     className="gallery-card"
           >
 
-            <button
-              type="button"
-              className="zoom-btn"
-              onClick={() => {
-                setActive({
-                  items: block.items,
-                  index: idx,
-                });
-              }}
-            >
-
-             <img
-              src={item.image}
-              alt={item.title}
-              className={item.className || ""}
+  <button
+     type="button"
+       className="zoom-btn"
+         onClick={() => {
+            setActive({
+               items: block.items,
+          index: idx,
+          });
+        }}
+     >
+  
+ <img
+    src={item.image}
+      alt={item.title}
+         className={item.className || ""}
               />
             </button>
 
-            {item.title && (
-             <figcaption className="gallery-title">
+       {item.title && (
+     <figcaption className="gallery-title">
   {item.title}
 </figcaption>
             )}
           </Link>
-        ))}
+         ))}
       </div>
-         )}
+     )}
    </Reveal>
 ))}
   </section>
