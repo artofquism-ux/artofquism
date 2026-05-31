@@ -1074,10 +1074,7 @@ header nav button:hover{
  
  
  .nav a{
-    font-size:15px;
-    letter-spacing:1px;
- 
-
+  font-size:15px;
   font-weight:500;
   letter-spacing:.3px;
   text-transform:uppercase;
@@ -1527,7 +1524,7 @@ font-size:25px;
   top:calc(100% - 8px);
   right:0;
 
-  min-width:124px;
+  min-width:134px;
   min-height:224px;
 
   background:#fff;
@@ -1572,6 +1569,39 @@ font-size:25px;
   background:#f7f7f7;
   color:var(--accent);
 }
+
+@media (max-width:768px){
+
+.lang-dropdown{
+  position:absolute;
+  right:0;
+  min-width:134px;
+  min-height:200px;
+  background:#fff;
+}
+
+
+.lang-dropdown a{
+  display:block;
+  padding:10px 14px;
+
+  font-size:14px;
+  color:var(--color-text);
+
+  transition:.2s ease;
+}
+
+.lang-dropdown a:hover{
+  background:#f7f7f7;
+  color:var(--accent);
+}
+
+
+}
+
+
+
+
 
 /* animation */
 
@@ -2374,7 +2404,7 @@ font-size: 16px;
  
  .read-toggle{
   display:inline !important;
-   cursor:pointer;
+  cursor:pointer;
   vertical-align:baseline;
   background:none;
   border:none;
@@ -2388,8 +2418,7 @@ font-size: 16px;
   font-weight:400;
   color:#ff3604;
   margin-left:.35rem;
-    text-decoration: underline;
-
+  text-decoration: underline;
   opacity:.8;
   pointer-events:auto !important;
   white-space:nowrap;

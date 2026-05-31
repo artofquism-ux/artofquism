@@ -163,12 +163,12 @@ if (item.type === "section") {
         {" "}
         {item.textFull}
 
-        <span
-          className="read-toggle"
-          onClick={() => setExpanded(false)}
-        >
-          {" "}Read less
-        </span>
+      <span
+        className="read-toggle"
+         onClick={() => setExpanded(false)}
+           >
+          Read less
+          </span>
       </span>
   )}
 
@@ -183,12 +183,12 @@ if (item.type === "section") {
   
   {/* READ MORE */}
   {!expanded && item.textFull && (
-    <span
-      className="read-toggle"
-      onClick={() => setExpanded(true)}
-    >
-      {" "}Read more
-    </span>
+  <span
+  className="read-toggle"
+  onClick={() => setExpanded(true)}
+>
+  Read more
+</span>
   )}
 
 </p>
@@ -207,7 +207,7 @@ if (item.type === "section") {
           className="read-toggle"
           onClick={() => setExpanded(false)}
         >
-          {" "}Read less
+          Read less
         </span>
       )}
     </div>
