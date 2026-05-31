@@ -1616,7 +1616,7 @@ font-size:25px;
   font-size:42px;
   font-weight:600;
   line-height:1.8;
-  margin-top:-70px;
+  margin-top:-85px;
    text-align:center;
 }
 
@@ -1716,7 +1716,7 @@ font-size:25px;
 @media (max-width:768px){
 
   .home-home-title{
-    font-size:25px;
+    font-size:28px;
     margin-top:-80px;
     margin-bottom:20px;
   }
@@ -1759,11 +1759,14 @@ font-size:25px;
    z-index: 1;
  
   background:
-    radial-gradient(circle at 20% 50%, rgba(255, 120, 120, 0.07), transparent 30%),
-    radial-gradient(circle at 50% 20%, rgba(120, 120, 255, 0.06), transparent 60%),
-    radial-gradient(circle at 80% 50%, rgba(253, 140, 140, 0.09), transparent 30%),
+    radial-gradient(circle at 20% 50%, rgba(255, 120, 120, 0.10), transparent 30%),
+    radial-gradient(circle at 50% 20%, rgba(120, 120, 255, 0.09), transparent 60%),
+    radial-gradient(circle at 80% 50%, rgba(253, 140, 140, 0.12), transparent 30%),
     var(--color-bg);
 }
+
+ 
+
 
 /* inner */
 
@@ -1905,7 +1908,7 @@ font-size:25px;
 /* buttons */
 
 .hero-actions{
-    display:flex;
+  display:flex;
   justify-content:center;
   margin-top:30px;
   margin-bottom: 20px;
@@ -2009,7 +2012,7 @@ font-size:25px;
   bottom:0;
   left:0;
   width:100%;
-  height: 60px;
+  height: 40px;
   background:linear-gradient(to bottom,transparent,var(--color-bg));
 }
 
