@@ -1580,7 +1580,8 @@ font-size:25px;
   min-height:224px;
   width:max-content;
   background:#fff;
- 
+ transform:translateY(8px);
+  transform:translateX(0px);
   display:block;
   max-width:calc(100vw - 20px);
   overflow:hidden; 
