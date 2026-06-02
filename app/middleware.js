@@ -34,7 +34,6 @@ export function middleware(request) {
   // 🌍 detect country (optional)
   const country = request.geo?.country;
 
-  let locale = "en"; // default
 
   if (country === "BD") locale = "bn";
   else if (country === "IN") locale = "en"; // or "hi"

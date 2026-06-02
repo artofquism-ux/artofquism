@@ -63,19 +63,25 @@ useEffect(() => {
 
 <div className="nav-right">
 
-  <LanguageSwitcher currentLang={currentLang} />
+  <div className="header-actions">
 
-  <button
-  className="menu-btn"   // 🔥 
-  onClick={(e) => {
-    e.stopPropagation();
-    setMenuOpen(!menuOpen);
-  }}
->
-  ☰
-</button>
-    </div>
- </div>
+    <LanguageSwitcher currentLang={currentLang} />
+
+    <button
+      className="menu-btn"
+      onClick={(e) => {
+        e.stopPropagation();
+        setMenuOpen(!menuOpen);
+      }}
+    >
+      ☰
+    </button>
+
+  </div>
+
+</div>
+</div>
+ 
 </header>
   );
 }

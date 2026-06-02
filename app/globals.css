@@ -385,6 +385,7 @@ MOBILE FIX
 
 }
 
+
 /* =========================
    ✨ FADE-IN (REUSABLE)
 ========================= */
@@ -735,10 +736,10 @@ MOBILE FIX
   gap:1px;
   font-size:22px;
   line-height:1;
-  margin-top:25px;
+  margin-top:-15px;
   width:44px;
   height:34px;
-  margin-top: 25px;
+ 
   padding:6px;
   border:0px solid #ddd;
   border-radius:3px;
@@ -854,6 +855,32 @@ padding:0 20px;
 
   padding:0 20px;
 }
+
+@media (max-width:768px){
+
+  .header-right{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    gap:10px;
+  }
+
+}
+
+@media (max-width:768px){
+
+  .header-actions{
+    display:flex;
+    flex-direction:column;
+
+    align-items:flex-end;
+
+    gap:10px;
+  }
+
+}
+
+
 
 /* ===== LOGO ===== */
 
@@ -1044,6 +1071,27 @@ header nav button:hover{
   justify-content:space-between;
 }
 
+.nav-toggle{
+  position:relative;
+  top:auto;
+  right:auto;
+}
+
+@media (max-width:768px){
+
+  .nav-inner{
+    width:100%;
+
+    display:flex;
+    flex-direction:column;
+
+    align-items:flex-end;
+    justify-content:flex-start;
+
+    gap:10px;
+  }
+
+}
 
 /* =========================
    LOGO
@@ -1463,9 +1511,10 @@ opacity:0.7;
   position:relative;
   display:flex;
   align-items:center;
-  top:-15px;   
-  right:-24px; 
-  margin-left:0px;   
+  top:0px;   
+  right:34px; 
+  margin-left:0px;
+  margin-bottom:10px;   
   z-index:1000;
 }
 
@@ -1481,7 +1530,7 @@ opacity:0.7;
   font-size:12px;
   font-weight:500;
 
-  padding:5px  5px;
+  padding:5px 0 5px;
   border-radius:0px;
 
   border:1px solid var(--color-border);
@@ -1576,11 +1625,11 @@ font-size:25px;
   position:absolute;
   top:100%;
   right:0; 
-  min-width:134px;
+  min-width:124px;
   min-height:224px;
   width:max-content;
   background:#fff;
- transform:translateY(8px);
+  transform:translateY(8px);
   transform:translateX(0px);
   display:block;
   max-width:calc(100vw - 20px);
