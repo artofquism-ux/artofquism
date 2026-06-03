@@ -1552,14 +1552,15 @@ opacity:0.7;
 
 .lang-btn .arrow{
   font-size:22px;
+   gap:14px;
 }
 
 .arrow{
 font-size:25px;
-  margin-left:0px;
-
-  position:relative;
-  top:-1px;
+  margin-left:105px;
+ gap:14px;
+  position:fixed;
+  top:-8px;
 
   transition:.25s ease;
 }
@@ -1608,7 +1609,6 @@ font-size:25px;
 .lang-dropdown a{
   display:block;
   padding:10px 14px;
-
   font-size:14px;
   color:var(--color-text);
 
@@ -1655,7 +1655,6 @@ font-size:25px;
 
   .lang-dropdown div{
     padding:6px 18px;
-  
     white-space:nowrap;
   }
 
