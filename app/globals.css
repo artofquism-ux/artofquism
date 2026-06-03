@@ -727,23 +727,27 @@ MOBILE FIX
 }
 
  .menu-btn{
-   
-   top:3px;
+  display:flex;
+  align-items:center;
+  
+  margin-top:2px;
   display:none;
   background:var(--color-surface);
   border:none;
   cursor:pointer;
 
   align-items:center;
-  gap:1px;
-  font-size:22px;
+  gap:8px;
+  font-size:14px;
   line-height:1;
- 
-  width:44px;
-  height:30px;
+
+  padding:4px 5px 5px;
+
+  width:auto;
+  height:28px;
  
   padding:3px;
-  border:1px solid #ddd;
+  border:0px solid #ffffff;
   border-radius:0px;
   transition:.25s ease;
   cursor:pointer;
@@ -788,9 +792,14 @@ MOBILE FIX
 
 @media (max-width: 768px) {
 
-    .menu-btn{
-    display:block;
-    margin-left:auto;
+ .menu-btn{
+  display:block;
+  margin-left:auto;
+  display:flex;
+  align-items:center;
+  margin-top:3px;
+  padding:4px 15px 5px;
+  letter-spacing: 2px;
   }
   
   .nav {
@@ -1521,18 +1530,18 @@ opacity:0.7;
 .lang-btn{
   position:relative;
   display:flex;
-  top:-16px; 
+  top:-15px; 
   align-items:center;
-  height:22px;   
+  height:28px;   
   gap:4px;
-    width: 100%;
-    min-width:136px;
-      font-size:12px;
-  font-weight:500;
+  width: 100%;
+  min-width:136px;
+  font-size:12px;
+  font-weight:400;
   padding:4px 5px 5px;
   border-radius:0px;
-
-  border:1px solid var(--color-border);
+letter-spacing: 0.5px;
+  border:0px solid var(--color-border);
   background:var(--color-bg);
   cursor:pointer;
   transform:translateY(1px); /* 🔥 micro adjust */
@@ -1552,15 +1561,15 @@ opacity:0.7;
 
 .lang-btn .arrow{
   font-size:22px;
-   gap:14px;
+   gap:18px;
 }
 
 .arrow{
 font-size:25px;
-  margin-left:105px;
- gap:14px;
+  margin-left:108px;
+ gap:18px;
   position:fixed;
-  top:-8px;
+  top:-4px;
 
   transition:.25s ease;
 }
@@ -1579,7 +1588,7 @@ font-size:25px;
 
   background:#fff;
   background:var(--color-bg);
-  border:1px solid var(--color-border);
+  border:0px solid var(--color-border);
   border-radius:0px;
 
   box-shadow:0 8px 20px rgba(0,0,0,.08);
@@ -1633,7 +1642,7 @@ font-size:25px;
   font-size:12px;
   font-weight:500;
   position:relative;
-  top:-2px; 
+  top:0px; 
   width: 100%;
   min-width:136px;  
   padding:4px 5px 5px;
@@ -1692,7 +1701,7 @@ font-size:25px;
 .home-text{
   font-size:17px;
   max-width:900px;
-  margin:30px 0 0px;
+  margin:10px 0 0px;
   text-align:left;
    line-height:1.8;
 }
@@ -1802,9 +1811,9 @@ font-size:25px;
 @media (max-width:768px){
 
   .home-home-title{
-    font-size:28px;
+    font-size:30px;
     margin-top:-80px;
-    margin-bottom:20px;
+    margin-bottom:0px;
   }
 
   .home-slider{
@@ -1813,8 +1822,8 @@ font-size:25px;
   display:flex;
   align-items:center;
   justify-content:center;
-  margin-top:-100px;
-  margin-bottom:-100px;
+  margin-top:-125px;
+  margin-bottom:-120px;
 
 }
 
@@ -1947,8 +1956,8 @@ font-size:25px;
 
 .hero-tagline {
   font-size: 17px;
-  color: #666;
-  margin-bottom: 28px;
+  color: #383838;
+  margin-bottom: 10px;
    line-height:1.7;
 }
 

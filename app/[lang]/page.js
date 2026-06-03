@@ -75,7 +75,7 @@ const t = homeContent[lang];
      <div className="hero-inner">
 <Reveal> 
   <div className="home-home-title"> THE ART OF QUISM </div>
- <p className="hero-tagline"> Reflection of Zero-Dimensional Life — Full of Emptiness</p>
+ <div className="hero-tagline"> Reflection of Zero-Dimensional Life — Full of Emptiness</div>
 </Reveal> 
  
    <div className="home-text">

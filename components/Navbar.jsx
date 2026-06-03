@@ -74,7 +74,7 @@ useEffect(() => {
         setMenuOpen(!menuOpen);
       }}
     >
-      ☰
+      ☰   <span>Menu</span>
     </button>
 
   </div>
