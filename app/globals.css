@@ -1563,18 +1563,7 @@ font-size:25px;
   transition:.25s ease;
 }
 
-@media (max-width:768px){
-
-  .lang-btn{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    position:relative;
-    top:-2px;   
-    right:0px; 
-  }
-
-}
+ 
 /* dropdown */
 
 .lang-dropdown{
@@ -1637,11 +1626,13 @@ font-size:25px;
     z-index:1000;
   }
 
-  .lang-btn{
+ .lang-btn{
     display:flex;
     align-items:center;
-    gap:6px;
-    
+    gap:12px;
+    position:relative;
+    top:-2px;   
+    right:0px; 
   }
 
   .lang-dropdown{
