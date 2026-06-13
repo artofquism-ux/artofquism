@@ -1933,8 +1933,11 @@ font-size:25px;
 }
  
 .hero-museum .hero-inner,
-.hero-gallery .hero-inner {
-  max-width: 900px;
+.hero-gallery .page-article  {
+  max-width: 1000px;
+  margin: 0 auto 6px;
+  text-align:justify;
+    padding:6px 12px;
 }
 
 /* Museum */
@@ -1973,7 +1976,7 @@ font-size:25px;
 
 /* Museum → slightly narrow (text heavy) */
 .hero-museum .hero-inner {
-  max-width: var(--container-narrow);
+  max-width: 900px;
 }
 
 /* Gallery → wider (visual feel) */
