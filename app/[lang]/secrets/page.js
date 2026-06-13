@@ -6,16 +6,20 @@ import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import UniversalTabs from "@/components/UniversalTabs";
 import Lightbox from "@/components/Lightbox";
-
+import { useParams } from "next/navigation";
 
 import { secretsData } from "@/lib/data/secretsData";
 
 export default function SecretsPage() {
 
-  const [activeTab, setActiveTab] = useState(0);
- const [active, setActive] = useState(false);
-  const tab = secretsData.tabs[activeTab];
+  const params = useParams();
+  const lang = params?.lang || "en";
 
+  const [activeTab, setActiveTab] = useState(0);
+  const [active, setActive] = useState(false);
+  const tab = secretsData.tabs[activeTab];
+ 
+  
   return (
     <>
       <main className="secrets-page">
@@ -26,13 +30,15 @@ export default function SecretsPage() {
           <section className="secrets-hero">
 
             <Reveal>
-              <h1>{secretsData.title}</h1>
+              <h1>
+              {secretsData.title?.[lang] || secretsData.title?.en}
+               </h1>
             </Reveal>
 
             <Reveal delay={0.1}>
-              <p className="subtitle">
-                {secretsData.subtitle}
-              </p>
+             <p>
+              {secretsData.subtitle?.[lang] || secretsData.subtitle?.en}
+             </p>
             </Reveal>
 
           </section>
@@ -66,11 +72,11 @@ export default function SecretsPage() {
  {block.type === "heading" && (
   <h2 className="poetry-heading">
     <span className="heading-title">
-      {block.title}
+      {block.title?.[lang] || block.title?.en}
     </span>
 
     <span className="heading-text">
-      {" "}{block.text}
+      {" "}{block.text?.[lang] || block.text?.en}
     </span>
   </h2>
 )}
@@ -79,12 +85,12 @@ export default function SecretsPage() {
    {block.type === "poetry" && (
      <div className="center-content">
       <p className="poetry-line">
-        {block.text?.map((line, idx) => (
-          <span key={idx}>
-            {line}
-            <br />
+        {(block.text?.[lang] || block.text?.en)?.map((line, idx) => (
+           <span key={idx}>
+              {line}
+             <br />
           </span>
-         ))}
+          ))}
        </p>
      <div className="separator">★</div>
    </div>
@@ -92,46 +98,66 @@ export default function SecretsPage() {
 
 
 {/* ===== TREE ===== */}
-{block.type === "tree" && (
-  <div className="center-content life-tree">
-    <p className="tree-line">
-      {Array.isArray(block.text)
-        ? block.text.map((line, idx) => (
-            <span key={idx}>
-              {line}
-              <br />
-            </span>
-          ))
+{block.type === "tree" && (() => {
+
+  const treeText =
+    typeof block.text === "object"
+      ? block.text?.[lang] || block.text?.en
+      : block.text;
+
+  return (
+    <div className="center-content life-tree">
+      <p className="tree-line">
+        {Array.isArray(treeText)
+          ? treeText.map((line, idx) => (
+              <span key={idx}>
+                {line}
+                <br />
+              </span>
+            ))
+          : treeText}
+      </p>
+    </div>
+  );
+})()}
+
+ {/* ===== SECTION TEXT ===== */}
+{block.type === "section" && (
+  <div className="stanza">
+    <p>
+      {block.title && (
+        <strong>
+          {typeof block.title === "object"
+            ? block.title?.[lang] || block.title?.en
+            : block.title}
+        </strong>
+      )}
+
+      {" "}
+
+      {typeof block.text === "object"
+        ? block.text?.[lang] || block.text?.en
         : block.text}
     </p>
   </div>
 )}
 
- {/* ===== SECTION TEXT ===== */}
-    {block.type === "section" && (
-      <div className="stanza">
-        <p>
-          {block.title && (
-            <strong>{block.title}</strong>
-                )}
-              {" "}
-           {block.text}
-        </p>
-      </div>
-   )}
-
  {/* VIDEO */}
     {block.type === "video" && (
       <div className="video-wrap">
 
-<video
-  controls
-  playsInline
-  preload="metadata"
-  style={{ width: "100%" }}
->
-  <source src={block.src} type="video/mp4" />
-</video>
+if (!block.src) return null;
+
+return (
+  <video
+    controls
+    playsInline
+    preload="metadata"
+    style={{ width: "100%" }}
+  >
+    <source src={block.src} type="video/mp4" />
+  </video>
+);
 
       </div>
     )}

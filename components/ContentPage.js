@@ -11,8 +11,9 @@ import SubNavbar from "@/components/SubNavbar";
 
 import { museum, gallery } from "@/lib/data/collections";
 
-export default function ContentPage({ data, lang }) {
+export default function ContentPage({ data, lang, t, }) {
 
+  
   if (!data) return null;
 
   const pathname = usePathname();
@@ -24,6 +25,10 @@ export default function ContentPage({ data, lang }) {
   const [active, setActive] = useState(null);
   const [openText, setOpenText] = useState(null);
 
+console.log("data =", data);
+console.log("lang =", lang);
+console.log("t =", t);
+  
   const isTabs =
     data?.tabs ||
     data?.content?.[0]?.tabs;
@@ -32,6 +37,10 @@ export default function ContentPage({ data, lang }) {
     data?.tabs?.[activeTab] ||
     data?.content?.[0]?.tabs?.[activeTab];
 
+if (!data) {
+  return <h1>Data Not Found</h1>;
+}
+  
   return (
 
     <>
@@ -50,15 +59,25 @@ export default function ContentPage({ data, lang }) {
 
           <div className="hero-inner">
 
-            <Reveal>
-              <h1>{data.title}</h1>
+<Reveal>
+ <h1>
+  {typeof data?.title === "object"
+    ? data.title?.[currentLang]
+    : data?.title}
+</h1>
 
-              {data.subtitle && (
-                <p className="page-subtitle">
-                  {data.subtitle}
-                </p>
-              )}
-            </Reveal>
+  {t?.subtitle && (
+    <p className="page-subtitle">
+      {t.subtitle}
+    </p>
+  )}
+
+  {t?.description && (
+    <p className="home-text">
+      {t?.description}
+    </p>
+  )}
+</Reveal>
 
             {/* ===== SUB NAV ===== */}
 
@@ -93,19 +112,17 @@ export default function ContentPage({ data, lang }) {
           {isTabs && (
 
             <UniversalTabs
-              tabs={
-                data.tabs ||
-                data.content?.[0]?.tabs
-              }
+             tabs={
+             data.tabs ||
+             data.content?.[0]?.tabs
+             }
               activeTab={activeTab}
               setActiveTab={setActiveTab}
-            />
-
+              lang={lang}
+              />
           )}
 
-
-
-
+ 
           {/* ===== BLOCKS ===== */}
 
          {(
@@ -125,13 +142,14 @@ export default function ContentPage({ data, lang }) {
 
   ) : (
 
-    <RenderBlock
-      key={`${block.type}-${i}`}
-      item={block}
-      setActive={setActive}
-      openText={openText}
-      onOpenText={setOpenText}
-    />
+  <RenderBlock
+  key={`${block.type}-${i}`}
+  item={block}
+  lang={lang}
+  setActive={setActive}
+  openText={openText}
+  onOpenText={setOpenText}
+/>
 
   )
 

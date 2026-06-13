@@ -2,6 +2,7 @@
 🌸 PUSHANJALI — FINAL
 ====================== */
 
+
 /* ===== ROOT COLORS ===== */
 @media (prefers-color-scheme: dark) {
   :root {
@@ -44,6 +45,9 @@ html.light {
 /* =========================
 🌙 PAGE BASE
 ========================= */
+* {
+  outline: 0px solid red;
+}
 
 .pushpanjali-page {
   background: radial-gradient(circle at center, #3a3a3a, #1f1f1f);
@@ -118,9 +122,92 @@ html.light {
 /* =========================
 🔗 ACTION BUTTONS
 ========================= */
+.push-hero-subtitle{
+  text-align:center;
+  margin:0px 0 50px;
+}
+
+.push-part-info{
+  text-align:center;
+  margin:35px auto 40px;
+  font-size:1.3rem;
+  color:#ddd;
+}
+
+.push-part-info strong{
+  font-weight:600;
+}
+
+.tab-button{
+ display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:.40rem 1.6rem;
+
+  border:1px solid #a2a2a2;
+  border-radius:999px;
+
+  background:#353535;
+    color:#eeecec;
+
+  font-size:.15.2px;
+  font-weight:500;
+
+  cursor:pointer;
+  transition:.3s;
+}
+
+.tab-button:hover{
+  background:#ffffff;
+    color:#0d0d0d;
+}
+
+.tab-button.primary{
+  background:#eed4d4;
+  color:#fff;
+}
+.push-tabs .tab-button {
+  background: rgba(255,255,255,.05);
+  border: 1px solid #8a8a8a;
+  color: #e5e5e5;
+}
+
+.push-tabs .tab-button.active {
+  background: #000;
+  color: #fff;
+  border-color: #aaa;
+}
+
+.push-tabs .tab-button.active::before{
+  content:"✦";
+  display:block;
+   margin-right:8px;
+    margin-left:-8px;
+  font-size:12px;
+  margin-bottom:2px;
+}
+.push-subtitle{
+  text-align:center;
+  margin:30px auto 40px;
+  font-size:15.2px;
+  font-weight:500;
+  color:#d9d9d9;
+}
+
+.push-subtitle strong{
+  display:inline-block;
+  margin-right:10px;
+}
+
+.push-subtitle strong{
+  display:block;
+  margin-bottom:10px;
+}
+
 
 .push-actions {
-  display: flex;
+  display: wrap;
   justify-content: center;
   gap: 14px;
   flex-wrap: wrap;
@@ -173,9 +260,13 @@ html.light {
 }
 
 .push-hero p {
-  color: var(--color-muted);
-  font-style: italic;
-  margin-bottom: 60px;
+  color:   #d9d9d9;
+   margin-bottom: 50px;
+ font-size: 17px;
+  color: #d5d5d5;
+  line-height:1.7;
+  letter-spacing: .3px;
+
 }
 
 
@@ -184,18 +275,49 @@ html.light {
 ========================= */
 
 .push-poetry {
-  max-width: 640px;
-  margin: 0 auto;
+  max-width: 800px;
+  margin: 40px auto 40px;
+  color: #d9d9d9;
+   
+  font-size: 17px;
+  line-height:1.7;
+  letter-spacing: .3px;
+  text-align: center;
+    
 }
 
-.verse {
-  font-style: italic;
-  font-size: 18px;
-  line-height: 2.2;
-  margin-bottom: 20px;
+.push-poetry-section {
+  padding: 10px;
+  
+}
+
+.push-poetry .verse {
+  display: block;
+  margin-bottom: 2px;
+}
+
+.stanza{
+    margin-top:32px;
+
+  margin-bottom:32px;
+}
+
+.verse{
+  font-style:normal;
+  line-height:1;
+   font-size: 18px;
+  line-height: 1.8;
+  margin-top: 10px;
+  margin-bottom: 10px;
   color: #ddd;
+   margin: 0;
+  display:block;
+  border:0px solid red;
 }
 
+.verse + .verse{
+  margin-top: 0cqmax
+}
 .verse span {
   display: block;
   opacity: 0;

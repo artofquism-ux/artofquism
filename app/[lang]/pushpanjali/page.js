@@ -2,99 +2,98 @@
 "use client";
 
 import Link from "next/link";
-
- import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "../pushpanjali/pushpanjali.css";
 import Reveal from "@/components/Reveal";
 import { useParams } from "next/navigation";
- 
+import { pushpanjaliData } from "@/lib/data/pushpanjaliData";
+import UniversalTabs from "@/components/UniversalTabs";
+import RenderBlock from "@/components/RenderBlock";
+
 export default function PushpanjaliPage() {
-const { lang } = useParams();
-const [active, setActive] = useState(null);
-const currentLang = lang || "en";
+  const { lang } = useParams();
+  const currentLang = lang || "en";
+
+  const t = (value) =>
+    typeof value === "object"
+      ? value?.[currentLang] || value?.en
+      : value;
+
+  const [active, setActive] = useState(null);
+
+  useEffect(() => {
+    const audio = new Audio("/audio/ambient.mp3");
+    audio.loop = true;
+    audio.volume = 0.2;
+
+    const play = () => {
+      audio.play();
+      window.removeEventListener("click", play);
+    };
+
+    window.addEventListener("click", play);
+
+    return () => {
+      audio.pause();
+      window.removeEventListener("click", play);
+    };
+  }, []);
+
+const hero = pushpanjaliData.content[0];
+
+const [activeTab, setActiveTab] = useState(0);
+
+const tabs = pushpanjaliData.content?.[1]?.tabs || [];
+const tab = tabs[activeTab];
  
-useEffect(() => {
-  const audio = new Audio("/audio/ambient.mp3");
-  audio.loop = true;
-  audio.volume = 0.2;
 
-  const play = () => {
-    audio.play();
-    window.removeEventListener("click", play);
-  };
 
-  window.addEventListener("click", play);
-}, []);
+  return (
+    <main className="pushpanjali-page">
 
-return (
-
-<main className="pushpanjali-page">
-
- 
- 
-
-      {/* 🌸 HERO */}
+      {/* HERO */}
       <section className="push-hero">
-          <Reveal> 
-            <h1>Pushpanjali</h1>
-       <p>
-  <strong>Pushpanjali</strong> Offerings of silence, devotion & inner light...
-  
+     <Reveal>
+      {/* Hero */}
+<h1>{pushpanjaliData.title[currentLang]}</h1>
+
+<p className="push-hero-subtitle">
+  {pushpanjaliData.content[0].text[currentLang]}
 </p>
-        </Reveal> 
-        </section>
 
- <Reveal> 
-   <div className="push-actions">
-<Link href={`/${currentLang}/founder`}>Founder's Philosophy</Link>
-<Link href={`/${currentLang}/pushpanjali`}>Spiritual Expressions 
-</Link>
-</div>
-</Reveal> 
+{/* Tabs */}
+<UniversalTabs
+  tabs={tabs}
+  activeTab={activeTab}
+  setActiveTab={setActiveTab}
+  className="push-tabs"
+/>
 
-      {/* 🌿 POETRY */}
-      <section className="push-poetry">
+{/* Current Part Heading */}
+<p className="push-part-info">
+  <strong>
+    {tab.blocks?.[0]?.title?.[currentLang]}
+  </strong>
 
-        <Reveal>
-          <p className="verse">
-            <span>In silence, the soul unfolds like a flower,</span>
-            <span>offering fragrance to the unseen universe;</span>
-          </p>
-        </Reveal>
+  {" : "}
 
-        <div className="separator">✧</div>
+  {tab.blocks?.[0]?.text?.[currentLang]}
+</p>
 
-        <Reveal delay={0.2}>
-          <p className="verse">
-            <span>Each breath becomes a sacred rhythm,</span>
-            <span>where the self dissolves into light;</span>
-          </p>
-        </Reveal>
-
-        <div className="separator">✧</div>
-
-        <Reveal delay={0.4}>
-          <p className="verse">
-            <span>No path, no destination remains,</span>
-            <span>only the eternal presence within;</span>
-          </p>
-        </Reveal>
-
+{/* Poetry */}
+<section className="push-poetry">
+  {tab?.blocks?.slice(1).map((block, i) => (
+    <RenderBlock
+      key={`${block.type}-${i}`}
+      item={block}
+      lang={currentLang}
+    />
+  ))}
+</section>
+</Reveal>
+         
       </section>
 
-      {/* 🌌 FINAL MESSAGE */}
-      <section className="push-closing">
-        <Reveal>
-          <p>
-            In this offering, there is no giver or receiver—
-            only a silent unfolding of existence itself.
-          </p>
-        </Reveal>
-
-        
- 
-</section>
- 
-</main>
-);
+    </main>
+  );
 }

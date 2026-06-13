@@ -3,6 +3,27 @@
 git add .
 git commit -m "update"
 git push origin main
+  
+  bn: "",
+
+  hi: "",
+
+  sa: "",
+  },
+},
+ 
+  bn: [
+   "",
+   ],
+
+  hi: [
+   "",
+   ],
+
+  sa: [
+   "",
+   ],
+
   ========================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap');
@@ -188,6 +209,7 @@ body{
 
 /* ===== TYPOGRAPHY ===== */
 
+ 
 .page{
   padding: 0  10px;
   width: 100%;
@@ -1696,14 +1718,36 @@ font-size:25px;
 
 /* ====== END LANGUAGE DROPDOWN ====== */
 
+.home-description {
+  white-space: pre-line;
+}
 
+.home-home-title,
+.hero-tagline{
+ text-align:center;
+  width:100%;
+  
+}
 
 .home-text{
-  font-size:17px;
-  max-width:900px;
-  margin:10px 0 0px;
+  width:100%;
+  max-width:1200px;
+  align-self:flex-start;
   text-align:left;
-   line-height:1.8;
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+  font-size:17px;
+  max-width:1400px;
+  margin:10px 0;
+  line-height:1.9;
+}
+
+.hero .home-text p{
+  max-width:1200px;
+  margin-left:0;
+  margin-right:0;
+  margin-bottom:-4px;
 }
 
 .home-home-title{
@@ -1835,6 +1879,12 @@ font-size:25px;
 
 /* HERO START  */
 
+ 
+
+.content-tabs,
+.museum-tabs {
+    margin-top: 0;
+}
 
 .hero {
   position: relative;
@@ -1872,7 +1922,7 @@ font-size:25px;
  margin: 0 auto;
   padding: 0;
   line-height:1.2;
-  margin-bottom:6px;
+  margin-bottom: 0px;
    
  animation:fadeUp 1.2s ease forwards;
   justify-content: space-between;
@@ -1992,7 +2042,7 @@ font-size:25px;
   color:var(--color-muted);
   line-height:1.8;
   max-width:1000px;
-  margin: 0 auto;
+  margin:0 0 24px 0;
   max-width: 1000px;
   color:#111;
 }
@@ -2299,7 +2349,40 @@ display: block;
    
 }
 
+
+.heading-text{
+ display:inline;
+ font-weight:400;
+ color:#333;
+ margin-top:8px;
+ width:100%;
+ max-width: 1000px;
+ text-align: left;
+ overflow: hidden;
+  margin-bottom:12px;
+  padding-left: 5px;
+  margin: 0;               
+  font-size: 16px;
+  color: #333;
+  line-height:1.8;  
+}
+
+.heading-title{
+  width:100%;
+  max-width:1000px;
+  font-size:15px;
+  font-weight:500;
+  line-height:1.8;
+  letter-spacing:-0.02em;
+  color:#626161;
+  font-family: 'Inter', sans-serif;
+   text-align: center;
+   margin: 20px auto 20px;
+  padding-left: 20;
+}
+
 .headline-title{
+   max-width:1000px;
   font-size:16px;
   font-weight:500;
   line-height:1.8;
@@ -2307,7 +2390,8 @@ display: block;
   color:#303030;
     font-family: 'Inter', sans-serif;
    text-align:left;
-   padding-left: 10px;
+   padding-left: 20px;
+   
 }
 
  
@@ -2321,7 +2405,7 @@ display: block;
   color:#272626;
    text-align:center;
    padding-left: 10px;
-   margin: -5px 0px 30px;
+   margin: 0px 0px 0px;
  }
 
 
@@ -2377,13 +2461,9 @@ font-size: 16px;
   margin-top:0;
 }
 
-.heading-text{
-  margin-top:6px;
-}
-
-
 .para-headline {
   text-align: left;
+   max-width: 1000px;
    font-weight: 500;
   font-size: 15px;
   max-width: 620px;
@@ -2399,12 +2479,14 @@ font-size: 16px;
  display:-webkit-box;
  -webkit-box-orient:vertical;
   overflow: hidden;
-  margin-bottom:12px;
-  padding-left: 10px;
+  margin-top:22px;
+  margin-bottom:24px;
+  padding-left: 0px;
   margin: 0;               
   font-size: 16px;
    color: #333;
    line-height:1.8;
+     
 }
  
 
@@ -2416,9 +2498,7 @@ font-size: 16px;
   display: inline;
 }
 
-.para-text span::after {
-  content: " ";
-}
+ 
 
 .para-text strong {
   font-weight: 500;
@@ -2467,7 +2547,7 @@ font-size: 16px;
   border-radius: 4px;
 }
  
- .read-toggle{
+.read-toggle{
   display:inline !important;
   cursor:pointer;
   vertical-align:baseline;
@@ -2482,7 +2562,7 @@ font-size: 16px;
   font-size: 15px;
   font-weight:400;
   color:#ff3604;
-  margin-left:.35rem;
+  margin-left:4px;
   text-decoration: underline;
   opacity:.8;
   pointer-events:auto !important;
@@ -3146,14 +3226,38 @@ cursor: grab;
   content:" ";
 }
 
-
+.para-text,
+.extra-para {
+  width: 100%;
+  max-width: 1000px;
+  padding-left: 20;
+}
 .extra-para{
-  max-width:1000px;
-  display:block;
-  font-size:16px;
+  display:inline-block;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0;
+  line-height: 1.8;
+
   margin-top:18px;
+  margin-left:0px;
+  text-indent:0;
   line-height:1.8;
-  padding-left:10px;
+  margin-bottom:0px;
+  padding-left: 20px;
+  font-size: 16px;
+   color: #333;
+    
+}
+
+.extra-para-old{
+   display:block;
+  width:100%;
+  margin-top:12px;
+  line-height:1.9;
+   text-indent: 35px;
+  font-size:16px;
+  padding-left:5px;
   color:#333;
 } 
 
@@ -3431,13 +3535,16 @@ margin-bottom: 30px;
 }
 
 .section-text {
-   width:100%;
-  max-width:1200px;
-  margin:0 auto 0px;
+  width:100%;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 0;
   font-size: 14px;
   color: #666;
   line-height: 1.6;
   padding:10px 0 0px;
+  margin-bottom: 0px;
 }
 
 
@@ -3977,6 +4084,11 @@ UNIVERSAL TAB
   margin:0 auto 40px;
 }
 
+/* globals.css */
+.tab-button {
+  background: #4b4b4b;
+}
+
 .tab-button{
  display:inline-flex;
   align-items:center;
@@ -3984,10 +4096,10 @@ UNIVERSAL TAB
 
   padding:.40rem 1.6rem;
 
-  border:1px solid #d5d5d5;
+  border:1px solid #858383;
   border-radius:999px;
 
-  background:#fff;
+  background:#ffffff;
 
   font-size:.95rem;
   font-weight:500;

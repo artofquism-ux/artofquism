@@ -2,17 +2,19 @@
 
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { getTranslation } from "@/app/content";
 
-export default function Footer() {
+export default function Footer({ lang = "en" }) {
+  const t = getTranslation(lang);
+
   const pathname = usePathname();
   const isSecrets = pathname?.includes("secrets");
   const isLightBg = true;
+  
   return (
     
     <footer className={`site-footer ${isSecrets ? "secrets-footer" : ""}`}>
-
-      {/* 🔹 TOP DIVIDER */}
-      
+ 
       <div className="footer-divider" />
       <div className="footer-divider" />
       {/* 🔹 END LOGO */}
@@ -25,23 +27,23 @@ export default function Footer() {
           priority
         />
       </div>
-
-      {/* 🔹 BRAND TEXT */}
-      <h3 className="footer-title">ART OF QUISM</h3>
+ 
+      <h3 className="footer-title">
+        {t.footer.title}
+      </h3>
 
       <p className="footer-desc">
-         A contemplative space where art becomes a mirror of consciousness — exploring nature, silence, creation, and inner awareness;
-   </p>
-     <p>
-        The awakening of subconscious, a stable life in emptiness — life buoyant with vitality, constant with infinite life;
+        {t.footer.description}
       </p>
 
-      {/* 🔹 BOTTOM DIVIDER */}
+      <p>
+        {t.footer.subtitle}
+      </p>
+
       <div className="footer-divider" />
 
-      {/* 🔹 COPYRIGHT */}
       <p className="footer-copy">
-        © {new Date().getFullYear()} Art of Quism
+        © {new Date().getFullYear()} {t.footer.copyright}
       </p>
 
     </footer>

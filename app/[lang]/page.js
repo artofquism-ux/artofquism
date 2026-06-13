@@ -1,12 +1,14 @@
 
 import Link from "next/link";
-import { homeContent } from "../content/home";
 import Reveal from "@/components/Reveal";
+import content from "@/app/content";
+
 
 export default async function Page({ params }) {
-const lang = (await params)?.lang || "en";
 
-const t = homeContent[lang];
+  const lang = (await params)?.lang || "en";
+
+  const t = content[lang] || content.en;
 
   return (
     <main className="page">
@@ -74,16 +76,20 @@ const t = homeContent[lang];
      <section className="hero">
      <div className="hero-inner">
 <Reveal> 
-  <div className="home-home-title"> THE ART OF QUISM </div>
- <div className="hero-tagline"> Reflection of Zero-Dimensional Life — Full of Emptiness</div>
+ <div className="home-home-title">
+  {t.home.title}
+</div>
+
+<div className="hero-tagline">
+  {t.home.subtitle}
+</div>
 </Reveal> 
  
-   <div className="home-text">
-    Quism reflects the silent origin of existence —
-    where form dissolves into emptiness,
-    and consciousness returns to the zero-dimensional source
-    beyond material identity...
-  </div>
+<div className="home-text">
+  {t.home.description.map((text, i) => (
+    <p key={i}>{text}</p>
+  ))}
+</div>
 
  </div>
  </section>

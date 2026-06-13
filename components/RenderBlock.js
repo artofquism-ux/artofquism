@@ -7,11 +7,39 @@ import Clock from "@/components/clock/page";
 
 export default function RenderBlock({
   item,
+  lang,
   setActive,
   onOpenText,
   openText,
 }) {
   
+  const poetryText =
+  typeof item.text === "object"
+    ? item.text?.[lang] || item.text?.en
+    : item.text;
+
+{Array.isArray(poetryText)
+  ? poetryText.map((line, i) => (
+      <span key={i}>
+        {line}
+        <br />
+      </span>
+    ))
+  : poetryText}
+
+ 
+if (item.type === "push-poetry") {
+  return (
+    <div className="push-poetry">
+      {poetryText.map((line, i) => (
+        <div key={i} className="verse">
+          {line}
+        </div>
+      ))}
+    </div>
+  );
+}
+
   const params = useParams();
 const currentLang = params?.lang || "en";
 
@@ -36,6 +64,9 @@ const gridClass =
     ? "grid-4"
     : "grid-auto";
 
+
+
+
     // =========================
   // 🔥 TYPE BASED RENDER
   // =========================
@@ -45,7 +76,7 @@ if (item.type === "text" || (item.text && !item.type)) {
     <p className="page-text">
       {item.title && (
     <span className="para-title-inline">
-      {item.title}
+     {item.title?.[lang] || item.title?.en}
     </span>
      )}
     </p>
@@ -53,17 +84,18 @@ if (item.type === "text" || (item.text && !item.type)) {
 }
 
   // 🟢 HEADING
-  if (item.type === "heading") {
+if (item.type === "heading") {
   return (
-    <h2 className="para-title">
-      <strong>{item.title}</strong>
+    <p className="heading-title">
+      <strong>
+        {item.title?.[lang] || item.title?.en}
+      </strong>
 
-      {item.text && (
-        <span className="heading-text">
-          {" "}{item.text}
-        </span>
-      )}
-    </h2>
+      <span className="heading-text">
+        {" "}
+        {item.text?.[lang] || item.text?.en}
+      </span>
+    </p>
   );
 }
  
@@ -72,11 +104,14 @@ if (item.type === "text" || (item.text && !item.type)) {
   return (
      <div className="subheadline-title">
       <h2 className="subheadline-title">
-       <strong>{item.title}</strong>
+       <strong>
+       {item.title?.[lang] || item.title?.en}
+       </strong>
 
       {item.text && (
         <span className="subheadline-text">
-          {" "}{item.text}
+          {" "}
+         {item.text?.[lang] || item.text?.en}
         </span>
       )}
     </h2>
@@ -87,11 +122,17 @@ if (item.type === "text" || (item.text && !item.type)) {
 
 if (item.type === "headline") {
   return (
-    <div className="headline-block">
-      <h2 className="headline-title">
-        {item.title}
-      </h2>
-    </div>
+<div className="headline-block">
+  <h2 className="headline-title">
+    {item.title?.[lang] || item.title?.en}
+  </h2>
+
+  {item.text && (
+    <p className="headline-text">
+      {item.text?.[lang] || item.text?.en}
+    </p>
+  )}
+</div>
   );
 }
 
@@ -100,9 +141,13 @@ if (item.type === "headline") {
     return (
       <div className="quote-item">
         {item.title && (
-          <h3 className="quote-title">{item.title}</h3>
+          <h3 className="quote-title">
+            {item.title?.[lang] || item.title?.en}
+            </h3>
         )}
-        <p className="quote-text">{item.text}</p>
+        <p className="quote-text">
+         {item.text?.[lang] || item.text?.en}
+          </p>
       </div>
     );
   }
@@ -115,7 +160,7 @@ if (item.type === "cta") {
         href={`/${currentLang}${item.link}`}
         className="cta-link"
       >
-        {item.text}
+        {item.text?.[lang] || item.text?.en}
       </Link>
     </div>
   );
@@ -135,74 +180,79 @@ if (item.type === "divider-white") {
    );
 }
 
-
   // 🟢 PARAGRAPH / TEXT
 if (item.type === "section") {
 
   const [expanded, setExpanded] = useState(false);
 
+ 
+
+const fullText =
+  item.textFull?.[lang] ||
+  item.textFull?.en ||
+  item.fullText ||
+  [];
+
+ 
+console.log(
+  "TITLE:",
+  item.title?.en,
+  "EXPANDED:",
+  expanded,
+  "LENGTH:",
+  fullText.length
+);
+
 
   return (
  <div className="section-text">
-
-  <p className="para-text">
+<p className="para-text">
 
   {item.title && (
     <span className="para-title-inline">
-      {item.title}
+      {item.title?.[lang] || item.title?.en}
     </span>
   )}
 
-  {item.text}
+  {item.text?.[lang] || item.text?.en}
 
-  {/* SINGLE PARA */}
-  {expanded &&
-    item.textFull &&
-    typeof item.textFull === "string" && (
-      <span className="desc-full">
-        {" "}
-        {item.textFull}
+{expanded && fullText?.[0] && (
+  <>
+    {" "}
+    {fullText[0]}
 
+    {fullText.length === 1 && (
       <span
         className="read-toggle"
-         onClick={() => setExpanded(false)}
-           >
-          Read less
-          </span>
+        onClick={() => setExpanded(false)}
+      >
+        Read less
       </span>
-  )}
+    )}
+  </>
+)}
 
-  {/* first extra paragraph */}
-  {expanded &&
-    item.textFull &&
-    Array.isArray(item.textFull) && (
-      <span className="desc-full">
-        {item.textFull[0]}
-      </span>
-  )}
-  
   {/* READ MORE */}
-  {!expanded && item.textFull && (
+{!expanded && fullText?.length > 0 && (
   <span
-  className="read-toggle"
-  onClick={() => setExpanded(true)}
->
-  Read more
-</span>
-  )}
-
+    className="read-toggle"
+    onClick={() => setExpanded(true)}
+  >
+    Read more
+  </span>
+)}
 </p>
+
  
- 
-{/* remaining paragraphs */}
+
+{/* FULL TEXT */}
 {expanded &&
-  item.textFull &&
-  Array.isArray(item.textFull) &&
-  item.textFull.slice(1).map((para, i) => (
+  fullText.length > 1 &&
+  fullText.slice(1).map((para, i) => (
     <div key={i} className="extra-para">
       {para}
 
-      {i === item.textFull.slice(1).length - 1 && (
+      {i === fullText.slice(1).length - 1 && (
         <span
           className="read-toggle"
           onClick={() => setExpanded(false)}
@@ -211,10 +261,13 @@ if (item.type === "section") {
         </span>
       )}
     </div>
-))}
-</div>
-)} 
+  ))
+}
+
+ </div>
  
+);
+}
  
     // 🟢 ART ROW  
 
@@ -234,14 +287,16 @@ if(item.type === "art-row"){
       >
           <img
               src={item.image}
-              alt={item.title}
+              alt={item.title?.[lang] || item.title?.en}
               className={item.className || ""}
               />
       </div>
 
    <p className="para-text">
 
-  <strong>{item.title}</strong>{" "}
+  <strong>
+   {item.title?.[lang] || item.title?.en}
+    </strong>{" "}
 
   {item.text?.[0]}
 

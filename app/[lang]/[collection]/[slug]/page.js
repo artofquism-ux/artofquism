@@ -5,9 +5,11 @@ export default async function Page({ params }) {
   const { lang, collection, slug } = await params;
   const safeLang = lang || "en";
 
-  
+
   // 🔥 MAIN FIX
   const data = getCollectionData(collection, slug);
+
+console.log("data =", data);
 
  
  
