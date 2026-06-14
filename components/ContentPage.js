@@ -22,6 +22,21 @@ export default function ContentPage({ data, lang, t, }) {
 
   const [activeTab, setActiveTab] = useState(0);
 
+  const pageTitle =
+  activeTab === 1
+    ? {
+        en: "Pushpanjali",
+        bn: "পুষ্পাঞ্জলি",
+        hi: "पुष्पांजलि",
+        sa: "पुष्पाञ्जलिः",
+      }
+    : {
+        en: "Founder",
+        bn: "প্রতিষ্ঠাতা",
+        hi: "संस्थापक",
+        sa: "संस्थापकः",
+      };
+
   const [active, setActive] = useState(null);
   const [openText, setOpenText] = useState(null);
 
@@ -29,6 +44,11 @@ console.log("data =", data);
 console.log("lang =", lang);
 console.log("t =", t);
   
+const displayTitle =
+  activeTab === 1 && data?.titleAlt
+    ? data.titleAlt[currentLang]
+    : data.title?.[currentLang];
+
   const isTabs =
     data?.tabs ||
     data?.content?.[0]?.tabs;
@@ -40,9 +60,7 @@ console.log("t =", t);
 if (!data) {
   return <h1>Data Not Found</h1>;
 }
-  
-  return (
-
+    return (
     <>
       <main
   className={`content-page ${
@@ -53,18 +71,13 @@ if (!data) {
       : ""
   }`}
 >
-
         {/* ===== HERO ===== */}
         <section className="hero">
 
           <div className="hero-inner">
 
 <Reveal>
- <h1>
-  {typeof data?.title === "object"
-    ? data.title?.[currentLang]
-    : data?.title}
-</h1>
+<h1>{displayTitle}</h1>
 
   {t?.subtitle && (
     <p className="page-subtitle">

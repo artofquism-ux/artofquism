@@ -49,6 +49,12 @@ html.light {
   outline: 0px solid red;
 }
 
+.push-page .heading-block p {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+
 .pushpanjali-page {
   background: radial-gradient(circle at center, #3a3a3a, #1f1f1f);
   color: var(--color-text);

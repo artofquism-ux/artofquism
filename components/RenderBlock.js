@@ -40,6 +40,8 @@ if (item.type === "push-poetry") {
   );
 }
 
+
+
   const params = useParams();
 const currentLang = params?.lang || "en";
 
@@ -85,19 +87,35 @@ if (item.type === "text" || (item.text && !item.type)) {
 
   // 🟢 HEADING
 if (item.type === "heading") {
-  return (
-    <p className="heading-title">
-      <strong>
-        {item.title?.[lang] || item.title?.en}
-      </strong>
+  const blockText =
+    typeof item.text === "object"
+      ? item.text?.[lang] || item.text?.en
+      : item.text;
 
-      <span className="heading-text">
-        {" "}
-        {item.text?.[lang] || item.text?.en}
-      </span>
-    </p>
+  return (
+    <div className={`heading-block ${item.className || ""}`}>
+     {item.title && !Array.isArray(blockText) ? (
+  <p className="heading-title">
+    <strong>
+      {item.title?.[lang] || item.title?.en}
+    </strong>
+
+    <span className="heading-text">
+      {" "}
+      {blockText}
+    </span>
+  </p>
+) : (
+  Array.isArray(blockText)
+    ? blockText.map((para, i) => (
+        <p key={i}>{para}</p>
+      ))
+    : <p>{blockText}</p>
+)}
+    </div>
   );
 }
+ 
  
 
   if (item.type === "subheadline") {
