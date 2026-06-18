@@ -8,54 +8,75 @@ import RenderBlock from "@/components/RenderBlock";
 import UniversalTabs from "@/components/UniversalTabs";
 import Lightbox from "@/components/Lightbox";
 import SubNavbar from "@/components/SubNavbar";
+import { museum, gallery, essence } from "@/lib/data/collections";
 
-import { museum, gallery } from "@/lib/data/collections";
+export default function ContentPage({
+  data,
+  locale,
+  lang,
+  t,
+  children,
+}) {
 
-export default function ContentPage({ data, lang, t, }) {
+  if (!data) return null;
+  const pathname = usePathname();
+  const currentLang = lang || "en";
+ 
+const subheadline =
+  data?.content?.find(
+    item => item.type === "subheadline"
+  );
+
 
   
-  if (!data) return null;
+const [activeTab, setActiveTab] = useState(0);
 
-  const pathname = usePathname();
+const tabs =
+  data?.tabs ||
+  data?.content?.filter(
+    item => item.slug?.startsWith("part-")
+  ) ||
+  [];
 
-  const currentLang = lang || "en";
+const isTabs = tabs.length > 0;
 
-  const [activeTab, setActiveTab] = useState(0);
+const activeItem = tabs[activeTab];
 
-  const pageTitle =
-  activeTab === 1
-    ? {
-        en: "Pushpanjali",
-        bn: "পুষ্পাঞ্জলি",
-        hi: "पुष्पांजलि",
-        sa: "पुष्पाञ्जलिः",
-      }
-    : {
-        en: "Founder",
-        bn: "প্রতিষ্ঠাতা",
-        hi: "संस्थापक",
-        sa: "संस्थापकः",
-      };
+  
+const blocks =
+  activeItem?.blocks ||
+  data?.content?.filter(
+    item => item.type !== "subheadline"
+  ) ||
+  [];
+
 
   const [active, setActive] = useState(null);
   const [openText, setOpenText] = useState(null);
 
-console.log("data =", data);
-console.log("lang =", lang);
-console.log("t =", t);
+ const contentTitle = data?.title?.[locale];
+ const contentSubtitle = data?.subtitle?.[locale];
   
 const displayTitle =
   activeTab === 1 && data?.titleAlt
     ? data.titleAlt[currentLang]
     : data.title?.[currentLang];
 
-  const isTabs =
-    data?.tabs ||
-    data?.content?.[0]?.tabs;
 
-  const tab =
-    data?.tabs?.[activeTab] ||
-    data?.content?.[0]?.tabs?.[activeTab];
+
+
+
+console.log("tabs =", tabs);
+console.log("activeItem =", activeItem);
+console.log("slug =", data?.slug);
+
+console.log("data =", data);
+console.log("data.tabs =", data.tabs);
+console.log("content[0] =", data.content?.[0]);
+console.log("content[1] =", data.content?.[1]);
+
+console.log("tabs =", tabs);
+console.log("activeItem =", activeItem);
 
 if (!data) {
   return <h1>Data Not Found</h1>;
@@ -92,6 +113,20 @@ if (!data) {
   )}
 </Reveal>
 
+ {/* ===== essence: pushpanjali// ===== */}
+
+{contentTitle && (
+  <h2 className="content-title">
+    {contentTitle}
+  </h2>
+)}
+
+{contentSubtitle && (
+  <p className="content-subtitle">
+    {contentSubtitle}
+  </p>
+)}
+
             {/* ===== SUB NAV ===== */}
 
             {pathname.includes("/museum") ? (
@@ -110,6 +145,14 @@ if (!data) {
                 lang={currentLang}
               />
 
+              ) : pathname.includes("/essence") ? (
+
+              <SubNavbar
+                items={essence}
+                base="essence"
+                lang={currentLang}
+              />
+
             ) : null}
 
           </div>
@@ -118,40 +161,38 @@ if (!data) {
 
         {/* ===== CONTENT ===== */}
 
-        <section className="page-article">
+     <section className="page-article">
 
-          {/* ===== TABS ===== */}
+{subheadline && (
+  <div className="subheadline-title">
+    <span className="subheadline-text">
+      {subheadline.text?.[currentLang] ||
+       subheadline.text?.en}
+    </span>
+  </div>
+)}
 
-          {isTabs && (
+{/* ===== TABS ===== */}
 
-            <UniversalTabs
-             tabs={
-             data.tabs ||
-             data.content?.[0]?.tabs
-             }
-              activeTab={activeTab}
-              setActiveTab={setActiveTab}
-              lang={lang}
-              />
-          )}
+{isTabs && (
+  <UniversalTabs
+    tabs={tabs}
+    activeTab={activeTab}
+    setActiveTab={setActiveTab}
+    lang={lang}
+  />
+)}
 
- 
-          {/* ===== BLOCKS ===== */}
 
-         {(
-  isTabs
-    ? tab?.blocks
-    : data?.content
-)?.map((block, i) => (
+  {/* ===== BLOCKS ===== */}
 
-  block.type === "clock" ? (
 
-    <div
-      key={`clock-${i}`}
-      className="founder-clock"
-    >
-      <Clock />
-    </div>
+
+
+{blocks?.map((block, i) => (
+
+ block.type === "clock" ? (
+  <Clock />
 
   ) : (
 
@@ -167,7 +208,7 @@ if (!data) {
   )
 
 ))}
-        </section>
+   </section>
 
       </main>
 

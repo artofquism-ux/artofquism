@@ -51,6 +51,8 @@ useEffect(() => {
       <Link href={`/${currentLang}/art-culture`}>Art & Culture</Link>
       <Link href={`/${currentLang}/secrets`}>Secrets</Link>
       <Link href={`/${currentLang}/founder`}>Founder</Link>
+      <Link href={`/${currentLang}/essence`}>ESSENCE</Link>
+      
     </nav>
 
     {/* RIGHT */}

@@ -1,5 +1,7 @@
+ 
 import { getCollectionData } from "@/lib/data/getCollectionData";
 import ContentPage from "@/components/ContentPage";
+
 
 export default async function Page({ params }) {
   const { lang, collection, slug } = await params;
@@ -11,9 +13,7 @@ export default async function Page({ params }) {
 
 console.log("data =", data);
 
- 
- 
- 
+
   return (
     <ContentPage
       data={data}

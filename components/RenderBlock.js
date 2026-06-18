@@ -1,4 +1,8 @@
+
+
+
 "use client";
+<h1>PAGE TEST</h1>
 
 import { useState } from "react";
 import Link from "next/link";
@@ -6,12 +10,20 @@ import { useParams } from "next/navigation";
 import Clock from "@/components/clock/page";
 
 export default function RenderBlock({
+  
   item,
   lang,
   setActive,
   onOpenText,
   openText,
 }) {
+
+  console.log("ITEM TYPE:", item.type);
+  console.log(item.type);
+console.log(item);
+
+  const params = useParams();
+const currentLang = params?.lang || "en";
   
   const poetryText =
   typeof item.text === "object"
@@ -30,20 +42,16 @@ export default function RenderBlock({
  
 if (item.type === "push-poetry") {
   return (
-    <div className="push-poetry">
-      {poetryText.map((line, i) => (
-        <div key={i} className="verse">
-          {line}
-        </div>
-      ))}
+   <div className="push-poetry">
+  {poetryText.map((line, i) => (
+    <div key={i} className="verse">
+      {line}
     </div>
+  ))}
+</div>
   );
 }
-
-
-
-  const params = useParams();
-const currentLang = params?.lang || "en";
+ 
 
   if (!item || typeof item !== "object") return null;
 
@@ -87,53 +95,28 @@ if (item.type === "text" || (item.text && !item.type)) {
 
   // 🟢 HEADING
 if (item.type === "heading") {
-  const blockText =
-    typeof item.text === "object"
-      ? item.text?.[lang] || item.text?.en
-      : item.text;
-
   return (
-    <div className={`heading-block ${item.className || ""}`}>
-     {item.title && !Array.isArray(blockText) ? (
-  <p className="heading-title">
-    <strong>
-      {item.title?.[lang] || item.title?.en}
-    </strong>
+    <div className="heading-row">
+      <strong>
+        {item.title?.[lang] || item.title?.en}
+      </strong>
 
-    <span className="heading-text">
-      {" "}
-      {blockText}
-    </span>
-  </p>
-) : (
-  Array.isArray(blockText)
-    ? blockText.map((para, i) => (
-        <p key={i}>{para}</p>
-      ))
-    : <p>{blockText}</p>
-)}
+      <span className="heading-row">
+        {" "}
+        {item.text?.[lang] || item.text?.en}
+      </span>
     </div>
   );
 }
  
- 
 
-  if (item.type === "subheadline") {
+if (item.type === "subheadline") {
+  console.log(item);
   return (
-     <div className="subheadline-title">
-      <h2 className="subheadline-title">
-       <strong>
-       {item.title?.[lang] || item.title?.en}
-       </strong>
-
-      {item.text && (
-        <span className="subheadline-text">
-          {" "}
-         {item.text?.[lang] || item.text?.en}
-        </span>
-      )}
-    </h2>
-    </div>
+    <>
+      <h2>TEST SUBHEADLINE</h2>
+      <p>{item.text?.[lang] || item.text?.en}</p>
+    </>
   );
 }
 
@@ -187,6 +170,13 @@ if (item.type === "cta") {
 if (item.type === "divider") {
   return (
     <div className="content-divider">
+     </div>
+   );
+}
+
+if (item.type === "essence-divider") {
+  return (
+    <div className="essence-divider">
      </div>
    );
 }

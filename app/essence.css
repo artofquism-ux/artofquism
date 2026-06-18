@@ -1,0 +1,157 @@
+
+/* ===== ESSENCE ARTICLE ===== */
+
+.essence-content{
+  max-width:1000px;
+  margin:auto;
+}
+
+/* ===== ESSENCE LAYOUT ===== */
+
+.essence-nav{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:16px;
+  margin:30px 0;
+}
+
+.essence-nav a{
+  color:#666;
+  text-decoration:none;
+  font-size:18px;
+  transition:.3s;
+}
+
+.essence-nav a.active{
+  color:#000;
+  font-weight:700;
+}
+
+/* ===== ESSENCE TITLE ===== */
+
+.essence-title{
+  text-align:center;
+  margin-bottom:20px;
+}
+
+.essence-subtitle{
+  text-align:center;
+  color:#8a7d21;
+  font-size:18px;
+  margin-bottom:30px;
+}
+
+
+/* ===== PUSH POETRY ===== */
+
+.push-poetry{
+  max-width:800px;
+  margin:20px auto;
+  text-align:center;
+}
+
+.push-poetry .verse{
+  display:block;
+  font-size:18px;
+  line-height:1.8;
+  margin-bottom:5px;
+}
+
+.heading-row{
+  max-width:1000px;
+  margin:20px auto;
+  text-align:center;
+  font-size:16px;
+}
+
+ 
+
+.heading-row strong{
+  font-weight:700;
+}
+
+/* ===== PART TABS ===== */
+
+.tabs-wrap{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:14px;
+  margin:30px 0;
+}
+
+
+.content-poetry {
+  max-width: 800px;
+  margin: 40px auto 40px;
+  color: #d9d9d9;
+   
+  font-size: 17px;
+  line-height:1.7;
+  letter-spacing: .3px;
+  text-align: center;
+}
+
+.content-poetry-section {
+  padding: 10px;
+}
+
+.content-poetry .verse {
+  display: block;
+  margin-bottom: 2px;
+}
+
+.content-verse{
+  font-style:normal;
+  line-height:1;
+   font-size: 18px;
+  line-height: 1.8;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #ddd;
+   margin: 0;
+  display:block;
+  border:0px solid red;
+}
+
+.content-verse + .verse{
+  margin-top: 0cqmax
+}
+.content-verse span {
+  display: block;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: rise 1.4s ease forwards;
+}
+
+.content-verse span:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+ 
+
+/* divider */
+
+.essence-divider {
+   position: relative;
+   width: 100%;
+  max-width: 900px;
+  height: 1px;
+  margin:20px auto;    
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(93, 83, 83, 0.35),
+    rgba(181, 168, 168, 0.55),
+    rgba(93, 83, 83, 0.35),
+   transparent
+  );
+}
+ 
+.content-divider-white {
+  width: 200px;
+  height: 1px;
+  background: rgba(255,255,255,0.2);
+  margin: 40px auto;
+}

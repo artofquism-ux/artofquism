@@ -2,7 +2,7 @@ import { museum } from "@/lib/data/collections";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import HeroLayout from "@/components/HeroLayout";
-import { museumHomeData } from "@/lib/data/museum/museumHomeData";
+import { museumHome } from "@/lib/data/museum/museumHome";
 
 export default async function MuseumPage({ params }) {
   const { lang } = await params;  
@@ -18,15 +18,14 @@ return (
     <main className="page">
     
     <HeroLayout
-  title={museumHomeData.title[safeLang]}
-  subtitle={museumHomeData.subtitle[safeLang]}
+  title={museumHome.title[safeLang]}
+  subtitle={museumHome.subtitle[safeLang]}
   variant="museum"
 /> 
-
   <section className="page-article">
      <Reveal delay={0.3}>
        <p>
-       {museumHomeData.intro[safeLang]}
+       {museumHome.intro[safeLang]}
        </p>
           </Reveal>
 

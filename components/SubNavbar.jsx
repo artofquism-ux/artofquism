@@ -23,7 +23,7 @@ export default function SubNavbar({ items = [], base = "", lang }) {
             href={href}
             className={active ? "active nav-link" : "nav-link"}
           >
-            {item.title.toUpperCase()}
+           {item.title || item.label}
           </Link>
         );
       })}

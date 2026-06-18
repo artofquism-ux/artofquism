@@ -60,7 +60,7 @@ export default function Header() {
         <Link href={`/${lang}/art-culture`}>ART & CULTURE</Link>
         <Link href={`/${lang}/secrets`}>SECRETS</Link>
         <Link href={`/${lang}/founder`}>FOUNDER</Link>
-
+        <Link href={`/${lang}/essence`}>ESSENCE</Link>
       </nav>
 
       {/* LANGUAGE SWITCH */}
