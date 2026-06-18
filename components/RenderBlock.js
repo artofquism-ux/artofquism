@@ -94,6 +94,23 @@ if (item.type === "text" || (item.text && !item.type)) {
 }
 
   // 🟢 HEADING
+
+  
+ if (item.type === "subheading") {
+  return (
+    <p className="subheading-title">
+      <strong>
+        {item.title?.[lang] || item.title?.en}
+      </strong>
+
+      <span className="subheading-text">
+        {" "}
+        {item.text?.[lang] || item.text?.en}
+      </span>
+    </p>
+  );
+}
+
 if (item.type === "heading") {
   return (
     <div className="heading-row">

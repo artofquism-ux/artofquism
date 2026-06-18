@@ -2452,7 +2452,7 @@ display: block;
   margin-bottom: 20px;
 }
 
-.heading-text{
+.subheading-text{
  display:inline;
  font-weight:400;
  color:#333;
@@ -2471,7 +2471,7 @@ display: block;
 
 
 
-.heading-title{
+.subheading-title{
   width:100%;
   max-width:1000px;
   font-size:15px;
