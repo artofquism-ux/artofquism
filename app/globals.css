@@ -717,21 +717,27 @@ MOBILE FIX
   display: flex;
   gap: 16px;
   justify-content: center;
-  margin: 25px 0 5px;
+  margin: 10px 0 5px;
   
 }
 
 .nav-link {
   text-decoration: none;
-  color: #555;
+  color: #686767;
   font-weight: 600;
 }
 
 .nav-link.active {
-  color: black;
+  color: rgb(207, 5, 5);
+  
   font-weight: 600;
 }
 
+.nav-link.active:hover {
+  
+   color: rgb(13, 13, 13);
+  font-weight: 600;
+}
  
 
 /* =========================
@@ -1793,6 +1799,7 @@ font-size:25px;
   object-fit:contain;
   opacity:0;
   animation:heroFade 40s infinite;
+   margin:10 auto;
 }
 
  
@@ -1989,15 +1996,16 @@ font-size:25px;
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
+   margin-bottom: 32px;
 }
 
  
  
-
+x
 .page-article p {
     color: #2f2f2f;
-    text-align: justify;
-    margin-bottom: 1.8rem;
+    text-align: center;
+    margin-bottom: 10p;
     font-size: 16px;
     line-height: 1.8;
 }
@@ -2285,7 +2293,7 @@ font-size:25px;
   align-items:center;
   gap:14px;
   flex-wrap:wrap;
-  margin: 30 0 30px;
+  margin: 0 0 30px;
 }
 
 *{
@@ -2459,7 +2467,8 @@ display: block;
  margin-top:8px;
  width:100%;
  max-width: 1000px;
- text-align: left;
+ text-align: center;
+ 
  overflow: hidden;
   margin-bottom:12px;
   padding-left: 5px;
@@ -2474,12 +2483,11 @@ display: block;
 .subheading-title{
   width:100%;
   max-width:1000px;
-  font-size:15px;
-  font-weight:500;
+  font-size:16px;
+  font-weight:400;
   line-height:1.8;
-  letter-spacing:-0.02em;
+  letter-spacing:0.02em;
   color:#626161;
-  font-family: 'Inter', sans-serif;
    text-align: center;
    margin: 20px auto 20px;
   padding-left: 20px;
@@ -2523,27 +2531,38 @@ display: block;
   font-size: 1.15rem;
 }
 
+.subheadline-title strong,
+.subheadline-text{
+  display:inline;
+}
 
 .subheadline-title{
   width:100%;
   font-size:16px;
-  font-weight:500;
+  font-weight:400;
   line-height:1.8;
   letter-spacing:0.05em;
   color:#272626;
    text-align:center;
    padding-left: 10px;
-   margin: 0px 0px 20px;
+   margin: 0px 0px 10px;
  }
 
+ .subheadline-title strong{
+  display:inline;
+  font-size:16px;
+  font-weight:500;
+  color:#272626;
+}
+
 .subheadline-text{
-  display:block;
+  display:inline;
   font-size:16px;
   line-height:1.8;
   letter-spacing:0.05em;
-  color:#727626;
+  color:#44443c;
   text-align:center;
-  padding:0 10px;
+  padding:0 5px;
 }
 
 .para-group {
@@ -3690,6 +3709,7 @@ margin-bottom: 30px;
   margin: 0 auto 40px;
   line-height: 1.8;
   text-align: justify;
+  
 }
 
 
@@ -3699,11 +3719,20 @@ margin-bottom: 30px;
   font-weight: 700;
   text-align: center;
   margin-top: 40px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
     font-family: serif;
   letter-spacing: 2px;
 }
 
+.intro-text {
+  font-size: 26px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 30px;
+    font-family: serif;
+  letter-spacing: 2px;
+}
 
   
 

@@ -1,8 +1,5 @@
 
-
-
 "use client";
-<h1>PAGE TEST</h1>
 
 import { useState } from "react";
 import Link from "next/link";
@@ -129,14 +126,18 @@ if (item.type === "heading") {
 
 if (item.type === "subheadline") {
   console.log(item);
-  return (
-    <>
-      <h2>TEST SUBHEADLINE</h2>
-      <p>{item.text?.[lang] || item.text?.en}</p>
-    </>
+ return (
+     <div className="subheadline-title">
+     <strong>
+        {item.title?.[lang] || item.title?.en}
+      </strong>
+
+      <span className="subheadline-text">
+  {subheadline.text?.[currentLang] || subheadline.text?.en}
+</span>
+       </div> 
   );
 }
-
 
 if (item.type === "headline") {
   return (

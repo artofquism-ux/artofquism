@@ -165,10 +165,17 @@ if (!data) {
 
 {subheadline && (
   <div className="subheadline-title">
+
+    <strong>
+      {subheadline.title?.[currentLang] ||
+       subheadline.title?.en}
+    </strong>
+
     <span className="subheadline-text">
       {subheadline.text?.[currentLang] ||
        subheadline.text?.en}
     </span>
+
   </div>
 )}
 

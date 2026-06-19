@@ -58,6 +58,29 @@
   margin-bottom:5px;
 }
 
+
+.subheadline-title{
+  text-align:center;
+  margin:0px auto 34px;
+}
+
+.subheadline-title strong{
+  font-size:16px;
+  font-weight:500;
+  color:#222;
+}
+
+.subheadline-text{
+  font-size:17px;
+  color:#8a7a12;
+  margin-left:0px;
+}
+
+.subheadline-title strong,
+.subheadline-text{
+  display:inline;
+}
+
 .heading-row{
   max-width:1000px;
   margin:20px auto;
@@ -78,7 +101,7 @@
   justify-content:center;
   flex-wrap:wrap;
   gap:14px;
-  margin:30px 0;
+  margin:30px 30;
 }
 
 
