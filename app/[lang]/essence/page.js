@@ -2,31 +2,24 @@
 
 "use client";
 
-import { useState } from "react";
-import LanguageSwitcherEssence from "@/components/LanguageSwitcherEssence";import Link from "next/link";
+import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import HeroLayout from "@/components/HeroLayout";
 import RenderBlock from "@/components/RenderBlock";
 import SubNavbar from "@/components/SubNavbar";
 import { essence } from "@/lib/data/collections";
 import { pushpanjaliHome } from "@/lib/data/essence/pushpanjaliHome";
-  
+import { usePathname } from "next/navigation";
+
 export default function EssencePage() {
 
-  const [lang, setLang] = useState("bn");
+  const pathname = usePathname();
 
   const safeLang =
-    ["bn","en","hi","sa"].includes(lang)
-      ? lang
-      : "bn";
+    pathname.split("/")[1] || "bn";
 
   return (
     <main className="page">
-
-      <LanguageSwitcherEssence
-        lang={lang}
-        setLang={setLang}
-      />
 
       <HeroLayout
         title={pushpanjaliHome.title?.[safeLang]}
