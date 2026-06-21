@@ -22,6 +22,10 @@ console.log(item);
   const params = useParams();
 const currentLang = params?.lang || "en";
   
+console.log(item.type);
+console.log(item);
+
+
   const poetryText =
   typeof item.text === "object"
     ? item.text?.[lang] || item.text?.en
@@ -37,6 +41,33 @@ const currentLang = params?.lang || "en";
   : poetryText}
 
  
+  // 🟢 ESSENCE TEXT
+
+if (item.type === "essence-intro") {
+const introText = item.text?.[lang] || item.text?.en;
+
+return (
+  <div className="essence-intro">
+
+    <p className="essence-intro-first">
+      <strong>
+  {item.title?.[lang] || item.title?.en}
+</strong>
+{" "}
+      {introText[0]}
+    </p>
+
+    <div className="essence-content">
+      {introText.slice(1).map((para, i) => (
+        <p key={i}>{para}</p>
+      ))}
+    </div>
+
+  </div>
+);
+}
+
+
 if (item.type === "push-poetry") {
   return (
    <div className="push-poetry">
@@ -90,6 +121,7 @@ if (item.type === "text" || (item.text && !item.type)) {
   );
 }
 
+
   // 🟢 HEADING
 
   
@@ -123,6 +155,13 @@ if (item.type === "heading") {
   );
 }
  
+if (item.type === "subtitle") {
+  return (
+    <div className="essence-subtitle">
+      {item.text?.[lang] || item.text?.en}
+    </div>
+  );
+}
 
 if (item.type === "subheadline") {
   console.log(item);

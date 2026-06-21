@@ -1956,7 +1956,7 @@ font-size:25px;
   max-width: 1000px;
   margin: 0 auto 6px;
   text-align:justify;
-    padding:0px 12px;
+    padding:0px 0px;
 }
 
 /* Museum */
@@ -1982,7 +1982,7 @@ font-size:25px;
 /* Museum */
 .hero-museum .hero-inner,
 .hero-museum + .page-article {
-  max-width: 1000px;
+  max-width: 900px;
   margin: 0 auto -6px;
   text-align:justify;
 
@@ -1991,20 +1991,11 @@ font-size:25px;
  /* ===== ESSENCE HOME ===== */
 
  
- .hero-essence + .page-article p {
-  text-align: justify;
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-   margin-bottom: 32px;
-}
-
  
  
-x
 .page-article p {
     color: #2f2f2f;
-    text-align: center;
+    text-align: justify;
     margin-bottom: 10p;
     font-size: 16px;
     line-height: 1.8;
@@ -2035,7 +2026,7 @@ x
  /* ===== ESSENCE ===== */
 
 .hero-essence {
-    position: relative;
+  position: relative;
   width: 100%;
   display:block;
   pointer-events: none;
@@ -2149,12 +2140,13 @@ x
 
 .hero p{
  align-items:left;
+ text-align: justify;
   font-size:16px;
   font-weight:400;
   color:var(--color-muted);
   line-height:1.6;
-  max-width:1000px;
-  margin: 0 4px 0;
+  max-width:900px;
+  margin: 0 0px 0;
    color:#111;
 }
 
@@ -3734,8 +3726,9 @@ margin-bottom: 30px;
   letter-spacing: 2px;
 }
 
-  
+ 
 
+ 
 
 /* =========================
 ENTER LINE

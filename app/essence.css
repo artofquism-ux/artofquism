@@ -1,6 +1,71 @@
 
 /* ===== ESSENCE ARTICLE ===== */
 
+
+.page-intro {
+  background: linear-gradient(
+    90deg,
+    #f6f2f2 0%,
+    #ffffff 50%,
+    #f6f2f2 100%
+  );
+  padding: 40px 20px 60px;
+}
+
+.essence-intro{
+  max-width:900px;
+  text-align:justify;
+  margin:10 auto 30px;
+}
+
+.essence-intro-title{
+  display:inline;
+  font-size:16px;
+  font-weight:600;
+  color:#222;
+  margin-bottom:15px;
+}
+
+.essence-intro-text{
+  font-size:16px;
+  color:#222;
+   margin-bottom:30px;
+}
+ 
+
+ /* ===== ESSENCE HOME ===== */
+
+ 
+ .hero-essence + .page-article p {
+  text-align: justify;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+   margin-bottom: 32px;
+}
+
+
+.essence-intro p{
+  margin-bottom:30px;
+}
+
+ .essence-intro-first{
+  margin-bottom: 10px !important;
+}
+
+.essence-intro-text p{
+  margin: 0 0 6px !important;
+}
+
+ .essence-intro-content{
+  text-align:justify;
+}
+
+.essence-intro-content p{
+  margin-bottom:30px;
+  line-height:1.9;
+}
+
 .essence-content{
   max-width:1000px;
   margin:auto;
@@ -30,16 +95,25 @@
 
 /* ===== ESSENCE TITLE ===== */
 
+.sub-nav {
+  flex-wrap: wrap;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin: 10px 0 5px;
+  
+}
+
 .essence-title{
   text-align:center;
   margin-bottom:20px;
 }
 
 .essence-subtitle{
-  text-align:center;
-  color:#8a7d21;
-  font-size:18px;
-  margin-bottom:30px;
+    max-width:900px;
+  max-width: 900px;
+  margin: 20px auto 30px;
+  text-align: center;
 }
 
 
@@ -58,7 +132,7 @@
   margin-bottom:5px;
 }
 
-
+ 
 .subheadline-title{
   text-align:center;
   margin:0px auto 34px;
@@ -96,13 +170,6 @@
 
 /* ===== PART TABS ===== */
 
-.tabs-wrap{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:14px;
-  margin:30px 30;
-}
 
 
 .content-poetry {
@@ -177,4 +244,16 @@
   height: 1px;
   background: rgba(255,255,255,0.2);
   margin: 40px auto;
+}
+
+.content-text strong{
+  font-weight: 600;
+  color: #222;
+}
+
+ .essence-intro strong{
+  display:inline;
+  font-size:16px;
+  font-weight:500;
+  color:#272626;
 }
