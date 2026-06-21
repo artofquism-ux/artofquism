@@ -33,6 +33,26 @@
 }
  
 
+.essence-lang-switcher {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.essence-lang-switcher button {
+  padding: 6px 14px;
+  border: 1px solid #999;
+  border-radius: 20px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.essence-lang-switcher .active {
+  background: #333;
+  color: #fff;
+}
+
  /* ===== ESSENCE HOME ===== */
 
  
@@ -113,7 +133,7 @@
     max-width:900px;
   max-width: 900px;
   margin: 20px auto 30px;
-  text-align: center;
+  text-align: justify;
 }
 
 
@@ -146,7 +166,7 @@
 
 .subheadline-text{
   font-size:17px;
-  color:#8a7a12;
+  color:#222;
   margin-left:0px;
 }
 

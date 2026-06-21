@@ -250,7 +250,15 @@ if (item.type === "section") {
 
   const [expanded, setExpanded] = useState(false);
 
- 
+const title =
+  typeof item.title === "object"
+    ? item.title?.[lang]
+    : item.title;
+
+const text =
+  typeof item.text === "object"
+    ? item.text?.[lang]
+    : item.text;
 
 const fullText =
   item.textFull?.[lang] ||
