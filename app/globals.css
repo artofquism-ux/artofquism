@@ -227,6 +227,15 @@ body{
 .site-container
 .hero
 
+.page-article p,
+.founder-content p,
+.art-culture-content p,
+.about-content p {
+  text-align: left;
+  line-height: 1.9;
+  margin-bottom: 1.2rem;
+}
+
 
 .page-article {
   display: block;

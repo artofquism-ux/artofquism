@@ -64,6 +64,14 @@
    margin-bottom: 32px;
 }
 
+.page-article p,
+.founder-content p,
+.art-culture-content p,
+.about-content p {
+  text-align: left;
+  line-height: 1.9;
+  margin-bottom: 1.2rem;
+}
 
 .essence-intro p{
   margin-bottom:30px;
@@ -156,7 +164,7 @@
 /* ===== PUSH POETRY ===== */
 
 .push-poetry{
-  max-width:800px;
+  max-width:650px;
   margin:20px auto;
   text-align:center;
 }
@@ -166,9 +174,35 @@
   font-size:16px;
   line-height:1.8;
   margin-bottom:5px;
+   text-align: center;
+  line-height: 2;
+  margin-bottom: 5px;
 }
 
+.push-note {
+  max-width: 900px;
+  margin: 0 auto 2rem;
+  text-align: center;
+  line-height: 1.9;
+}
+
+.push-note p {
+  margin-bottom: 1.2rem;
+}
  
+.push-poetry .verse:nth-child(4) {
+  margin-bottom: 1.5rem;
+}
+
+
+.push-poetry .verse:nth-child(8) {
+  margin-bottom: 1.5rem;
+} 
+
+.push-poetry .verse:nth-child(12) {
+  margin-bottom: 1.5rem;
+} 
+
 .subheadline-title{
   text-align:center;
   margin:30px auto ;

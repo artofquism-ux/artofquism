@@ -82,6 +82,18 @@ if (item.type === "push-poetry") {
   );
 }
  
+ if (item.type === "push-note") {
+  const noteText = item.text?.[lang] || item.text?.bn || [];
+
+  return (
+    <div className="push-note">
+      {noteText.map((para, i) => (
+        <p key={i}>{para}</p>
+      ))}
+    </div>
+  );
+}
+
 
   if (!item || typeof item !== "object") return null;
 
@@ -182,6 +194,20 @@ if (item.type === "headline") {
   );
 }
 
+if (item.type === "heading") {
+  return (
+    <div className="heading-row">
+      <strong>
+        {item.title?.[lang] || item.title?.en}
+      </strong>
+
+      <span className="heading-row">
+        {" "}
+        {item.text?.[lang] || item.text?.en}
+      </span>
+    </div>
+  );
+}
   
   if (item.type === "quote") {
     return (
