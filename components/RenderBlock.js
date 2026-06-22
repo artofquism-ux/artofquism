@@ -15,20 +15,14 @@ export default function RenderBlock({
   openText,
 }) {
 
-  console.log("ITEM TYPE:", item.type);
-  console.log(item.type);
-console.log(item);
 
-  const params = useParams();
-const currentLang = params?.lang || "en";
-  
-console.log(item.type);
-console.log(item);
+  console.log("LANG =", lang);
+  console.log("TITLE =", item.title?.[lang]);
+  console.log("TEXT =", item.text?.[lang]);
 
-
-  const poetryText =
+   const poetryText =
   typeof item.text === "object"
-    ? item.text?.[lang] || item.text?.en
+    ? item.text?.[lang] || item.text?.bn
     : item.text;
 
 {Array.isArray(poetryText)
@@ -40,43 +34,51 @@ console.log(item);
     ))
   : poetryText}
 
- 
-  // 🟢 ESSENCE TEXT
+   // 🟢 ESSENCE TEXT
 
-if (item.type === "essence-intro") {
-const introText = item.text?.[lang] || item.text?.en;
+  if (item.type === "essence-intro") {
 
-return (
-  <div className="essence-intro">
+  const introText =
+    item.text?.[lang] || item.text?.bn;
 
-    <p className="essence-intro-first">
-      <strong>
-  {item.title?.[lang] || item.title?.en}
-</strong>
-{" "}
-      {introText[0]}
-    </p>
+  return (
+    <div className="essence-intro">
 
-    <div className="essence-content">
-      {introText.slice(1).map((para, i) => (
-        <p key={i}>{para}</p>
-      ))}
+      <p className="essence-intro-first">
+        <strong>
+          {item.title?.[lang] || item.title?.bn}
+        </strong>
+
+        {" "}
+        {introText[0]}
+      </p>
+
+      <div className="essence-content">
+        {introText.slice(1).map((para, i) => (
+          <p key={i}>{para}</p>
+        ))}
+      </div>
+
     </div>
-
-  </div>
-);
+  );
 }
 
 
 if (item.type === "push-poetry") {
+
+  const poetryText =
+    item.text?.[lang] ||
+    item.text?.bn ||
+    [];
+
   return (
-   <div className="push-poetry">
-  {poetryText.map((line, i) => (
-    <div key={i} className="verse">
-      {line}
+    <div className="push-poetry">
+      {poetryText.map((line, i) => (
+        <div key={i} className="verse">
+          {line}
+        </div>
+      ))}
     </div>
-  ))}
-</div>
   );
 }
  
@@ -104,7 +106,6 @@ const gridClass =
 
 
 
-
     // =========================
   // 🔥 TYPE BASED RENDER
   // =========================
@@ -120,7 +121,6 @@ if (item.type === "text" || (item.text && !item.type)) {
     </p>
   );
 }
-
 
   // 🟢 HEADING
 
@@ -140,41 +140,29 @@ if (item.type === "text" || (item.text && !item.type)) {
   );
 }
 
-if (item.type === "heading") {
-  return (
-    <div className="heading-row">
-      <strong>
-        {item.title?.[lang] || item.title?.en}
-      </strong>
-
-      <span className="heading-row">
-        {" "}
-        {item.text?.[lang] || item.text?.en}
-      </span>
-    </div>
-  );
-}
  
 if (item.type === "subtitle") {
   return (
     <div className="essence-subtitle">
-      {item.text?.[lang] || item.text?.en}
+      {item.text?.[lang] || item.text?.bn}
     </div>
   );
 }
 
 if (item.type === "subheadline") {
-  console.log(item);
- return (
-     <div className="subheadline-title">
-     <strong>
-        {item.title?.[lang] || item.title?.en}
+  return (
+    <div
+      className="subheadline-title"
+      style={{ border: "3px solid red" }}
+    >
+      <strong>
+        {item.title?.[lang] || item.title?.bn}
       </strong>
 
       <span className="subheadline-text">
-  {subheadline.text?.[currentLang] || subheadline.text?.en}
-</span>
-       </div> 
+        {item.text?.[lang] || item.text?.bn}
+      </span>
+    </div>
   );
 }
 
@@ -209,7 +197,6 @@ if (item.type === "headline") {
       </div>
     );
   }
-
 
 if (item.type === "cta") {
   return (
@@ -275,7 +262,6 @@ console.log(
   "LENGTH:",
   fullText.length
 );
-
 
   return (
  <div className="section-text">
@@ -425,7 +411,6 @@ if (img.type === "clock") {
         style={{ zIndex: 10, position: "relative" }}
  
 
-
   
 onClick={() => {
   
@@ -475,7 +460,6 @@ onClick={() => {
       {" "}{img.descFull}
     </span>
   )}
-
 
   {showMeta && img.descFull && (
     <span

@@ -86,12 +86,26 @@
   line-height:1.9;
 }
 
+.essence-hero {
+  min-height: 20px;
+}
+
 .essence-content{
   max-width:1000px;
+  min-height: 10px;
   margin:auto;
 }
 
+.part-tabs {
+  margin: 30px 0 40px;
+}
+
 /* ===== ESSENCE LAYOUT ===== */
+
+.mobile-menu,
+.nav-overlay {
+  z-index: 9999;
+}
 
 .essence-nav{
   display:flex;
@@ -99,6 +113,8 @@
   flex-wrap:wrap;
   gap:16px;
   margin:30px 0;
+    position: relative;
+  z-index: 1;
 }
 
 .essence-nav a{
@@ -147,7 +163,7 @@
 
 .push-poetry .verse{
   display:block;
-  font-size:18px;
+  font-size:16px;
   line-height:1.8;
   margin-bottom:5px;
 }
@@ -155,16 +171,18 @@
  
 .subheadline-title{
   text-align:center;
-  margin:0px auto 34px;
+  margin:30px auto ;
 }
 
 .subheadline-title strong{
   font-size:16px;
+  display: inline;
   font-weight:500;
   color:#222;
 }
 
 .subheadline-text{
+  display: inline;
   font-size:17px;
   color:#222;
   margin-left:0px;

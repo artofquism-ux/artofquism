@@ -1,7 +1,7 @@
 
-
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import HeroLayout from "@/components/HeroLayout";
@@ -12,20 +12,17 @@ import { pushpanjaliHome } from "@/lib/data/essence/pushpanjaliHome";
 import { usePathname } from "next/navigation";
 
 export default function EssencePage() {
-
-  const pathname = usePathname();
-
-  const safeLang =
-    pathname.split("/")[1] || "bn";
+  
+const pathname = usePathname();
+const safeLang = pathname.split("/")[1] || "bn";
 
   return (
-    <main className="page">
+ <main className="page">
 
-      <HeroLayout
-        title={pushpanjaliHome.title?.[safeLang]}
-        subtitle={pushpanjaliHome.subtitle?.[safeLang]}
-        variant="essence"
-      />
+<HeroLayout
+  title={`${pushpanjaliHome.title?.[safeLang]}`}
+  subtitle={pushpanjaliHome.subtitle?.[safeLang]}
+/>
 
       <SubNavbar
         items={essence}
