@@ -19,7 +19,7 @@ return (
       
         <HeroLayout
            title={galleryHome.title[safeLang]}
-           subtitle={galleryHome.subtitle[safeLang]}
+           
            variant="gallery"
         />
        <section className="page-article">

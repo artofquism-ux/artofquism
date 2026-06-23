@@ -19,14 +19,13 @@ return (
     
     <HeroLayout
   title={museumHome.title[safeLang]}
-  subtitle={museumHome.subtitle[safeLang]}
-  variant="museum"
+   variant="museum"
 /> 
   <section className="page-article">
      <Reveal delay={0.3}>
-       <p>
-       {museumHome.intro[safeLang]}
-       </p>
+      {museumHome.intro[safeLang].map((para, i) => (
+  <p key={i}>{para}</p>
+))}
           </Reveal>
 
           <Reveal>

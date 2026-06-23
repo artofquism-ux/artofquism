@@ -227,6 +227,10 @@ body{
 .site-container
 .hero
 
+.page-article > p:first-child{
+  margin-top:10px;
+}
+
 .page-article p,
 .founder-content p,
 .art-culture-content p,
@@ -266,7 +270,8 @@ body{
 .page-subtitle{
   max-width:780px;
   margin:1.2rem auto 0;
-
+  margin-top:20px;
+  color:var(--color-muted);
   text-align:center;
 
   font-size:1.05rem;
@@ -367,6 +372,8 @@ MOBILE FIX
     word-break: break-word;
     overflow-wrap: break-word;
   }
+
+ 
 
   /* tabs wrap */
   .content-tabs,
@@ -721,18 +728,12 @@ MOBILE FIX
 
 /* ===== DESKTOP NAV ===== */
 
-.sub-nav {
-  flex-wrap: wrap;
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  margin: 10px 0 5px;
-  
-}
+ 
 
 .nav-link {
   text-decoration: none;
-  color: #686767;
+  color: #005926cf;
+  font-size:18px;
   font-weight: 600;
 }
 
@@ -1893,7 +1894,6 @@ font-size:25px;
   align-items:center;
   justify-content:center;
  
-
 }
 
 }
@@ -1920,12 +1920,14 @@ font-size:25px;
   display:block;
   pointer-events: none;
   align-items:center;
+  text-align: center;
   justify-content:center;
   min-height: 10vh;   /* 100vh না */
   height: auto;
   text-align:center;
   position:relative;
-  padding: 90px 10px 20px; /* 🔥 breathing space */
+  
+  padding: 80px 10px 0px; /* 🔥 breathing space */
    z-index: 1;
  
     background:
@@ -1936,66 +1938,65 @@ font-size:25px;
 }
 
  
-
+.hero-inner-about,
+.hero-inner-museum,
+.hero-inner-gallery,
+.hero-inner-culture,
+.hero-inner-essence{
+   min-height:180px;
+}
 
 /* inner */
 
 .hero-inner{
-  display:flex; 
-    min-height: 10px;                 /* ⭐ add */
-  flex-direction:column;        /* ⭐ add */
-  align-items:center; 
-  pointer-events: auto;   
-  max-width:1400px;
- margin: 0 auto;
-  padding: 0;
-  
-  margin-bottom: 0px;
+ display:flex; 
+ min-height: 0px;              
+ flex-direction:column;         
+   
+  max-width:1200px;
+ justify-content: space-between;
    
  animation:fadeUp 1.2s ease forwards;
   justify-content: space-between;
+ 
+  margin:0 auto !important;
 }
 
 .hero-home .hero-inner {
-  max-width: 1000px;
+  max-width: 900px;
 }
- 
-.hero-museum .hero-inner,
-.hero-gallery .page-article  {
-  max-width: 1000px;
-  margin: 0 auto 6px;
-  text-align:justify;
-    padding:0px 0px;
-}
-
+  
 /* Museum */
 .hero-museum + .page-article {
-  max-width: 1000px;
-}
+  max-width: 900px;
+  }
+
+/* Museum */
+.hero-museum .hero-inner,
+.hero-museum + .page-article {
+  max-width: 900px;
+  margin: 20 auto 20px;
+  text-align:justify;
+   padding:0px 12px;
+ }
+
 
 /* Gallery */
 .hero-gallery + .page-article {
-  max-width: var(--container-wide);
+  max-width: 900px;
 
 }
 
 /* Gallery */
 .hero-gallery .hero-inner,
 .hero-gallery + .page-article {
-  max-width: 1000px;
-  margin: 0 auto 6px;
+  max-width: 900px;
+  margin: 20 auto 20px;
   text-align:justify;
     padding:0px 12px;
 }
 
-/* Museum */
-.hero-museum .hero-inner,
-.hero-museum + .page-article {
-  max-width: 900px;
-  margin: 0 auto -6px;
-  text-align:justify;
-
- }
+ 
 
  /* ===== ESSENCE HOME ===== */
 
@@ -2075,22 +2076,7 @@ font-size:25px;
 }
 
 
-
-/* Default */
-.hero-default .hero-inner {
-  max-width: var(--container-default);
-}
-
-/* Museum → slightly narrow (text heavy) */
-.hero-museum .hero-inner {
-  max-width: 900px;
-}
-
-/* Gallery → wider (visual feel) */
-.hero-gallery .hero-inner {
-  max-width: var(--container-wide);
-}
-
+ 
 .hero-inner,
 .page-article {
   max-width: var(--container);
@@ -2109,7 +2095,8 @@ font-size:25px;
   font-size: 16px;
   color: #555;
   max-width: 600px;
-  margin: 0 auto;
+   margin-top:10px;
+     margin: 10 auto;
   text-align: center;
 }
 
@@ -2147,7 +2134,7 @@ font-size:25px;
 
 /* subtitle */
 
-.hero p{
+.hero p {
  align-items:left;
  text-align: justify;
   font-size:16px;
@@ -2155,8 +2142,8 @@ font-size:25px;
   color:var(--color-muted);
   line-height:1.6;
   max-width:900px;
-  margin: 0 0px 0;
-   color:#111;
+  color:#111;
+ 
 }
 
 /* buttons */
@@ -2266,7 +2253,7 @@ font-size:25px;
   bottom:0;
   left:0;
   width:100%;
-  height: 20px;
+  height: 0px;
   background:linear-gradient(to bottom,transparent,var(--color-bg));
 }
 
@@ -2294,7 +2281,7 @@ font-size:25px;
   align-items:center;
   gap:14px;
   flex-wrap:wrap;
-  margin: 0 0 30px;
+  margin: 20 0 30px;
 }
 
 *{
@@ -2919,12 +2906,9 @@ font-size: 16px;
   DETAIL HERO
 ========================= */
 
-.hero {
-  text-align: center;
-}
-
+ 
 .hero h1 {
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 }
 
 
