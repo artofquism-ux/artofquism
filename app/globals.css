@@ -208,8 +208,17 @@ body{
 
 
 /* ===== TYPOGRAPHY ===== */
-
+main.page{
+  background-image:url("/images/bgcolour.jpg");
+  background-repeat:no-repeat;
+  background-position:top center;
+  background-size:100% 820px;
+}
  
+.page::before{
+   opacity: .35;
+}
+
 .page{
   padding: 0  10px;
   width: 100%;
@@ -732,9 +741,9 @@ MOBILE FIX
 
 .nav-link {
   text-decoration: none;
-  color: #005926cf;
-  font-size:18px;
-  font-weight: 600;
+  color: #000000cf;
+  font-size:16.5px;
+  font-weight: 500;
 }
 
 .nav-link.active {
@@ -1926,26 +1935,14 @@ font-size:25px;
   height: auto;
   text-align:center;
   position:relative;
-  
   padding: 80px 10px 0px; /* 🔥 breathing space */
    z-index: 1;
  
-    background:
-    radial-gradient(circle at 20% 50%, rgba(255, 120, 120, 0.07), transparent 30%),
-    radial-gradient(circle at 50% 20%, rgba(120, 120, 255, 0.06), transparent 60%),
-    radial-gradient(circle at 80% 50%, rgba(253, 140, 140, 0.09), transparent 30%),
-    var(--color-bg);
+ 
 }
 
  
-.hero-inner-about,
-.hero-inner-museum,
-.hero-inner-gallery,
-.hero-inner-culture,
-.hero-inner-essence{
-   min-height:180px;
-}
-
+ 
 /* inner */
 
 .hero-inner{
@@ -1997,6 +1994,26 @@ font-size:25px;
 }
 
  
+
+/* Default */
+.hero-default .hero-inner {
+  max-width: var(--container-default);
+}
+
+/* Museum → slightly narrow (text heavy) */
+.hero-museum .hero-inner {
+  max-width: 900px;
+}
+
+/* Gallery → wider (visual feel) */
+.hero-gallery .hero-inner {
+  max-width: var(--container-wide);
+}
+
+.hero-inner,
+.page-article {
+  max-width: var(--container);
+}
 
  /* ===== ESSENCE HOME ===== */
 
@@ -4250,8 +4267,7 @@ UNIVERSAL TAB
   border:1px solid #858383;
   border-radius:999px;
 
-  background:#ffffff;
-
+  background:transparent; 
   font-size:.85rem;
   font-weight:500;
 

@@ -83,8 +83,8 @@ if (!data) {
 }
     return (
     <>
-      <main
-  className={`content-page ${
+<main
+  className={`page content-page ${
     pathname.includes("/museum")
       ? "museum-page"
       : pathname.includes("/gallery")
