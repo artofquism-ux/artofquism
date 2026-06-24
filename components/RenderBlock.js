@@ -15,7 +15,6 @@ export default function RenderBlock({
   openText,
 }) {
 
-
   console.log("LANG =", lang);
   console.log("TITLE =", item.title?.[lang]);
   console.log("TEXT =", item.text?.[lang]);
@@ -62,9 +61,8 @@ export default function RenderBlock({
     </div>
   );
 }
-
-
-if (item.type === "push-poetry") {
+ 
+if (item.type === "push-stanza") {
 
   const poetryText =
     item.text?.[lang] ||
@@ -72,7 +70,7 @@ if (item.type === "push-poetry") {
     [];
 
   return (
-    <div className="push-poetry">
+    <div className="push-stanza">
       {poetryText.map((line, i) => (
         <div key={i} className="verse">
           {line}
@@ -81,6 +79,7 @@ if (item.type === "push-poetry") {
     </div>
   );
 }
+ 
  
  if (item.type === "push-note") {
   const noteText = item.text?.[lang] || item.text?.bn || [];
@@ -94,6 +93,30 @@ if (item.type === "push-poetry") {
   );
 }
 
+if (item.type === "push-poetry-title") {
+
+  const poetryText =
+    item.text?.[lang] ||
+    item.text?.bn ||
+    [];
+
+  return (
+    <div className="push-poetry">
+      {poetryText.map((line, i) => (
+        <div
+          key={i}
+          className={
+            i < (item.titleLines || 2)
+              ? "verse poem-title"
+              : "verse"
+          }
+        >
+          {line}
+        </div>
+      ))}
+    </div>
+  );
+}
 
   if (!item || typeof item !== "object") return null;
 
@@ -115,7 +138,6 @@ const gridClass =
     : item.grid === "4"
     ? "grid-4"
     : "grid-auto";
-
 
 
     // =========================
@@ -525,3 +547,5 @@ onClick={(e) => {
   // 🟡 FALLBACK (unknown type)
   return null;
 }
+
+

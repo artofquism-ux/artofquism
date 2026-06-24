@@ -13,71 +13,37 @@ git push origin main
  bn: [
    "text",
    "",
-
-   "",
-   "",
-   "",
-   "",
     
    "",
-   "",
-   "",
+ 
    "",
  ],
  
  en: [
    "",
+    
    "",
-
-   "",
-   "",
-   "",
-   "",
-
-   "",
-   "",
-   "",
+ 
    "",
  ],
 
 hi: [
-  "",
    "",
-
+    
    "",
-   "",
-   "",
-   "",
-
-   "",
-   "",
-   "",
+ 
    "",
  ],
 
    sa: [
    "",
+    
    "",
-
-   "",
-   "",
-   "",
-   "",
-
-   "",
-   "",
-   "",
+ 
    "",
    ],
    },
-   },
-  ],
-  },
-
- {
-    type: "essence-divider",
- },
-
+   }, 
 
   ========================== */
 
@@ -251,11 +217,6 @@ hi: [
 
 /* ===== PUSH POETRY ===== */
 
-.push-poetry{
-  max-width:650px;
-  margin:20px auto;
-  text-align:center;
-}
 
 .push-poetry .verse{
   display:block;
@@ -278,19 +239,77 @@ hi: [
   margin-bottom: 1.2rem;
 }
 
-.push-poetry .verse:nth-child(2) {
-  margin-bottom: 1.5rem;
-}
- 
-.push-poetry .verse:nth-child(4) {
-  margin-bottom: 1.5rem;
+.push-stanza{
+  max-width:900px;
+  margin:20 auto 2rem;
+  text-align:center;
+  line-height:1.9;
+  margin-bottom: 3rem;
+  }
+
+.push-stanza .verse:nth-child(4){
+  margin-bottom: 1.8rem;
 }
 
-.push-poetry .verse:nth-child(6) {
-  margin-bottom: 1.5rem;
-} 
-
  
+ 
+.push-poetry{
+  max-width:900px;
+  margin:20 auto 2rem;
+  text-align:center;
+  line-height:1.9;
+  margin-bottom: 3rem;
+  }
+
+.push-poetry p{
+  font-weight:700 !important;
+}
+
+/* empty line */
+.push-poetry .poem-gap{
+  height:2rem;
+}
+
+/* first two lines */
+.push-poetry .verse:nth-child(1),
+.push-poetry .verse:nth-child(2){
+  font-weight:600;
+}
+ .poem-title{
+  font-weight:700;
+    letter-spacing: 0.2px;
+}
+
+.push-poetry .verse:nth-child(2){
+  margin-bottom:1rem;
+}
+
+.push-poetry .verse:nth-child(6){
+  margin-bottom:1rem;
+}
+
+.push-poetry,
+.push-stanza{
+  font-size:15px;
+  line-height:1.9;
+}
+
+@media (min-width:768px){
+  .push-poetry,
+  .push-stanza{
+    font-size:15px;
+  }
+}
+
+@media (min-width:1200px){
+  .push-poetry,
+  .push-stanza{
+    font-size:18px;
+  }
+}
+
+
+
 .subheadline-title{
   text-align:center;
   margin:10px auto ;
