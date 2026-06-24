@@ -1,8 +1,90 @@
 
-/* ===== ESSENCE ARTICLE ===== */
+/* =========================
+git add .
+git commit -m "update"
+git push origin main
+  
+ {
+    type: "essence-divider",
+ },
+  {
+   type: "push-poetry",
+   text: {
+ bn: [
+   "text",
+   "",
 
+   "",
+   "",
+   "",
+   "",
+    
+   "",
+   "",
+   "",
+   "",
+ ],
  
+ en: [
+   "",
+   "",
 
+   "",
+   "",
+   "",
+   "",
+
+   "",
+   "",
+   "",
+   "",
+ ],
+
+hi: [
+  "",
+   "",
+
+   "",
+   "",
+   "",
+   "",
+
+   "",
+   "",
+   "",
+   "",
+ ],
+
+   sa: [
+   "",
+   "",
+
+   "",
+   "",
+   "",
+   "",
+
+   "",
+   "",
+   "",
+   "",
+   ],
+   },
+   },
+  ],
+  },
+
+ {
+    type: "essence-divider",
+ },
+
+
+  ========================== */
+
+
+
+
+/* ===== ESSENCE ARTICLE ===== */
 
 .page-intro {
   background: linear-gradient(
@@ -195,20 +277,20 @@
 .push-note p {
   margin-bottom: 1.2rem;
 }
+
+.push-poetry .verse:nth-child(2) {
+  margin-bottom: 1.5rem;
+}
  
 .push-poetry .verse:nth-child(4) {
   margin-bottom: 1.5rem;
 }
 
-
-.push-poetry .verse:nth-child(8) {
+.push-poetry .verse:nth-child(6) {
   margin-bottom: 1.5rem;
 } 
 
-.push-poetry .verse:nth-child(12) {
-  margin-bottom: 1.5rem;
-} 
-
+ 
 .subheadline-title{
   text-align:center;
   margin:10px auto ;
