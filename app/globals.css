@@ -208,12 +208,16 @@ body{
 
 
 /* ===== TYPOGRAPHY ===== */
+body{
+    background-image:url("/images/bgcolour.jpg");
+    background-position:top center;
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-attachment:fixed;
+}
+
 main.page{
-  background-image:url("/images/bgcolour.jpg");
-  background-repeat:no-repeat;
-  background-position:top center;
-  background-size:100% 820px;
-  display: flex;
+    background:transparent;
 }
  
 .page::before{
@@ -742,7 +746,7 @@ MOBILE FIX
 
 .nav-link {
   text-decoration: none;
-  color: #000000cf;
+  color: #068e65cf;
   font-size:16.5px;
   font-weight: 500;
 }
