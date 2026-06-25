@@ -213,6 +213,7 @@ main.page{
   background-repeat:no-repeat;
   background-position:top center;
   background-size:100% 820px;
+  display: flex;
 }
  
 .page::before{
