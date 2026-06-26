@@ -746,9 +746,10 @@ MOBILE FIX
 
 .nav-link {
   text-decoration: none;
-  color: #068e65cf;
+  color: #8e5c06cf;
   font-size:16.5px;
   font-weight: 500;
+
 }
 
 .nav-link.active {
@@ -1175,6 +1176,11 @@ header nav button:hover{
   font-weight:600;
   letter-spacing:.4px;
   white-space:nowrap;
+    font-family: "Playfair Display", serif;
+   background: linear-gradient(#ff5c04, #000000); 
+  -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent; 
+
 }
 
 /* =========================
@@ -1799,6 +1805,8 @@ font-size:25px;
   line-height:1.8;
   margin-top:-85px;
    text-align:center;
+   background: linear-gradient(#ff5c04, #000000);  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
 
@@ -2149,9 +2157,9 @@ font-size:25px;
   letter-spacing:1.5px;
   color:var(--color-heading);
   margin-bottom: 12px;
-  background: linear-gradient(180deg,#111,#444);
+ background: linear-gradient(#ff5c04, #000000); 
   -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+  -webkit-text-fill-color:transparent; 
 }
 
 /* subtitle */
