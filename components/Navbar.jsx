@@ -52,6 +52,7 @@ useEffect(() => {
       <Link href={`/${currentLang}/secrets`}>Secrets</Link>
       <Link href={`/${currentLang}/founder`}>Founder</Link>
       <Link href={`/${currentLang}/essence`}>ESSENCE</Link>
+       <Link href={`/${currentLang}/seed`}>SEED</Link>
       
     </nav>
 

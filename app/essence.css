@@ -239,6 +239,20 @@ hi: [
   margin-bottom: 1.2rem;
 }
 
+.push-note-bold {
+  max-width: 900px;
+  margin: 0 auto 2rem;
+  text-align: center;
+  line-height: 1.9;
+ 
+}
+
+.push-note-bold p {
+ font-size: 16px;
+  margin-bottom: 1.2rem;
+   color: #8f4c09;
+}
+ 
 .push-stanza{
   max-width:900px;
   margin:20 auto 2rem;

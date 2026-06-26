@@ -61,6 +61,7 @@ export default function Header() {
         <Link href={`/${lang}/secrets`}>SECRETS</Link>
         <Link href={`/${lang}/founder`}>FOUNDER</Link>
         <Link href={`/${lang}/essence`}>ESSENCE</Link>
+        <Link href={`/${lang}/seed`}>SEED</Link>
       </nav>
 
       {/* LANGUAGE SWITCH */}

@@ -93,6 +93,18 @@ if (item.type === "push-stanza") {
   );
 }
 
+ if (item.type === "push-note-bold") {
+  const noteText = item.text?.[lang] || item.text?.bn || [];
+
+  return (
+    <div className="push-note-bold">
+      {noteText.map((para, i) => (
+        <p key={i}>{para}</p>
+      ))}
+    </div>
+  );
+}
+
 if (item.type === "push-poetry-title") {
 
   const poetryText =
