@@ -5,7 +5,7 @@ git commit -m "update"
 git push origin main
   
  {
-    type: "essence-divider",
+    type: "divider",
  },
   {
    type: "push-poetry",
@@ -83,6 +83,35 @@ hi: [
 }
  
 
+ .essence-intro strong{
+  display:inline;
+  font-size:16px;
+  font-weight:600;
+  color:#272626;
+}
+
+.essence-intro p{
+  margin-bottom:30px;
+}
+
+ .essence-intro-first{
+  margin-bottom: 10px !important;
+}
+
+.essence-intro-text p{
+  margin: 0 0 6px !important;
+}
+
+ .essence-intro-content{
+  text-align:justify;
+}
+
+.essence-intro-content p{
+  margin-bottom:30px;
+  line-height:1.9;
+}
+
+
 .essence-lang-switcher {
   display: flex;
   justify-content: center;
@@ -123,27 +152,6 @@ hi: [
   text-align: left;
   line-height: 1.9;
   margin-bottom: 1.2rem;
-}
-
-.essence-intro p{
-  margin-bottom:30px;
-}
-
- .essence-intro-first{
-  margin-bottom: 10px !important;
-}
-
-.essence-intro-text p{
-  margin: 0 0 6px !important;
-}
-
- .essence-intro-content{
-  text-align:justify;
-}
-
-.essence-intro-content p{
-  margin-bottom:30px;
-  line-height:1.9;
 }
 
 .essence-hero {
@@ -213,6 +221,11 @@ hi: [
   margin: 10px auto 30px;
   text-align: justify;
 }
+
+.essence-subtitle strong{
+  font-weight:550;
+}
+
 
 
 /* ===== PUSH POETRY ===== */
@@ -332,7 +345,7 @@ hi: [
 .subheadline-title strong{
   font-size:16px;
   display: inline;
-  font-weight:500;
+  font-weight:600;
   color:#222;
 }
 
@@ -349,16 +362,18 @@ hi: [
 }
 
 .heading-row{
-  max-width:1000px;
-  margin:20px auto;
+  max-width:100%;
+    margin-top: 0px;
+  margin-bottom: 30px;
   text-align:center;
   font-size:16px;
+    color:#6e2222;
 }
 
  
 
 .heading-row strong{
-  font-weight:700;
+  font-weight:550;
 }
 
 /* ===== PART TABS ===== */
@@ -416,7 +431,23 @@ hi: [
 
 /* divider */
 
-.essence-divider {
+.divider-gap {
+   position: relative;
+   width: 100%;
+  max-width: 1000px;
+  height: 1px;
+  margin:15px auto;    
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(93, 83, 83, 0.35),
+    rgba(181, 168, 168, 0.55),
+    rgba(93, 83, 83, 0.35),
+   transparent
+  );
+}
+ 
+.divider {
    position: relative;
    width: 100%;
   max-width: 900px;
@@ -431,7 +462,7 @@ hi: [
    transparent
   );
 }
- 
+
 .content-divider-white {
   width: 200px;
   height: 1px;
@@ -444,9 +475,43 @@ hi: [
   color: #222;
 }
 
- .essence-intro strong{
+.seed-intro{
+  max-width:900px;
+  text-align:justify;
+  margin:10 auto 0px;
+}
+
+.seed-intro-title{
   display:inline;
   font-size:16px;
-  font-weight:500;
+  font-weight:600;
+  color:#222;
+  margin-bottom:15px;
+}
+
+.seed-intro-text{
+  font-size:16px;
+  color:#222;
+   margin-bottom:30px;
+}
+ 
+
+ .seed-intro strong{
+  display:inline;
+  font-size:16px;
+  font-weight:600;
   color:#272626;
 }
+
+.seed-stanza{
+  max-width:900px;
+  margin:20 auto 2rem;
+  text-align:center;
+  line-height:1.9;
+  margin-bottom: 3rem;
+  color: #8f4c09;
+  margin-bottom: 1.2rem;
+  font-size: 16px;
+  font-weight:500;
+  letter-spacing:1px;
+  }

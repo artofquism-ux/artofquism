@@ -62,6 +62,37 @@ export default function RenderBlock({
   );
 }
  
+
+ // 🟢 ESSENCE TEXT
+
+  if (item.type === "seed-intro") {
+
+  const introText =
+    item.text?.[lang] || item.text?.bn;
+
+  return (
+    <div className="seed-intro">
+
+      <p className="seed-intro-first">
+        <strong>
+          {item.title?.[lang] || item.title?.bn}
+        </strong>
+
+        {" "}
+        {introText[0]}
+      </p>
+
+      <div className="seed-content">
+        {introText.slice(1).map((para, i) => (
+          <p key={i}>{para}</p>
+        ))}
+      </div>
+
+    </div>
+  );
+}
+
+
 if (item.type === "push-stanza") {
 
   const poetryText =
@@ -79,8 +110,27 @@ if (item.type === "push-stanza") {
     </div>
   );
 }
+
  
+if (item.type === "seed-stanza") {
+
+  const poetryText =
+    item.text?.[lang] ||
+    item.text?.bn ||
+    [];
+
+  return (
+    <div className="seed-stanza">
+      {poetryText.map((line, i) => (
+        <div key={i} className="verse">
+          {line}
+        </div>
+      ))}
+    </div>
+  );
+}
  
+
  if (item.type === "push-note") {
   const noteText = item.text?.[lang] || item.text?.bn || [];
 
@@ -278,9 +328,16 @@ if (item.type === "divider") {
    );
 }
 
-if (item.type === "essence-divider") {
+if (item.type === "divider") {
   return (
-    <div className="essence-divider">
+    <div className="divider">
+     </div>
+   );
+}
+
+if (item.type === "divider-gap") {
+  return (
+    <div className="divider-gap">
      </div>
    );
 }

@@ -8,7 +8,7 @@ import RenderBlock from "@/components/RenderBlock";
 import UniversalTabs from "@/components/UniversalTabs";
 import Lightbox from "@/components/Lightbox";
 import SubNavbar from "@/components/SubNavbar";
-import { museum, gallery, essence } from "@/lib/data/collections";
+import { museum, gallery, essence, seed } from "@/lib/data/collections";
 
 export default function ContentPage({
   data,
@@ -150,6 +150,14 @@ if (!data) {
               <SubNavbar
                 items={essence}
                 base="essence"
+                lang={currentLang}
+              />
+
+                 ) : pathname.includes("/seed") ? (
+
+                <SubNavbar
+                items={seed}
+                base="seed"
                 lang={currentLang}
               />
 

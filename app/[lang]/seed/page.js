@@ -43,7 +43,7 @@ subtitle={abhidhanHome.subtitle?.[safeLang]}
         
      <Reveal>
           <div className="enter-line">
-            <Link href={`/${safeLang}/seed/lexicon`}>
+            <Link href={`/${safeLang}/seed/abhidhan`}>
               ENTER SEED →
             </Link>
           </div>
