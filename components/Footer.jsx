@@ -32,15 +32,20 @@ export default function Footer({ lang = "en" }) {
         {t.footer.title}
       </h3>
 
-      <p className="footer-desc">
-        {t.footer.description}
-      </p>
+<div className="footer-desc">
+  {t.footer.description.map((line, i) => (
+    <p key={i}>{line}</p>
+  ))}
+</div>
 
-      <p>
-        {t.footer.subtitle}
-      </p>
+<div className="footer-subtitle">
+  {t.footer.subtitle.map((line, i) => (
+    <p key={i}>{line}</p>
+  ))}
+</div>
 
       <div className="footer-divider" />
+        <div className="footer-divider" />
 
       <p className="footer-copy">
         © {new Date().getFullYear()} {t.footer.copyright}

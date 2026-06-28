@@ -73,36 +73,53 @@ export default async function Page({ params }) {
 </section>
 
 
-     <section className="hero">
-     <div className="hero-inner">
-<Reveal> 
- <div className="home-home-title">
-  {t.home.title}
-</div>
+<section className="hero-section">
 
-<div className="hero-tagline">
-  {t.home.subtitle}
-</div>
-</Reveal> 
- 
-<div className="home-text">
-  {t.home.description.map((text, i) => (
-    <p key={i}>{text}</p>
-  ))}
-</div>
+  <Reveal>
+    <h1 className="hero-title">
+      {t.home.titlehead}
+    </h1>
 
- </div>
- </section>
+    <p className="hero-subtitle">
+      {t.home.subtitlehead}
+    </p>
+
+    {/* Center Label */}
+    <div className="hero-center">
+      {t.home.center}
+    </div>
+
+    <h2 className="hero-heading">
+      {t.home.title}
+    </h2>
+
+    <p className="hero-heading-subtitle">
+      {t.home.subtitle}
+    </p>
+
+    <div className="home-text">
+      {t.home.description.map((text, i) => (
+        <p key={i}>{text}</p>
+      ))}
+    </div>
+
+  </Reveal>
+
+</section>
 
       {/* HOME PREVIEW */}
      <div className="gallery home">
       {[
-        { slug: "about", title: "About Quism", img: "/images/0-2.jpg" },
-        { slug: "museum", title: "Museum", img: "/museum/lif-6.jpg" },
-        { slug: "gallery", title: "Gallery", img: "/gallery/rec-1.jpg" },
-        { slug: "art-culture", title: "Art & Culture", img: "/museum/art-1.jpg" },
-        { slug: "founder", title: "Founder", img: "/images/0-1.jpg" },
-      ].map((item) => (
+  { slug: "about", title: "About Quism", img: "/images/0-2.jpg" },
+  { slug: "museum", title: "Museum", img: "/museum/lif-6.jpg" },
+  { slug: "gallery", title: "Gallery", img: "/gallery/rec-1.jpg" },
+  { slug: "art-culture", title: "Art & Culture", img: "/museum/art-1.jpg" },
+  { slug: "founder", title: "Founder", img: "/images/0-1.jpg" },
+
+  { slug: "essence", title: "Essence", img: "/images/essence.jpg" },
+
+  { slug: "seed", title: "Seed", img: "/images/seed.jpg" },
+  ].map((item) => (
         <Link
           key={item.slug}
           href={`/${lang}/${item.slug}`}

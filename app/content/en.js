@@ -2,8 +2,14 @@
 
 const en = {
 home: {
-   title: "THE ART OF QUISM",
-   subtitle: "Reflection of Zero-Dimensional Life — Full of Emptiness",
+   titlehead: "THE ART OF QUISM",
+   subtitlehead: "Reflection of Zero-Dimensional Life — Full of Emptiness",
+
+   center: "P R E S E N C E", 
+
+   title: "QUISM ART & CULTURE RESEARCH HOUSE",
+   subtitle: "An Individual Path of Self-Realization toward the Final Destination",
+
    description: [ 
     "Quism reflects the silent origin of existence — where form dissolves into emptiness, and consciousness returns to the zero-dimensional source beyond material identity;",
     
@@ -33,11 +39,15 @@ home: {
   footer: {
   title: "ART OF QUISM",
 
-  description:
-    "A contemplative space where art becomes a mirror of consciousness — exploring nature, silence, creation, and inner awareness;",
+  description: [
+  "Where art becomes a mirror of consciousness—",
+  "exploring nature, silence, creation, and inner awakening."
+],
 
-  subtitle:
-    "The awakening of subconscious, a stable life in emptiness — life buoyant with vitality, constant with infinite life;",
+subtitle: [
+  "A contemplative path  toward self-realization,", 
+   "where life returns to its silent origin."
+],
 
   copyright: "Art of Quism"
 }
