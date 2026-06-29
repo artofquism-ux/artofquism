@@ -1942,9 +1942,9 @@ font-size:25px;
 .hero-heading{
     text-align:center;
     margin-bottom:0.6rem;
-    font-size:1.3rem;
-    letter-spacing: 0.08rem;
-background: linear-gradient(#ff5c04, #000);
+    font-size:1.7rem;
+    letter-spacing: 0.09rem;
+    background: linear-gradient(#ff5c04, #000);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
     font-family: Playfair Display, serif;
@@ -1958,6 +1958,21 @@ background: linear-gradient(#ff5c04, #000);
  }
 
 
+@media (max-width: 768px) {
+  .hero-heading {
+  text-align:center;
+    margin-bottom:0.6rem;
+    font-size:1.3rem;
+    letter-spacing: 0.08rem;
+  }
+
+  .hero-heading-subtitle {
+    font-size: 16px;
+     margin-bottom:18px;
+  }
+}
+
+/* ======= END  (PREMIUM) ========== */
 
 .content-tabs,
 .museum-tabs {
@@ -2141,14 +2156,14 @@ background: linear-gradient(#ff5c04, #000);
 }
 
 .hero-title {
-  font-size: 25px;
+  font-size: 32px;
   font-weight: 600;
   letter-spacing: 2px;
-  margin: 20px 0px 16px;
+  margin: 12px 0px 16px;
   font-family: Playfair Display, serif;
-background: linear-gradient(#ff5c04, #000);
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
+  background: linear-gradient(#ff5900, #1e0202);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
 }
 
 .hero-subtitle{
@@ -2326,8 +2341,8 @@ background: linear-gradient(#ff5c04, #000);
   }
 
   .hero-title {
-    font-size: 35px;
-     margin-bottom:18px;
+    font-size: 30px;
+     margin-bottom:15px;
   }
 
   .hero-actions {

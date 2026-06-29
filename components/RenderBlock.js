@@ -143,17 +143,34 @@ if (item.type === "seed-stanza") {
   );
 }
 
- if (item.type === "push-note-bold") {
-  const noteText = item.text?.[lang] || item.text?.bn || [];
+   if (item.type === "push-note-bold") {
+
+  const introText =
+    item.text?.[lang] || item.text?.bn;
 
   return (
     <div className="push-note-bold">
-      {noteText.map((para, i) => (
-        <p key={i}>{para}</p>
-      ))}
+
+      <p className="push-note-bold-first">
+        <strong>
+          {item.title?.[lang] || item.title?.bn}
+        </strong>
+
+        {" "}
+        {introText[0]}
+      </p>
+
+      <div className="push-note-bold-content">
+        {introText.slice(1).map((para, i) => (
+          <p key={i}>{para}</p>
+        ))}
+      </div>
+
     </div>
   );
 }
+
+
 
 if (item.type === "push-poetry-title") {
 
@@ -328,16 +345,23 @@ if (item.type === "divider") {
    );
 }
 
-if (item.type === "divider") {
+if (item.type === "margin-divider") {
   return (
-    <div className="divider">
+    <div className="margin-divider">
      </div>
    );
 }
 
-if (item.type === "divider-gap") {
+if (item.type === "divider-gap-top") {
   return (
-    <div className="divider-gap">
+    <div className="divider-gap-top">
+     </div>
+   );
+}
+
+if (item.type === "divider-gap-bottom") {
+  return (
+    <div className="divider-gap-bottom">
      </div>
    );
 }
