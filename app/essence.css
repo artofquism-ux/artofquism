@@ -4,6 +4,51 @@ git add .
 git commit -m "update"
 git push origin main
   
+
+
+
+
+ {
+   type: "push-note-bold", 
+   title: {
+   bn: "কুইজম প্রতিফলন:",
+   en: "Quism Reflection:",
+   hi: "क्विज़्म प्रतिबिंब:",
+   sa: "क्विज़्म प्रतिबिम्बम्:",
+ },
+ 
+ text: {
+ bn: [
+ "",
+],
+   
+   
+ en: [
+ "",
+],
+
+ hi: [
+ ""
+],
+
+ sa: [
+ ""
+ ],
+ },
+ },
+ 
+ {
+  type: "divider-gap-top",
+ },
+ {
+  type: "divider-gap-bottom",
+ },
+
+
+
+
+
+
  {
     type: "divider",
  },
