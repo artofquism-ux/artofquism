@@ -143,15 +143,15 @@ if (item.type === "seed-stanza") {
   );
 }
 
-   if (item.type === "push-note-bold") {
+   if (item.type === "quism-reflection") {
 
   const introText =
     item.text?.[lang] || item.text?.bn;
 
   return (
-    <div className="push-note-bold">
+    <div className="quism-reflection">
 
-      <p className="push-note-bold-first">
+      <p className="quism-reflection-first">
         <strong>
           {item.title?.[lang] || item.title?.bn}
         </strong>
@@ -160,7 +160,7 @@ if (item.type === "seed-stanza") {
         {introText[0]}
       </p>
 
-      <div className="push-note-bold-content">
+      <div className="quism-reflection-content">
         {introText.slice(1).map((para, i) => (
           <p key={i}>{para}</p>
         ))}

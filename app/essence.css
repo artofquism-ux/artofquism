@@ -9,7 +9,33 @@ git push origin main
 
 
  {
-   type: "push-note-bold", 
+ type: "push-poetry-title",
+ text: {
+ bn: [
+   "...",
+   
+ ],
+ 
+ en: [
+   "",
+
+ ],
+
+hi: [
+   "",
+    
+ ],
+
+   sa: [
+   "",
+       
+   ],
+   },
+   }, 
+
+   
+ {
+   type: "quism-reflection", 
    title: {
    bn: "কুইজম প্রতিফলন:",
    en: "Quism Reflection:",
@@ -42,50 +68,36 @@ git push origin main
  },
  {
   type: "divider-gap-bottom",
+  },
+  
+
+
+
+     
+{
+   type: "seed-intro",
+   title: {
+   bn: "Quism [ ]:",
+   en: "Quism [ ]:",
+   hi: "Quism [ ]:",
+   sa: "Quism [ ]:",
  },
-
-
-
-
-
-
- {
-    type: "divider",
- },
-  {
-   type: "push-poetry",
-   text: {
- bn: [
-   "text",
-   "",
-    
-   "",
- 
-   "",
- ],
- 
- en: [
-   "",
-    
-   "",
- 
-   "",
+  
+  text: {
+   bn: [
+    " ",
  ],
 
-hi: [
-   "",
-    
-   "",
- 
-   "",
+   en: [
+   " ",   
+ ],
+
+   hi: [
+   " ",
  ],
 
    sa: [
-   "",
-    
-   "",
- 
-   "",
+   " ",
    ],
    },
    }, 
@@ -297,7 +309,7 @@ hi: [
   margin-bottom: 1.2rem;
 }
 
-.push-note-bold {
+.quism-reflection {
   max-width: 900px;
   margin: 0 auto 2rem;
   text-align: center;
@@ -305,7 +317,7 @@ hi: [
  
 }
 
-.push-note-bold p {
+.quism-reflection p {
  font-size: 16px;
   margin-bottom: 1.2rem;
    color: #8f4c09;
@@ -478,7 +490,7 @@ hi: [
 .divider-gap-top {
    position: relative;
    width: 100%;
-  max-width: 1000px;
+  max-width: 1200px;
   height: 1px;
   margin:60px 0 20px;    
   background: linear-gradient(
@@ -494,7 +506,7 @@ hi: [
 .divider-gap-bottom {
    position: relative;
    width: 100%;
-  max-width: 1000px;
+  max-width: 1200px;
   height: 1px;
   margin:0px auto 60px;    
   background: linear-gradient(
