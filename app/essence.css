@@ -78,10 +78,10 @@ hi: [
 {
    type: "seed-intro",
    title: {
-   bn: "Quism [ ]:",
-   en: "Quism [ ]:",
-   hi: "Quism [ ]:",
-   sa: "Quism [ ]:",
+   bn: "  [ ]:",
+   en: "  [ ]:",
+   hi: "  [ ]:",
+   sa: "  [ ]:",
  },
   
   text: {
@@ -291,24 +291,14 @@ hi: [
 
 .push-poetry .verse{
   display:block;
-  font-size:16px;
+  font-size:15px;
   line-height:1.8;
   margin-bottom:5px;
    text-align: center;
   line-height: 1.5;
   margin-bottom: 8px;
 }
-
-.push-note {
-  max-width: 900px;
-  margin: 0 auto 2rem;
-  text-align: center;
-  line-height: 1.9;
-}
-
-.push-note p {
-  margin-bottom: 1.2rem;
-}
+ 
 
 .quism-reflection {
   max-width: 900px;
