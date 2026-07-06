@@ -171,6 +171,33 @@ if (item.type === "seed-stanza") {
 }
 
 
+  if (item.type === "quism-essence") {
+
+  const introText =
+    item.text?.[lang] || item.text?.bn;
+
+  return (
+    <div className="quism-essence">
+
+      <p className="quism-essence-first">
+        <strong>
+          {item.title?.[lang] || item.title?.bn}
+        </strong>
+
+        {" "}
+        {introText[0]}
+      </p>
+
+      <div className="quism-essence-content">
+        {introText.slice(1).map((para, i) => (
+          <p key={i}>{para}</p>
+        ))}
+      </div>
+
+    </div>
+  );
+}
+
 
 if (item.type === "push-poetry-title") {
 

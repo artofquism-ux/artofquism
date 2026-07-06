@@ -74,7 +74,7 @@ hi: [
 
 
 
-     
+    
 {
    type: "seed-intro",
    title: {
@@ -103,6 +103,7 @@ hi: [
    },
    }, 
 
+   
   ========================== */
 
 
@@ -314,6 +315,22 @@ hi: [
    color: #8f4c09;
 }
  
+
+.quism-essence {
+  max-width: 900px;
+  margin: 0 auto 2rem;
+  text-align: center;
+  line-height: 1.9;
+ 
+}
+
+.quism-essence p {
+ font-size: 16px;
+  margin-bottom: 1.2rem;
+   color: #05673d;
+}
+ 
+
 .push-stanza{
   max-width:900px;
   margin:20 auto 2rem;
