@@ -605,6 +605,60 @@ hi: [
   color:#272626;
 }
 
+.seed-title{
+  max-width:900px;
+  text-align:justify;
+  margin:10 auto 0px;
+}
+ 
+.seed-title-title{
+  display:inline;
+  font-size:16px;
+  font-weight:600;
+  color:#222;
+  margin-bottom:8px;
+}
+.seed-title-text{
+  font-size:16px;
+  color:#222;
+   margin-bottom:30px;
+}
+ .seed-title strong{
+  display:inline;
+  font-size:15px;
+  font-weight:600;
+  color:#272626;
+}
+.seed-subtitle{
+  max-width:900px;
+  text-align:justify;
+  margin:5 auto 0px;
+  font-size:16px;
+  font-weight:500;
+}
+ 
+.seed-subtitle-title{
+  display:inline;
+  font-size:16px;
+  font-weight:600;
+  color:#222;
+  margin-bottom:15px;
+}
+ .seed-subtitle strong{
+  display:inline;
+  font-size:15px;
+  font-weight:500;
+  color:#272626;
+}
+
+.seed-subtitle-text{
+  font-size:16px;
+   font-weight:600;
+  color:#222;
+   margin-bottom:30px;
+}
+ 
+
 .seed-stanza{
   max-width:900px;
   margin:20 auto 2rem;

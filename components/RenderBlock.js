@@ -93,6 +93,27 @@ export default function RenderBlock({
 }
 
 
+ // 🟢 ESSENCE TEXT
+
+if (item.type === "seed-title") {
+  return (
+    <div className="seed-title">
+      <div className="seed-title-title">
+        {item.title[lang] || item.title.bn}
+      </div>
+    </div>
+  );
+}
+
+if (item.type === "seed-subtitle") {
+  return (
+    <div className="seed-subtitle">
+      {item.title[lang] || item.title.bn}
+    </div>
+  );
+}
+
+
 if (item.type === "push-stanza") {
 
   const poetryText =
