@@ -195,14 +195,17 @@ hi: [
 
  /* Essence */
  
-
+ 
  .hero-essence + .page-article p {
   text-align: justify;
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
    margin-bottom: 32px;
+  
 }
+
+ 
 
 .page-article p,
 .founder-content p,
@@ -211,6 +214,7 @@ hi: [
   text-align: left;
   line-height: 1.9;
   margin-bottom: 1.2rem;
+ 
 }
 
 .essence-hero {
@@ -581,6 +585,7 @@ hi: [
   max-width:900px;
   text-align:justify;
   margin:10 auto 0px;
+  
 }
 
 .seed-intro-title{
@@ -595,13 +600,14 @@ hi: [
   font-size:16px;
   color:#222;
    margin-bottom:30px;
+    font-weight:600;
 }
  
 
  .seed-intro strong{
   display:inline;
   font-size:15px;
-  font-weight:500;
+  font-weight:600;
   color:#272626;
 }
 
