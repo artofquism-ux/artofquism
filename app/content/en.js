@@ -3,7 +3,7 @@
 const en = {
 home: {
    titlehead: "THE ART OF QUISM",
-   subtitlehead: "Reflection of Zero-Dimensional Life — Full of Emptiness",
+   subtitlehead: "Reflection of Zero-Dimensional Life—Full of Emptiness",
 
    center: "P R E S E N C E", 
 
@@ -11,6 +11,8 @@ home: {
    subtitle: "An Individual Path of Self-Realization toward the Final Destination",
 
    description: [ 
+    "Quism [ क्विज़्म ]: An eternal spiritual evolution of the artistic essence, where life, nature, consciousness, and creativity progress toward self-realization through an unbroken continuum of evolution;",
+
     "Quism reflects the silent origin of existence — where form dissolves into emptiness, and consciousness returns to the zero-dimensional source beyond material identity;",
     
     "Quism shows that, eternal life is a reflection of the first life on earth as the body progresses through generations, so dreams are observed through sub-reality as a reflection of the conscious and unconscious mind;",
