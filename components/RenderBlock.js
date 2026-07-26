@@ -220,6 +220,34 @@ if (item.type === "seed-stanza") {
 }
 
 
+  if (item.type === "quism-note") {
+
+  const introText =
+    item.text?.[lang] || item.text?.bn;
+
+  return (
+    <div className="quism-note">
+
+      <p className="quism-note-first">
+        <strong>
+          {item.title?.[lang] || item.title?.bn}
+        </strong>
+
+        {" "}
+        {introText[0]}
+      </p>
+
+      <div className="quism-note-content">
+        {introText.slice(1).map((para, i) => (
+          <p key={i}>{para}</p>
+        ))}
+      </div>
+
+    </div>
+  );
+}
+
+
 if (item.type === "push-poetry-title") {
 
   const poetryText =

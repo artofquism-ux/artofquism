@@ -78,10 +78,10 @@ hi: [
 {
    type: "seed-intro",
    title: {
-   bn: "  [ ]:",
-   en: "  [ ]:",
-   hi: "  [ ]:",
-   sa: "  [ ]:",
+   bn: " ",
+   en: " ",
+   hi: " ",
+   sa: " ",
  },
   
   text: {
@@ -319,9 +319,23 @@ hi: [
 .quism-essence p {
  font-size: 16px;
   margin-bottom: 1.2rem;
-   color: #05673d;
+   color: #517e68;
 }
  
+
+.quism-note {
+  max-width: 900px;
+  margin: 0 auto 2rem;
+  text-align: center;
+  line-height: 1.9;
+ 
+}
+
+.quism-note p {
+ font-size: 16px;
+  margin-bottom: 1.2rem;
+   color: #6f7070;
+}
 
 .push-stanza{
   max-width:900px;
