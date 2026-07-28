@@ -14,25 +14,19 @@ git push origin main
  text: {
  bn: [
    "...",
-   
  ],
- 
- en: [
-   "",
+ },
+ }, 
 
- ],
+ {
+    type: "divider-gap-top",
+ },
+    {
+    type: "divider-gap-bottom",
+ },
 
-hi: [
-   "",
-    
- ],
 
-   sa: [
-   "",
-       
-   ],
-   },
-   }, 
+
 
    
  {
