@@ -11,7 +11,8 @@ home: {
    subtitle: "An Individual Path of Self-Realization toward the Final Destination",
 
    description: [ 
-    "Quism [ क्विज़्म ]: An eternal spiritual evolution of the artistic essence, where life, nature, consciousness, and creativity progress toward self-realization through an unbroken continuum of evolution;",
+    "Quism [ Quism ]: An eternal spiritual evolution of artistic essence, where life, nature, consciousness, and creativity advance toward Self-Realization through an uninterrupted process of evolution; in Quism, the cerebellum serves as a symbolic representation of the integrated harmony of the body, mind, consciousness, and nature, guiding the continuous path of self-refinement and creative evolution;",
+ 
 
     "Quism reflects the silent origin of existence — where form dissolves into emptiness, and consciousness returns to the zero-dimensional source beyond material identity;",
     
