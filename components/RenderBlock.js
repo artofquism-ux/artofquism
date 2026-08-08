@@ -449,6 +449,13 @@ if (item.type === "divider-white") {
    );
 }
 
+if (item.type === "content-divider-white") {
+  return (
+     <div className="content-divider-white">
+    </div>
+   );
+}
+
   // 🟢 PARAGRAPH / TEXT
 if (item.type === "section") {
 
