@@ -596,6 +596,15 @@ if(item.type === "art-row"){
   );
 }
 
+// 🟢 IMAGES TITLE & TEXT
+const getText = (value, lang) => {
+  if (!value) return "";
+  if (typeof value === "string") return value;
+
+  return value[lang] || value.en || "";
+};
+
+
   // 🟢 IMAGES GRID
  if (item.type === "images" && Array.isArray(item.items)) {
 
@@ -664,26 +673,30 @@ onClick={() => {
 
   <div className="meta">
 
-    {img.title && (
-      <p className="title">{img.title}</p>
-    )}
+{img.title && (
+  <p className="title">
+    {getText(img.title, lang)}
+  </p>
+)}
 
-    {img.desc && (
+{img.desc && (
   <div className="desc-short">
-    <span>{img.desc}</span>
+    <span>{getText(img.desc, lang)}</span>
   </div>
 )}
 
-   {showMeta && img.descShort && (
+{showMeta && img.descShort && (
+  <div className="desc-short">
+    <span>{getText(img.descShort, lang)}</span>
+  </div>
+)}
 
- <div className="desc-short">
-  <span>{img.descShort}</span>
 
-  {openText?.title === img.title && (
-    <span className="desc-full">
-      {" "}{img.descFull}
-    </span>
-  )}
+{openText?.title === img.title && (
+  <span className="desc-full">
+    {" "}{getText(img.descFull, lang)}
+  </span>
+)}
 
   {showMeta && img.descFull && (
     <span
@@ -704,9 +717,9 @@ onClick={(e) => {
     </span>
   )}
   
-</div>
+ 
 
-    )}
+  
     {showMeta && img.size && (
       <p className="size">{img.size}</p>
     )}
