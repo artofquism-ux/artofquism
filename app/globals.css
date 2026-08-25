@@ -2083,8 +2083,8 @@ font-size:25px;
     color: #2f2f2f;
     text-align: justify;
     margin-bottom: 10p;
-    font-size: 16px;
-    line-height: 1.8;
+    font-size: 15.5px;
+    line-height: 1.1;
 }
 
 .enter-line {
@@ -2648,7 +2648,7 @@ font-size: 16px;
 }
 
 .para-title-inline{
-  font-weight:500;
+  font-weight:600;
   margin-right:.35rem;
   display:inline;
 }
@@ -2770,7 +2770,6 @@ font-size: 16px;
 }
  
 .read-toggle{
-  display:inline !important;
   cursor:pointer;
   vertical-align:baseline;
   background:none;
@@ -2789,7 +2788,8 @@ font-size: 16px;
   opacity:.8;
   pointer-events:auto !important;
   white-space:nowrap;
-  }
+  display:inline !important;
+}
 
 .read-toggle:hover{
   opacity:1;
@@ -2799,8 +2799,7 @@ font-size: 16px;
   text-decoration: underline;
   opacity:.7;
 }
-
-
+ 
 @media (max-width: 768px){
 
   .content-text{
@@ -3438,7 +3437,7 @@ cursor: grab;
   font-size:15px;
   line-height:1.8;
   color:#444;
-  margin-left:4px;
+  margin-left:1px;
 }
  
 .desc-full::before{

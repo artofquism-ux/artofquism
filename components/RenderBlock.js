@@ -687,14 +687,12 @@ onClick={() => {
 
 {showMeta && img.descShort && (
   <div className="desc-short">
-    <span>{getText(img.descShort, lang)}</span>
-  </div>
-)}
-
-
+    <span>{getText(img.descShort, lang)}
+    </span>
+  
 {openText?.title === img.title && (
   <span className="desc-full">
-    {" "}{getText(img.descFull, lang)}
+    {"  "}{getText(img.descFull, lang)}
   </span>
 )}
 
@@ -716,11 +714,11 @@ onClick={(e) => {
         : "Read more"}
     </span>
   )}
-  
+   
+</div>
+)}
  
-
-  
-    {showMeta && img.size && (
+ {showMeta && img.size && (
       <p className="size">{img.size}</p>
     )}
 
