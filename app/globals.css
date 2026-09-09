@@ -3318,8 +3318,7 @@ cursor: grab;
 .card {
   position:relative;
   width: 100%;
- max-width: 360px;
-  padding: 12px;
+   padding: 12px;
   margin: 0;
   background: #fff;
    overflow: hidden;
