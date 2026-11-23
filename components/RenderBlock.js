@@ -597,11 +597,18 @@ if(item.type === "art-row"){
 }
 
 // 🟢 IMAGES TITLE & TEXT
+// 🟢 MULTILINGUAL TEXT RESOLVER
+
 const getText = (value, lang) => {
   if (!value) return "";
+
   if (typeof value === "string") return value;
 
-  return value[lang] || value.en || "";
+  if (typeof value === "object" && !Array.isArray(value)) {
+    return value[lang] || value.bn || value.en || "";
+  }
+
+  return "";
 };
 
 
@@ -621,17 +628,57 @@ const getText = (value, lang) => {
   
     {items.map((img, i) => {
 
+const cardKey = img.id ?? img.image ?? `${item.type}-${i}`;
+const isOpen = openText?.key === cardKey;
+
 if (img.type === "clock") {
-
   return (
-    <div key={i} className="card clock-card">
+    <div key={cardKey} className="card clock-card">
 
-<Clock image="/images/cosmos.jpg" />
+      <Clock image={img.image || "/images/cosmos.jpg"} />
 
-      {img.title && (
-        <p className="title">{img.title}</p>
-      )}
+      <div className="meta">
 
+        {img.title && (
+          <p className="title">
+            {getText(img.title, lang)}
+          </p>
+        )}
+
+       {showMeta && (img.descShort || img.descFull) && (
+  <div className="desc-short">
+
+    {img.descShort && (
+      <span>{getText(img.descShort, lang)}</span>
+    )}
+
+    {isOpen && img.descFull && (
+      <span className="desc-full">
+        {" "}
+        {getText(img.descFull, lang)}
+      </span>
+    )}
+
+    {img.descFull && (
+      <span
+        className="read-toggle"
+        onClick={(e) => {
+          e.stopPropagation();
+          onOpenText(isOpen ? null : { key: cardKey });
+        }}
+      >
+        {isOpen ? "Read less" : "Read more"}
+      </span>
+    )}
+
+  </div>
+)} 
+
+        {showMeta && img.size && (
+          <p className="size">{img.size}</p>
+        )}
+
+      </div>
     </div>
   );
 }
@@ -659,7 +706,7 @@ onClick={() => {
  
 <img
   src={img.image}
-  alt={img.title}
+  alt={getText(img.title, lang)}
 />
 
 {img.clock && (
